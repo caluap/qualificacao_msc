@@ -25,6 +25,32 @@
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
 \graphicspath{{graphics/}}
 
+
+
+% fix pro tufte no xetex (q preciso para fontes customizadas)
+% https://tex.stackexchange.com/a/202189
+\usepackage{ifxetex}
+\ifxetex
+  \newcommand{\textls}[2][5]{%
+    \begingroup\addfontfeatures{LetterSpace=#1}#2\endgroup
+  }
+  \renewcommand{\allcapsspacing}[1]{\textls[15]{#1}}
+  \renewcommand{\smallcapsspacing}[1]{\textls[10]{#1}}
+  \renewcommand{\allcaps}[1]{\textls[15]{\MakeTextUppercase{#1}}}
+  \renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{#1}}}
+  \renewcommand{\textsc}[1]{\smallcapsspacing{\textsmallcaps{#1}}}
+  \usepackage{fontspec}
+\fi
+
+
+\usepackage{fontspec}
+\setmainfont[
+    Path=./Literata/,
+    BoldFont=Literata-Bold,
+    ItalicFont=Literata-Italic,
+    BoldItalicFont=Literata-BoldItalic,
+]{Literata-Regular}
+
 \title{A voz na letra: tipografia modulada pela fala}
 
 \author{Caluã de Lacerda Pataca, Paula Dornhofer Paro Costa}
@@ -71,13 +97,25 @@
 \section{Objetivos e justificativas do projeto de pesquisa}\label{sec:objetivos}
 %\subsection{Headings}\label{sec:headings}
 
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis feugiat nisi tellus, vel dapibus ex viverra gravida. Quisque vitae risus vehicula, pharetra orci vel, consectetur turpis. Aenean blandit dui non suscipit placerat. Maecenas dolor enim, gravida sit amet ipsum vitae, sodales sagittis metus. Aenean orci augue, varius vulputate lacinia vitae, fermentum quis nibh. Cras accumsan fermentum nisl nec tincidunt. Ut cursus elit id vehicula aliquet. Donec vel pretium nulla. Curabitur ut tincidunt ligula, vel tincidunt lacus.
+
+Nam suscipit blandit rhoncus. Curabitur vulputate fermentum enim nec pellentesque. Duis viverra nunc porta malesuada aliquet. Sed ut leo metus. Morbi rutrum efficitur dui eget finibus. Ut vulputate maximus eleifend. Phasellus elementum felis non risus consectetur pellentesque. In iaculis velit suscipit, maximus dui sed, aliquam libero. Cras orci erat, cursus a pharetra vitae, pretium vel felis. Quisque ullamcorper pretium ex, vitae pretium sem eleifend non. Donec aliquet fringilla odio, eu egestas ligula convallis eu. In nunc purus, iaculis ultricies sollicitudin id, luctus in enim.
+
+Nam faucibus nibh eu nisl pretium iaculis eget quis elit. Vivamus nisl ex, commodo eget tempus in, molestie et mi. Maecenas nulla tellus, pellentesque vehicula consectetur nec, pellentesque ac eros. Sed imperdiet rutrum erat. In hac habitasse platea dictumst. Nullam eget risus tellus. Aliquam ullamcorper, libero et vulputate efficitur, ex velit cursus enim, nec mollis dolor libero et elit. Praesent eu ultrices mauris, ut suscipit orci. \textbf{Nunc sit amet nisl} ac ex vestibulum tristique eget ac risus. Sed dignissim, massa suscipit condimentum volutpat, libero leo luctus ex, in semper sem odio et metus. Suspendisse dictum augue velit, a tempus erat feugiat sed. Integer accumsan condimentum lacus, vitae sollicitudin quam pulvinar eu. Aenean consequat, ipsum dictum vehicula elementum, sem velit tincidunt justo, vel pellentesque mi lectus vel nunc.
+
+In neque elit, rhoncus eu tortor at, ullamcorper efficitur sapien. Aenean pellentesque convallis eros, at posuere arcu sollicitudin ac. Phasellus elementum, ex et eleifend elementum, risus tortor efficitur quam, sit amet euismod justo urna eu tortor. Phasellus aliquet enim vel erat suscipit pulvinar. Phasellus sodales id ipsum in pellentesque. In in risus mauris. Vestibulum ac diam rhoncus, interdum tellus vel, fermentum elit. Ut sem neque, semper quis euismod at, consectetur id dui. Nullam sed magna ac enim pretium rhoncus vitae a justo. Aenean sagittis, justo sit amet ornare ultrices, tortor elit imperdiet nunc, et aliquam enim sem id nisl. Nulla tincidunt, lorem id malesuada accumsan, enim ante porttitor nulla, id rhoncus metus eros sit amet quam. Phasellus ornare metus sed ante molestie rutrum. Cras fringilla quam ullamcorper ullamcorper semper.
+
+Phasellus velit ex, tempor ut elementum ac, aliquam eget nisi. Praesent tempus leo ligula, in sodales nisi aliquet in. Aenean venenatis aliquet enim, ac interdum neque vestibulum non. Quisque neque risus, tincidunt iaculis accumsan in, vehicula eu lacus. Curabitur non ipsum dui. Cras tincidunt posuere tempor. Aliquam eu ipsum a enim congue interdum ut sit amet libero. In ac nulla elit. 
+
 \section{Revisão bibliográfica resumida}\label{sec:revisao_bibliografica}
 
 \section{Metodologia utilizada}\label{sec:metodologia}
 
-\section{Plano de trabalho e cronograma}\label{sec:metodologia}
+\section{Plano de trabalho e cronograma}\label{sec:plano_de_trabalho}
 
-\section{Resultados e conclusões parciais}\label{sec:metodologia}
+\section{Resultados e conclusões parciais}\label{sec:resultados}
 
 
 \bibliography{sample-handout}
