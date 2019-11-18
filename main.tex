@@ -1,0 +1,88 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% How to use writeLaTeX: 
+%
+% You edit the source code here on the left, and the preview on the
+% right shows you the result within a few seconds.
+%
+% Bookmark this page and share the URL with your co-authors. They can
+% edit at the same time!
+%
+% You can upload figures, bibliographies, custom classes and
+% styles using the files menu.
+%
+% If you're new to LaTeX, the wikibook is a great place to start:
+% http://en.wikibooks.org/wiki/LaTeX
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{tufte-handout}
+
+%\geometry{showframe}% for debugging purposes -- displays the margins
+
+\usepackage{amsmath}
+
+% Set up the images/graphics package
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+\graphicspath{{graphics/}}
+
+\title{A voz na letra: tipografia modulada pela fala}
+
+\author{Caluã de Lacerda Pataca, Paula Dornhofer Paro Costa}
+\date{24 de novembro de 2019}  % if the \date{} command is left out, the current date will be used
+
+% The following package makes prettier tables.  We're all about the bling!
+\usepackage{booktabs}
+
+% The units package provides nice, non-stacked fractions and better spacing
+% for units.
+\usepackage{units}
+
+% The fancyvrb package lets us customize the formatting of verbatim
+% environments.  We use a slightly smaller font.
+\usepackage{fancyvrb}
+\fvset{fontsize=\normalsize}
+
+% Small sections of multiple columns
+\usepackage{multicol}
+
+% Provides paragraphs of dummy text
+\usepackage{lipsum}
+
+% These commands are used to pretty-print LaTeX commands
+\newcommand{\doccmd}[1]{\texttt{\textbackslash#1}}% command name -- adds backslash automatically
+\newcommand{\docopt}[1]{\ensuremath{\langle}\textrm{\textit{#1}}\ensuremath{\rangle}}% optional command argument
+\newcommand{\docarg}[1]{\textrm{\textit{#1}}}% (required) command argument
+\newenvironment{docspec}{\begin{quote}\noindent}{\end{quote}}% command specification environment
+\newcommand{\docenv}[1]{\textsf{#1}}% environment name
+\newcommand{\docpkg}[1]{\texttt{#1}}% package name
+\newcommand{\doccls}[1]{\texttt{#1}}% document class name
+\newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
+
+\begin{document}
+
+\maketitle% this prints the handout title, author, and date
+
+\begin{abstract}
+\noindent Hello World.
+\end{abstract}
+
+%\printclassoptions
+
+\section{Objetivos e justificativas do projeto de pesquisa}\label{sec:objetivos}
+%\subsection{Headings}\label{sec:headings}
+
+\section{Revisão bibliográfica resumida}\label{sec:revisao_bibliografica}
+
+\section{Metodologia utilizada}\label{sec:metodologia}
+
+\section{Plano de trabalho e cronograma}\label{sec:metodologia}
+
+\section{Resultados e conclusões parciais}\label{sec:metodologia}
+
+
+\bibliography{sample-handout}
+\bibliographystyle{plainnat}
+
+
+
+\end{document}
