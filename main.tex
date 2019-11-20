@@ -27,6 +27,19 @@
 
 
 
+
+%Portuguese-specific commands
+%--------------------------------------
+\usepackage[portuguese]{babel}
+%--------------------------------------
+ 
+%Hyphenation rules
+%--------------------------------------
+\usepackage{hyphenat}
+\hyphenation{mate-mática recu-perar}
+%--------------------------------------
+
+
 % fix pro tufte no xetex (q preciso para fontes customizadas)
 % https://tex.stackexchange.com/a/202189
 \usepackage{ifxetex}
@@ -127,6 +140,22 @@ Discussão sobre legendas.
 \section{Plano de trabalho e cronograma}\label{sec:plano_de_trabalho}
 
 \section{Resultados e conclusões parciais}\label{sec:resultados}
+
+Os resultados do primeiro experimento talvez valham mais pelo que as entrevistas nos mostraram do que pelas \textit{edit-distances} medidas nas organizações dos cartões. Estas trazem indícios de que os participantes conseguiram intuir na tipografia aspectos do estado emocional da voz da atriz que leu  as frases impressas nos cartões, mas o efeito medido foi muito pequeno -- e especularemos sobre possíveis motivos para isso mais adiante. De fato, a \textit{edit-distance} média no experimento é apenas 2\% menor que a que se poderia esperar caso os participantes simplesmente sorteassem as posições de cada cartão.
+
+Aqui, não pudemos intuir se nos dados estávamos vendo que nossa tipografia modulada pela fala era ineficaz ou se, talvez, tenhamos sofrido pelo mau desenho do experimento. Entre outros problemas, o modo como configuramos o \textit{card sort} pode ter conduzido a altas taxas de erro: como todos os cartões deveriam ser necessariamente usados, não estão delimitados em nossos resultados os cartões em que o participante tinha algum grau de certeza sobre a emoção daqueles em que houve o ``chute'' -- e, para piorar, no \textit{card sort} um cartão errado sempre implicará em um segundo cartão também errado. Soma-se a isso o fato de que misturamos sem nenhuma forma de controle variações de três \textit{features} prosódicas com três eixos tipográficos associados a seis emoções.
+
+Com tudo isso, ficou muito difícil responder, por exemplo, se nosso modelo representava igualmente bem (ou mal!) a voz da atriz em todas as situações -- será que o que funciona para \textit{felicidade} funcionaria igualmente bem para \textit{medo}? Analisando a matriz de confusão da Figura~\ref{matriz_confusao}, nos perguntamos se a aparente troca que os participantes fizeram entre medo e felicidade (terceira e quarta linhas e colunas) poderia estar relacionada a alguma imprecisão em nosso modelo, como se a representação de uma emoção fosse mais apropriada para a outra (e vice-versa). \textit{Quem sabe,} indagamos, \textit{o modelo tenha invertido o sentido de alguma das features ou eixos tipográficos em relação ao que seria intuitivo?}
+
+\begin{marginfigure}
+  \includegraphics{imgs/confusion-emoji.png}
+  \caption{Matriz de confusão do experimento de \textit{card sort}. Emoção da atriz nas linhas, classificação dos participantes nas colunas.}
+  \label{matriz_confusao}
+\end{marginfigure}
+
+
+
+As entrevistas, por outro lado, trazem algumas noções que parecem iluminar melhor nossa pesquisa.
 
 \renewcommand{\refname}{Bibliografia}
 \makeatletter
