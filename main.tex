@@ -64,7 +64,7 @@
     BoldItalicFont=Literata-BoldItalic,
 ]{Literata-Regular}
 
-\title{Letras que ecoam a fala: tipografia visualmente modulada pela prosódia}
+\title{Letras que ecoem a fala: tipografia modulada por prosódia}
 %\title{A voz na letra: tipografia modulada pela fala}
 
 \author{Caluã de Lacerda Pataca, Paula Dornhofer Paro Costa}
@@ -142,9 +142,9 @@ Discussão sobre legendas.
 
 \section{Resultados e conclusões parciais}\label{sec:resultados}
 
-\subsection{Resultados do primeiro experimento}
+\subsection{O primeiro experimento}
 
-Os resultados do primeiro experimento talvez valham mais pelo que as entrevistas revelaram do que propriamente pelas \textit{edit-distances} medidas nas organizações dos cartões. Estas deveriam medir se os participantes conseguiram intuir na tipografia aspectos do estado emocional da voz da atriz que leu  as frases impressas nos cartões, mas o efeito capturado foi muito pequeno: a \textit{edit-distance} média no experimento é apenas 2\% menor que a que se poderia esperar caso os participantes simplesmente sorteassem as posições de cada cartão (cf. Figura~\ref{edit_dist_1}).
+Os resultados do primeiro experimento talvez valham mais pelo que as entrevistas revelaram do que propriamente pelas \textit{edit-distances} medidas nas organizações dos cartões. Estas deveriam medir se os participantes conseguiram intuir na tipografia aspectos do estado emocional da voz da atriz que leu  as frases impressas nos cartões, mas o efeito capturado foi muito pequeno: a \textit{edit-distance} média no experimento é, na média, apenas 2\% menor que a que se poderia esperar caso os participantes simplesmente sorteassem as posições de cada cartão (cf. Figura~\ref{edit_dist_1}).
 
 \begin{marginfigure}
   \includegraphics{imgs/edit_distance_reais.png}
@@ -152,17 +152,18 @@ Os resultados do primeiro experimento talvez valham mais pelo que as entrevistas
   \label{edit_dist_1}
 \end{marginfigure}
 
-Aqui, não pudemos intuir se nos dados estávamos vendo que nossa tipografia modulada pela fala era ineficaz ou se estávamos sofrendo com o mau desenho do experimento. Talvez, apostamos, seja mais o segundo caso: o modo como configuramos o \textit{card sort} pode ter conduzido a altas taxas de erro. Como todos os cartões deveriam ser necessariamente usados, estão embaralhados em nossos resultados tanto os cartões em que o participante tinha algum grau de certeza sobre a emoção quanto aqueles em que houve um ``chute.''\sidenote{E, para piorar, no \textit{card sort} um cartão errado implicará necessariamente em um segundo cartão também errado.} Temos motivos para crer que esses chutes foram comuns, pois tanto nas entrevistas quanto espontaneamente durante a atividade, muitos participantes nos relataram que a atividade era muito difícil.
+Aqui, não pudemos intuir se nos dados estávamos vendo que nossa tipografia modulada pela fala era ineficaz ou se estávamos sofrendo com o mau desenho do experimento. Talvez, apostamos, seja mais o segundo caso: o modo como configuramos o \textit{card sort} pode ter conduzido a altas taxas de erro. Como \textit{todos} os cartões deveriam necessariamente ser atribuídos a uma emoção, estão embaralhados em nossos resultados coletados tanto cartões em que o participante tinha algum grau de certeza sobre a emoção quanto aqueles em que houve um ``chute.''\sidenote[][-1\baselineskip]{E, para piorar, no \textit{card sort} um cartão errado implicará necessariamente em um segundo cartão também errado.} Temos motivos para crer que esses chutes foram comuns, pois, tanto nas entrevistas quanto espontaneamente durante a atividade, muitos participantes nos relataram que a atividade era muito difícil.
 
-\begin{marginfigure}[0.5\baselineskip]
+A essa dificuldade da atividade em si soma-se o fato de que misturamos no experimento, e sem nenhuma forma de controle que isolassem seus efeitos, variações de três \textit{features} prosódicas com três eixos tipográficos associados a seis emoções. Dado esse cenário, não é de se espantar que com os dados coletados nos foi muito difícil responder quão bem (ou mal) nosso modelo prosódico-tipográfico representava a voz da atriz em cada uma das emoções presentes. 
+
+
+\begin{marginfigure}
   \includegraphics{imgs/confusion-emoji2.png}
   \caption{Matriz de confusão do experimento de \textit{card sort}. Emoção da atriz nas linhas, classificação dos participantes nas colunas.}
   \label{matriz_confusao}
 \end{marginfigure}
 
-A essa dificuldade da atividade em si soma-se o fato de que misturamos no experimento, e sem nenhuma forma de controle, variações de três \textit{features} prosódicas com três eixos tipográficos associados a seis emoções. Dado todo esse contexto, não é de se espantar que nos foi muito difícil responder a partir dos dados coletados quão bem (ou mal) nosso modelo representava a voz da atriz em cada uma das situações testadas. 
-
-Na tentativa de encontrar explicações alternativas para o baixo ganho no \textit{edit-distance}, nos perguntarmos se certos aspectos do modelo não estariam fazendo os participantes trocarem uma emoção por outra. Esta hipótese nos ocorreu na análise da matriz de confusão da Figura~\ref{matriz_confusao}, que parece indicar uma possível troca feita pelos participantes especificamente entre os cartões com medo e alegria (terceira e quarta linhas e colunas). Teria o modelo invertido o sentido de alguma das features ou eixos tipográficos em relação ao que seria intuitivo? Para testar a hipótese, calculamos novamente a \textit{edit-distance}, desta vez considerando que os cartões com medo seriam de alegria e vice-versa. Como mostra a Figura~\ref{edit_dist_2}, a performance aumentou (8\% de ganho em relação à distribuição aleatória). Mas o efeito continua pequeno.
+Na tentativa de encontrar explicações alternativas para o baixo ganho no \textit{edit-distance}, nos perguntarmos se certos aspectos do modelo prosódico-tipográfico não estariam fazendo os participantes trocarem uma emoção por outra. Esta hipótese nos ocorreu na análise da matriz de confusão da Figura~\ref{matriz_confusao}, que parece indicar uma possível troca feita pelos participantes especificamente entre os cartões representando medo e alegria (terceira e quarta linhas e colunas). Teria o modelo invertido o sentido de alguma das features ou eixos tipográficos em relação ao que seria intuitivo? Para testar a hipótese, calculamos novamente a \textit{edit-distance}, desta vez considerando que os cartões com medo seriam de alegria e vice-versa. Como mostra a Figura~\ref{edit_dist_2}, a performance melhora (8\% de ganho em relação à distribuição aleatória). Mas o efeito continua pequeno.
 
 \begin{marginfigure}[0.5\baselineskip]
   \includegraphics{imgs/edit_distance_troca.png}
@@ -170,13 +171,15 @@ Na tentativa de encontrar explicações alternativas para o baixo ganho no \text
   \label{edit_dist_2}
 \end{marginfigure}
 
-O que nos disseram as entrevistas? Além do muito frequente comentário de que a avaliação era muito difícil, emergiram alguns padrões em como os participantes interpretaram as modulações tipográficas. De longe o atributo mais citado, aumento no \textit{peso} foi quase unanimemente associado a maior volume na voz, ainda que foram poucos os que perceberam que pesos leves estavam relacionados a baixo volume na voz.
+O que nos disseram as entrevistas? Além do muito frequente comentário de que a avaliação era muito difícil, emergiram alguns padrões em como os participantes interpretaram as modulações tipográficas. De longe o atributo mais citado, aumento no \textit{peso} foi quase unanimemente associado a maior volume na voz, ainda que foram poucos os que perceberam que pesos leves estavam relacionados a volumes baixos na voz.
 
-Em relação aos outros dois eixos houve grande difusão de comentários. Sobre a \textit{inclinação}, houve quem a interpretasse como velocidade, fraqueza, tristeza, ou mesmo alguns que notaram as modulações nesse eixo mas que não souberam decodificá-las. \textit{Largura} foi citada por apenas um participante, que intuiu corretamente que seu aumento e baixa estavam relacionados a oscilações de duração nas sílabas.
+Em relação aos outros dois eixos houve grande difusão de comentários. Sobre a \textit{inclinação}, houve quem a interpretasse como velocidade, fraqueza, tristeza, ou mesmo alguns que notaram as modulações nesse eixo mas que não souberam decodificá-las. \textit{Largura} foi citada por apenas um participante, que intuiu corretamente que seu aumento e baixa estavam relacionados a oscilações de duração na pronúncia das sílabas.
 
-Comentando sobre estratégias usadas para classificar cada cartão, emergiram dois principais grupos: no primeiro, mais frequente, o participante olhava para o cartão e buscava ``soá-lo'' mentalmente\sidenote{Ou, mais raramente, em voz baixinha, como pudemos notar.}, tentando interpretar em sons as modulações visuais nas letras. O segundo grupo ia no sentido oposto: tentava fazer soar a frase como que sob o efeito de cada uma das seis emoções para só então buscar nos cartões aquele cuja tipografia se aproximasse do som.
+Comentando sobre estratégias usadas para classificar cada cartão, emergiram dois principais grupos: no primeiro, mais frequente, o participante olhava para o cartão e buscava ``soá-lo'' mentalmente\sidenote{Ou, mais raramente, em voz baixa, como notamos em alguns casos.}, tentando interpretar em sons as modulações visuais nas letras. O segundo grupo ia no sentido oposto: tentava fazer soar a frase como que sob o efeito de cada uma das seis emoções para só então buscar nos cartões aquele cuja tipografia se aproximasse do som.
 
-\subsection{Resultados do segundo experimento}
+Como muitos participantes sequer perceberam as modulações de \textit{largura} e que houve grande divergência em como foram interpretadas as modulações de \textit{inclinação}, podemos supor que ambas as estratégias relatadas sofrem de um mesmo problema: se apenas os momentos mais gritados foram bem capturados, grande parte da expressividade na voz da atriz se perdeu e, não só isso, essa perda compromete de maneira desigual cada uma das emoções\sidenote[][-1\baselineskip]{Cf. o artigo de ..., que mostra como diferentes emoções são expressas em diferentes dimensões prosódicas.}.
+
+\subsection{O segundo experimento}
 
 \renewcommand{\refname}{Bibliografia}
 \makeatletter
