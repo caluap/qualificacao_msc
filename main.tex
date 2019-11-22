@@ -26,7 +26,7 @@
 \graphicspath{{graphics/}}
 
 
-
+\usepackage{color, colortbl}
 
 %Portuguese-specific commands
 %--------------------------------------
@@ -180,6 +180,39 @@ Comentando sobre estratégias usadas para classificar cada cartão, emergiram do
 Como muitos participantes sequer perceberam as modulações de \textit{largura} e que houve grande divergência em como foram interpretadas as modulações de \textit{inclinação}, podemos supor que ambas as estratégias relatadas sofrem de um mesmo problema: se apenas os momentos mais gritados foram bem capturados, grande parte da expressividade na voz da atriz se perdeu e, não só isso, essa perda compromete de maneira desigual cada uma das emoções\sidenote[][-1\baselineskip]{Cf. o artigo de ..., que mostra como diferentes emoções são expressas em diferentes dimensões prosódicas.}.
 
 \subsection{O segundo experimento}
+
+Os resultados do segundo experimento são mais esclarecedores. A tabela~\ref{tab:type_perf} os sintetiza.
+
+
+
+\begin{table}
+    \caption{Preferência dos participantes por cada modulação tipográfica quando usada com cada uma das emoções (considerando a média entre as duas frases testadas). \newline A preferência de 83\% para \textit{peso} quando usado para representar \textsc{rms} na frase com raiva, por exemplo, indica que ela foi escolhida em 83\% das vezes em que foi colocada contra os outros três eixos. \newline Células em verde indicam que uma dada combinação de eixo tipográfico e \textit{feature} prosódica obteve a maior preferência dentre todas as possibilidades testadas. Células em cinza indica maior preferência apenas para aquela determinada \textit{feature}. \newline Não elegemos uma preferência para tristeza pois a distribuição das preferências não foi estatisticamente significante.}
+    \label{tab:type_perf}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{lcccc}
+        \toprule
+        \multicolumn{5}{c}{ \textbf{\textsc{rms} enquanto \textit{feature} representada.} }     \\
+        \midrule
+        emoção & peso & larg. horiz. & inclinação & desloc. vert.  \\
+        \midrule
+        raivosa & \cellcolor[HTML]{dddddd}83\% & 34\% & 43\% & 39\% \\
+        feliz & 34\% & 54\% & 47\% & \cellcolor[HTML]{dddddd}64\% \\
+        neutra & 47\% & 52\% & \cellcolor[HTML]{9ef7cd}76\% & 25\% \\
+        triste & 45\% & 52\% & 46\% & 58\% \\
+        surpresa & \cellcolor[HTML]{9ef7cd}72\% & 38\% & 49\% & 43\% \\
+        \midrule
+        \multicolumn{5}{c}{ \textbf{\textit{f0} enquanto \textit{feature} representada.} }      \\
+        \midrule
+        emoção & peso & larg. horiz. & inclinação & desloc. vert.  \\
+        \midrule
+        raivosa             & \cellcolor[HTML]{9ef7cd}87\% & 46\% & 45\% & 26\% \\
+        feliz & 28\% & 66\% & 40\% & \cellcolor[HTML]{9ef7cd}69\% \\
+        neutra & 47\% & 55\% & \cellcolor[HTML]{dddddd}63\% & 35\% \\
+        triste & 21\% & 57\% & 39\% & \cellcolor[HTML]{9ef7cd}79\% \\
+        surpresa & \cellcolor[HTML]{dddddd}71\% & 43\% & 41\% & 44\% \\
+        \bottomrule
+    \end{tabular}}
+\end{table}
 
 \renewcommand{\refname}{Bibliografia}
 \makeatletter
