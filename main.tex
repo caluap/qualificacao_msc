@@ -23,7 +23,6 @@
 % Set up the images/graphics package
 \usepackage{graphicx}
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
-\graphicspath{{graphics/}}
 
 
 \usepackage{color, colortbl}
@@ -177,7 +176,7 @@ Em relação aos outros dois eixos houve grande difusão de comentários. Sobre 
 
 Comentando sobre estratégias usadas para classificar cada cartão, emergiram dois principais grupos: no primeiro, mais frequente, o participante olhava para o cartão e buscava ``soá-lo'' mentalmente\sidenote{Ou, mais raramente, em voz baixa, como notamos em alguns casos.}, tentando interpretar em sons as modulações visuais nas letras. O segundo grupo ia no sentido oposto: tentava fazer soar a frase como que sob o efeito de cada uma das seis emoções para só então buscar nos cartões aquele cuja tipografia se aproximasse do som.
 
-Como muitos participantes sequer perceberam as modulações de \textit{largura} e que houve grande divergência em como foram interpretadas as modulações de \textit{inclinação}, podemos supor que ambas as estratégias relatadas sofrem de um mesmo problema: se apenas os momentos mais gritados foram bem capturados, grande parte da expressividade na voz da atriz se perdeu e, não só isso, essa perda compromete de maneira desigual cada uma das emoções\sidenote[][-1\baselineskip]{Cf. o artigo de ..., que mostra como diferentes emoções são expressas em diferentes dimensões prosódicas.}.
+Como muitos participantes sequer perceberam as modulações de \textit{largura} e que houve grande divergência em como foram interpretadas as modulações de \textit{inclinação}, podemos supor que ambas as estratégias relatadas sofrem de um mesmo problema: se apenas os momentos mais gritados foram bem capturados, grande parte da expressividade na voz da atriz se perdeu e, não só isso, essa perda compromete de maneira desigual cada uma das emoções.\sidenote[][-2\baselineskip]{\citet{deMoraes2016} mostram como variações nas \textit{features} de \textit{f0} e duração são sensíveis à expressão de diferentes emoções na voz.}
 
 \subsection{O segundo experimento}
 
@@ -185,6 +184,7 @@ Os resultados do segundo experimento, sintetizados na tabela~\ref{tab:type_perf}
 
 
 \begin{table}
+    \small
     \caption{Preferência dos participantes por cada modulação tipográfica quando usada com cada uma das emoções (considerando a média entre as duas frases testadas). \newline A preferência de 83\% para \textit{peso} quando usado para representar \textsc{rms} na frase com raiva, por exemplo, indica que ela foi escolhida em 83\% das vezes em que foi colocada contra os outros três eixos. \newline Células em verde indicam que uma dada combinação de eixo tipográfico e \textit{feature} prosódica obteve a maior preferência dentre todas as possibilidades testadas. Células em cinza indica maior preferência apenas para aquela determinada \textit{feature}. \newline Não elegemos uma preferência para tristeza pois nela a distribuição das preferências não foi estatisticamente significante.}
     \label{tab:type_perf}
     \resizebox{\textwidth}{!}{%
@@ -192,7 +192,7 @@ Os resultados do segundo experimento, sintetizados na tabela~\ref{tab:type_perf}
         \toprule
         \multicolumn{5}{c}{ \textbf{\textsc{rms} enquanto \textit{feature} representada.} }     \\
         \midrule
-        emoção & peso & larg. horiz. & inclinação & desloc. vert.  \\
+        emoção na voz & peso & larg. horiz. & inclinação & desloc. vert.  \\
         \midrule
         raivosa & \cellcolor[HTML]{dddddd}83\% & 34\% & 43\% & 39\% \\
         feliz & 34\% & 54\% & 47\% & \cellcolor[HTML]{dddddd}64\% \\
@@ -202,7 +202,7 @@ Os resultados do segundo experimento, sintetizados na tabela~\ref{tab:type_perf}
         \midrule
         \multicolumn{5}{c}{ \textbf{\textit{f0} enquanto \textit{feature} representada.} }      \\
         \midrule
-        emoção & peso & larg. horiz. & inclinação & desloc. vert.  \\
+        emoção na voz & peso & larg. horiz. & inclinação & desloc. vert.  \\
         \midrule
         raivosa             & \cellcolor[HTML]{9ef7cd}87\% & 46\% & 45\% & 26\% \\
         feliz & 28\% & 66\% & 40\% & \cellcolor[HTML]{9ef7cd}69\% \\
@@ -225,11 +225,15 @@ Por exemplo: se, como nos mostra a tabela~\ref{tab:type_perf}, as pessoas não a
 
 Outra conclusão interessante é que tanto \textit{largura horizontal} quando \textit{inclinação}, pouco citados nas entrevistas do primeiro experimento, tem em geral uma performance mediana, com a preferência geral tendendo à inclinação apenas quando esta é associada a uma emoção que é diferente de todas as outras: a voz neutra. De fato, como pode-se notar na figura~\ref{slight_slant}, eleita a representação mais fiel da voz neutra, as modulações tipográficas aqui são praticamente imperceptíveis. Mas esse resultado não estranha: talvez estas tenham sido as escolhas dos participantes justamente porque, em vozes que buscam ser inexpressivas, as melhores representações seriam aquelas nas quais quase não haja modulação tipográfica. Se for mesmo esse o caso, pode-se supor que uma abordagem que pondere os atributos prosódicos para só então determinar quais eixos tipográficos modular deve considerar também a possibilidade de, para determinadas vozes, \textit{não modular eixo algum}.
 
-Uma última discussão se dá com os comentários deixados pelos participantes. Muitos desses textos discorrem sobre como foram interpretadas as modulações tipográficas. Notamos que cada eixo foi associado a diversas qualidades -- agressividade e firmeza para o \textit{peso}; uma voz melódica, quase cantada, ou divertida, ou ainda bêbada para o \textit{deslocamento vertical}; uma voz tímida para a \textit{largura horizontal}; etc. 
+Uma última discussão se dá com os comentários deixados pelos participantes. Muitos desses textos discorrem sobre como foram interpretadas as modulações tipográficas. Notamos que cada eixo foi associado a diversas qualidades -- agressividade e firmeza para o \textit{peso}; uma voz melódica, quase cantada, ou divertida, ou ainda bêbada para o \textit{deslocamento vertical}; uma voz tímida para a~\textit{largura horizontal;} etc. 
 
-Surge que, nesse compêndio de qualidades, mesmo que as respostas tenham vindo difusas, cada uma trazendo adjetivos diferentes entre si, de um modo geral os participantes parecem não estar descrevendo os atributos \textit{acústicos} da prosódia que os eixos tipográficos representavam e tampouco as seis emoções que a atriz buscou representar. Antes, as descrições falam de vozes \textit{modificadas}, como se os participantes não tenham deduzido exatamente nem nosso modelo prosódico-tipográfico nem, como esperávamos no primeiro experimento, as emoções que a atriz buscou representar, mas sim algo entre emoção e acústica.
+Surge que, nesse compêndio de qualidades, mesmo que as respostas tenham vindo difusas, cada uma trazendo adjetivos diferentes entre si, de um modo geral os participantes parecem não estar descrevendo os atributos \textit{acústicos} da prosódia que os eixos tipográficos representavam e tampouco as seis emoções que a atriz buscou representar. Antes, as descrições falam de vozes \textit{modificadas}, como se os participantes não tenham deduzido nem nosso modelo prosódico-tipográfico nem, como esperávamos no primeiro experimento, as emoções que a atriz buscou representar, mas sim uma interpretação própria que assimila emoção \textit{e}~acústica.
 
-Esse resultado condiz com o que discutem Boehner et al., que apontam que ``a comunicação de afetos em um modelo interacional (...) é mais do que a mera transmissão, (...) requerindo das partes uma interpretação ativa'' \sidenote[][-2\baselineskip]{[C]ommunication of affect in an interactional model (...) is more than transmission, [and] requires active interpretation. \citep{boehner2005affect}}. A partir desta perspectiva, pode-se enquadrar melhor o propósito de um sistema construído a partir de nosso modelo prosódico-tipográfico: não querê-lo como uma maneira de informar ao leitor que em dada frase a voz representava esta ou aquela emoção, categórica e precisa, mas sim usar a tipografia como maneira de ressaltar aspectos expressivos na voz, ambíguos como a própria voz e, como ela, abertos a~múltiplas interpretações. 
+Esse resultado condiz com o que discutem Boehner et al. quando apontam que ``a comunicação de afetos em um modelo interacional (...) é mais do que a mera transmissão, (...) requerindo das partes uma interpretação ativa.'' \sidenote[][-1\baselineskip]{\textit{[C]ommunication of affect in an interactional model (...) is more than transmission, [and] requires active interpretation.} \citep{boehner2005affect}} A partir desta perspectiva, pode-se enquadrar melhor o propósito de um sistema construído a partir de nosso modelo prosódico-tipográfico: não querê-lo como uma maneira de informar ao leitor que em dada frase a voz representava esta ou aquela emoção, categórica e de contornos bem definidos, mas sim usar a tipografia como maneira de ressaltar aspectos expressivos na voz, ambíguos como a própria voz e, como ela, abertos a~múltiplas interpretações. Ainda segundo Boehner et al., a ``medida de sucesso de tais sistemas [como o nosso] está então não no fato de que deduzem ou não a emoção `correta', mas em se provocam o reconhecimento e reflexão sobre emoções em seus usuários[.]'' \sidenote[][-4\baselineskip]{\textit{Measures of success for such systems are therefore not whether the systems themselves deduce the `right' emotion but whether the systems encourage awareness of and reflection on emotions in users[.]} \citep{boehner2005affect}}
+
+
+
+
 
 
 %This interpretation is in line with Boehner et at. [2], who posit that “[C]ommunication of affect in an interactional model (...) is more than transmission,” and “requires active interpretation”. We can thus argue in favor of not directly trying to represent categorical emotions but, alternatively, of using visual cues indirectly related to affective states in a given utterance. Rather than seeing ambiguity as an issue which we should hopefully and eventually overcome, we can frame the open-endedness of these visual cues as successful precisely because they were complex and ambiguous — through them, participants could reinterpret what they were hearing in an unrestricted manner and, in so doing, these visual cues could be seen as enriching that which participants’ were already sensing from the voice and from the text itself.
