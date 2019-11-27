@@ -105,6 +105,9 @@
 \renewcommand{\fnum@table}{Tabela~\thetable}
 \makeatother
 
+\newcommand{\num}[1]{\textsc{(\oldstylenums{#1})}}
+
+
 
 \begin{document}
 
@@ -154,7 +157,7 @@ O bom funcionamento dessa ``voz'' interna é importante. Certos tipos de dislexi
 
 A partir da hipótese de que a falta de representação prosódica na tipografia seria um empecilho na alfabetização, a pesquisadora belga Ann Bessemans e seu grupo têm estudado um tipo de intervenção no texto que busca ajudar crianças a ler expressivamente. No estudo, a prosódia é codificada visualmente em atributos tipográficos: texto em \textit{negrito} quando lido com maior volume, \textit{espremido} quando mais rápido, \textit{esticado} quando mais lento e \textit{elevado} quando agudo. Seus resultados iniciais mostram que as crianças conseguiram entender e integrar essas dicas visuais na sua leitura, indicando o potencial da abordagem como uma representação intuitiva da expressividade da voz. \citep{bessemans2017}
 
-\citet{wolfel2015} criaram o \textit{Design de Tipos Orientado pela Voz} (\textsc{vdtd}, sigla para \textit{Voice Driven Type Design}), uma abordagem semelhante à de Bessemans mas de base computacional. Nela, mapeiam atributos acústicos de cada fonema -- como intensidade, \textit{pitch} e velocidade -- em grafemas em uma fonte geométrica matematicamente modelada e cujos atributos podem ser manipulados. Em uma avaliação com leitores, foram encontrados indícios tanto de que as características da fala conseguiram ser impressas no texto quanto que uma abordagem nessa linha poderia ser usada para representar emoções presentes na voz. \sidenote[][-3\baselineskip]{O \textsc{vdtd} serviu como grande inspiração para nosso próprio trabalho, mas buscamos divergir no que consideramos duas falhas em sua abordagem: (1) o uso de uma tecnologia tipográfica própria é um grande empecilho para a eventual adoção da tecnologia nos já existentes ambientes de uso de tipografia digital; (2)~a avaliação foi construída principalmente com questionários onde um pequeno número de participantes fez autorrelatos de suas impressões, o que significa que os (pequenos) efeitos medidos são difíceis de generalizar.}
+\citet{wolfel2015} criaram o \textit{Design de Tipos Orientado pela Voz} (\textsc{vdtd}, sigla para \textit{Voice Driven Type Design}), uma abordagem semelhante à de Bessemans mas de base computacional. Nela, mapeiam atributos acústicos de cada fonema -- como intensidade, \textit{pitch} e velocidade -- em grafemas em uma fonte geométrica matematicamente modelada e cujos atributos podem ser manipulados. Em uma avaliação com leitores, foram encontrados indícios tanto de que as características da fala conseguiram ser impressas no texto quanto que uma abordagem nessa linha poderia ser usada para representar emoções presentes na voz. \sidenote[][-3\baselineskip]{O \textsc{vdtd} serviu como grande inspiração para nosso próprio trabalho, mas buscamos divergir no que consideramos duas falhas em sua abordagem: \num{1} o uso de uma tecnologia tipográfica própria é um grande empecilho para a eventual adoção da tecnologia nos já existentes ambientes de uso de tipografia digital; \num{2}~a avaliação foi construída principalmente com questionários onde um pequeno número de participantes fez autorrelatos de suas impressões, o que significa que os (pequenos) efeitos medidos são difíceis de generalizar.}
 
 \citet{wolfel2015} discutem ainda algumas aplicações práticas de seu \textsc{vdtd}. Em volta de uma delas -- legendas moduladas pela voz, em especial quando apresentadas na mesma língua em que o vídeo é falado -- gravita nosso projeto. Esperamos aqui lançar contribuições para um cenário sobre o qual há benefícios amplamente documentos, como sintetiza \citet{fiske_video_2015}: filmes legendados produzem melhoras na compreensão, atenção e memória em diversos públicos: crianças, adultos ou idosos; leitores experientes ou em fase de aprendizado; falantes ou não da língua em questão; ouvintes ou com deficiências auditivas; etc.
 
@@ -187,7 +190,35 @@ Em versões posteriores do software, as seguintes melhorias devem ser considerad
     \item \textsc{rms} é uma medida pouco resistente a diferenças de gravação não relacionadas à diferenças de esforço vocal. Um falante que tenha a voz em volume constante mas que se aproxime ou se distancie do microfone terá um \textsc{rms} artificialmente modificado. As medidas de intensidade \textit{relativas} -- calculadas pela diferença de intensidade em faixas de baixa e alta frequência -- são mais robustas.
 \end{enumerate}
 
-% Considering this, we adopted suprasegmental, unidimensional, prosodic features as good estimators of expressive speech dynamics\cite{rao2010characterization}. In particular, we evaluated {\itshape root mean square} (\textsc{rms}), scaling intensity, and {\itshape fundamental frequency} ($f_0$), scaling pitch, both windowed at each syllable.
+A segunda parte do software envolve o mapeamento visual dessas \textit{features} no texto. 
+
+Como \citet{wolfel2015}, consideramos que o mapeamento das variáveis contínuas do áudio nas poucas\sidenote{Há de fato algumas raras famílias tipográficas que possuem tantos pesos a ponto de se poder questionar se a diferença entre cada um é grande o suficiente para ser percebida por si só (e.g. a Lucida Sans, que em sua versão completa tem 18 pesos entre o \textit{UltraThin} e o \textit{UltraBlack}). Mesmo que fosse esse o caso, nossa abordagem ainda se justificaria por, primeiro, manter-se agnóstica em relação a esta ou aquela fonte e, segundo, porque, propondo variações em eixos que não só o \textit{peso}, acabamos indo além do que se oferece nas mais extensas famílias tipográficas disponíveis.} categorias tipicamente disponíveis em uma fonte digital comum (e.g. peso leve, normal e negrito) levaria a resultados com poucas nuances, sem ecoar visualmente as sutilezas que na fala que supomos importantes para a apreensão afetiva por parte do ouvinte.
+
+Com isso, podemos considerar dois requisitos a partir dos quais deverá emergir a solução técnica para essas representações: \num{1} para as modulações tipográficas, não se deve discretizar (ao menos não perceptualmente) as \textit{features} que vierem do áudio, ou seja, a tipografia deverá conseguir ecoar mesmo mudanças sutis na fala; \num{2} deve ser possível que cada tipo de modulação funcione de maneira independente uma da outra na representação, pois também independentes entre si poderão ser as \textit{features} vindas do áudio: como é igualmente plausível que uma palavra seja dita de maneira forte e rápida \textit{ou} de maneira forte a lenta, por exemplo, a tipografia deverá conseguir ecoar as duas características de maneira independente uma da outra.
+
+Dada essa demarcação, excluímos, pela complexidade envolvida, o desenvolvimento de um algoritmo que reconstruísse o desenho da letra a partir de modificações em sua estrutura interna, como o fazem \citet{wolfel2015}; pelos motivos citados por \citet{haralambous1993}, trabalhar com a \textsc{metafont}, de Donald Knuth, também seria infrutífero.
+
+Optamos, então, por aplicar as modulações em \textit{variable fonts}. Há já implementações em diferentes ambientes — as definições de \textsc{css} que definem como usar \textit{variable fonts} já funcionam nos principais navegadores\sidenote[][-2\baselineskip]{~88\% dos usuários já teriam acesso à tecnologia. Ver: https://caniuse.com/\#feat=variable-fonts, acesso em 27/11/19.}, assim como  bibliotecas código livre para C e Python.
+
+Publicada em setembro de 2016, a versão 1.8 da especificação OpenType define as \textit{variable fonts}. Nelas, o tipógrafo cria ``eixos'' — dimensões que guiam diferentes tipos de modulação visual que poderá sofrer cada caractere. Uma fonte pode ter uma quantidade arbitrária de eixos, que operam de maneira independente uns dos outros \citep{varfontssepcs}. 
+
+\begin{marginfigure}
+  \includegraphics{imgs/grafico-var.png}
+  \caption{Como o glifo `e' pode se modificar conforme variam os valores de seus três eixos?}
+  \label{grafico_var}
+\end{marginfigure}
+    
+Internamente, em uma \textit{variable font} estão definidos os pontos que compõe o desenho de cada letra em sua posição central, \textit{neutra}, além das instruções sobre como cada um desses pontos deve se transformar quando um dado eixo tiver definido seu menor valor possível \textit{e} seu maior valor possível, com as posições intermediárias sendo interpoladas.
+    
+Por exemplo, uma fonte contendo os eixos \textit{peso} e \textit{largura horizontal} poderá oferecer uma versão estreita e grossa (eixo da largura no valor mínimo e eixo do peso no valor máximo), ou outra estendida e fina (eixo da largura no valor máximo e eixo do peso no valor mínimo), além das posições intermediárias.
+
+\begin{marginfigure}
+  \includegraphics{imgs/curta-grossa-longa-fina.png}
+  \caption{Variação em dois eixos (\textsc{wght}, ou peso, e \textsc{wdth}, ou largura), na fonte \textit{Avenir Next VF}.}
+  \label{curta_grossa_longa_fina}
+\end{marginfigure}
+
+% Resumindo, para um dado texto lido em voz alta, extrairemos um conjunto de \textit{features} de áudio e as mapearemos, sílaba a sílaba, nos eixos de uma \textit{variable font}.
 
 \subsection{Experimento \#1: Card sorting e entrevistas com designers}\label{sec:met_exp_2}
 
