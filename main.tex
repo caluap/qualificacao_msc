@@ -64,7 +64,7 @@
     BoldItalicFont=Literata-BoldItalic,
 ]{Literata-Regular}
 
-\title{Letras que ecoem a fala: tipografia modulada por prosódia}
+\title{Letras que ecoam a fala: tipografia modulada por prosódia}
 %\title{A voz na letra: tipografia modulada pela fala}
 
 \author{Caluã de Lacerda Pataca, Paula Dornhofer Paro Costa}
@@ -163,6 +163,25 @@ Em especial, \citet{MurphyBerman1983} levantam um desafio relacionado às legend
 \section{Metodologia utilizada}\label{sec:metodologia}
 
 \subsection{Extração e representação de prosódia}\label{sec:met_extract_represent}
+
+Nossa abordagem pede que se construa um algoritmo que abstraia numericamente certos elementos acústicos que sirvam de bons representantes da expressão vocal para, então, mapeá-los visualmente enquanto tipografia. Pelo que já foi discutido, a prosódia traz um bom conjunto de parâmetros acústicos (\textit{features}), mas considerando que nossa unidade mínima de mapeamento visual será a letra (ou, mais provavelmente, a sílaba), um ponto a favor de se usar \textit{features} prosódicas é que elas podem ser tomadas em nível local (da sílaba) em oposição às de nível global (da frase), como discutem \citet{rao2010characterization}.
+
+Na versão atual do software, usamos as seguintes \textit{features}:
+\begin{enumerate}
+    \item Amplitude, calculada em decibéis como a média do \textit{Root Mean Square} (\textsc{rms}) de cada sílaba;
+    \item \textit{Pitch}, calculada em Hz a partir da frequência fundamental média (\textit{f0}), calculada usando o método \textsc{swipe}, da biblioteca \textit{pysptk}, aplicado em janelas de 512 amostras com janela de frequências entre 75 e 600 Hz.
+    \item Duração, em milisegundos.
+\end{enumerate}
+
+Em versões posteriores do software, as seguintes melhorias devem ser consideradas:
+
+\begin{enumerate}
+    \item Se atualmente as \textit{features} estão organizadas em torno da fala, futuramente faria sentido reorientá-las em direção à audição. \citet{livroDoPlinio} discute certas diferenças desses dois polos e seria importante explorar compensações que levem em conta efeitos psicoacústicos conhecidos -- e.g. a resposta de frequências do ouvido humano é não-linear, o que pode ser melhor modelado usando-se semitons ao invés de Hz; variações de \textit{f0} causam a percepção de maior duração; a sensação de \textit{pitches} agudos é amplificada por maiores volumes; etc.
+    
+    \item \textsc{rms} é uma medida pouco resistente a diferenças de gravação não relacionadas à diferenças de esforço vocal. Um falante que tenha a voz em volume constante mas que se aproxime ou se distancie do microfone terá um \textsc{rms} artificialmente modificado. As medidas de intensidade \textit{relativas} -- calculadas pela diferença de intensidade em faixas de baixa e alta frequência -- são mais robustas.
+\end{enumerate}
+
+% Considering this, we adopted suprasegmental, unidimensional, prosodic features as good estimators of expressive speech dynamics\cite{rao2010characterization}. In particular, we evaluated {\itshape root mean square} (\textsc{rms}), scaling intensity, and {\itshape fundamental frequency} ($f_0$), scaling pitch, both windowed at each syllable.
 
 \subsection{Experimento \#1: Card sorting e entrevistas com designers}\label{sec:met_exp_2}
 
