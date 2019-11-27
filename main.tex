@@ -98,6 +98,14 @@
 \newcommand{\doccls}[1]{\texttt{#1}}% document class name
 \newcommand{\docclsopt}[1]{\texttt{#1}}% document class option name
 
+
+
+\makeatletter
+\renewcommand{\fnum@figure}{Fig.~\thefigure}
+\renewcommand{\fnum@table}{Tabela~\thetable}
+\makeatother
+
+
 \begin{document}
 
 \maketitle% this prints the handout title, author, and date
@@ -130,7 +138,14 @@ Essas dimensões são articuladas pela produção e recepção de três parâmet
 
 Parte dessas variações é codificada na linguagem escrita, parte não. Com efeito, a história da escrita acompanha inúmeras mutações em convenções -- inicialmente caligráficas, eventualmente tipográficas -- que, muitas vezes, estão relacionadas à exploração de representações de atributos prosódicos. 
 
-Até que fossem introduzidos em monastérios cristãos medievais, não havia espaços separando as palavras, levando alguns historiadores a avançar a teoria\sidenote{Popular, mas um tanto controversa. Ver \citet{McCutcheon2015}.} que a literatura na antiguidade era predominantemente acústica \citep{kuster2016}: um texto, quando lido, o era em voz alta. A forma como se dava essa leitura -- onde eram colocadas as ênfases, silêncios, diferenças de entonação etc -- dependia em grande parte de convenções de declamação. Tratava-se de um texto ``melhor percebido pelos ouvidos do que pelos olhos.'' \citep{nunlist1991}
+\begin{marginfigure}
+  \includegraphics{imgs/codex.png}
+  \caption{Trecho do \textit{Codex Vaticanus}, datado do século \textsc{iv}. \citep{codex_vaticanus}}
+  \label{cdx_vat}
+\end{marginfigure}
+
+Até que fossem introduzidos em monastérios cristãos medievais, não havia espaços separando as palavras, levando alguns historiadores a avançar a teoria\sidenote[][\baselineskip]{Popular, mas um tanto controversa. Ver \citet{McCutcheon2015}.} que a literatura na antiguidade era predominantemente acústica \citep{kuster2016}: um texto, quando lido, o era em voz alta. A forma como se dava essa leitura -- onde eram colocadas as ênfases, silêncios, diferenças de entonação etc -- dependia em grande parte de convenções de declamação. Tratava-se de um texto ``melhor percebido pelos ouvidos do que pelos olhos.'' \citep{nunlist1991}
+
 
 
 
@@ -251,7 +266,7 @@ Uma última discussão se dá com os comentários deixados pelos participantes. 
 
 Surge que, nesse compêndio de qualidades, mesmo que as respostas tenham vindo difusas, cada uma trazendo adjetivos diferentes entre si, de um modo geral os participantes parecem não estar descrevendo os atributos \textit{acústicos} da prosódia que os eixos tipográficos representavam e tampouco as seis emoções que a atriz buscou representar. Antes, as descrições falam de vozes \textit{modificadas}, como se os participantes não tenham deduzido nem nosso modelo prosódico-tipográfico nem, como esperávamos no primeiro experimento, as emoções que a atriz buscou representar, mas sim uma interpretação própria que assimila emoção \textit{e}~acústica.
 
-Esse resultado condiz com o que discutem Boehner et al. quando apontam que ``a comunicação de afetos em um modelo interacional (...) é mais do que a mera transmissão, (...) requerindo das partes uma interpretação ativa.'' \sidenote[][-1\baselineskip]{\begin{otherlanguage}{english}\textit{[C]ommunication of affect in an interactional model (...) is more than transmission, [and] requires active interpretation.}\end{otherlanguage} \citep{boehner2005affect}} A partir desta perspectiva, pode-se enquadrar melhor o propósito de um sistema construído a partir de nosso modelo prosódico-tipográfico: não querê-lo como uma maneira de informar ao leitor que em dada frase a voz representava esta ou aquela emoção, categórica e de contornos bem definidos, mas sim usar a tipografia como maneira de ressaltar aspectos expressivos na voz, ambíguos como a própria voz e, como ela, abertos a~múltiplas interpretações. Ainda segundo Boehner et al., a ``medida de sucesso de tais sistemas [como o nosso] está então não no fato de que deduzem ou não a emoção `correta', mas em se provocam o reconhecimento e reflexão sobre emoções em seus usuários[.]'' \sidenote[][-4\baselineskip]{\begin{otherlanguage}{english}\textit{Measures of success for such systems are therefore not whether the systems themselves deduce the `right' emotion but whether the systems encourage awareness of and reflection on emotions in users[.]}\end{otherlanguage} \citep{boehner2005affect}}
+Esse resultado condiz com o que discutem Boehner et al. quando apontam que ``a comunicação de afetos em um modelo interacional (...) é mais do que a mera transmissão, (...) requerindo das partes uma interpretação ativa.'' \sidenote[][-1\baselineskip]{\begin{otherlanguage}{english}\textit{[C]ommunication of affect in an interactional model (...) is more than transmission, [and] requires active interpretation.}\end{otherlanguage}  \citep{boehner2005affect}} A partir desta perspectiva, pode-se enquadrar melhor o propósito de um sistema construído a partir de nosso modelo prosódico-tipográfico: não querê-lo como uma maneira de informar ao leitor que em dada frase a voz representava esta ou aquela emoção, categórica e de contornos bem definidos, mas sim usar a tipografia como maneira de ressaltar aspectos expressivos na voz, ambíguos como a própria voz e, como ela, abertos a~múltiplas interpretações. Ainda segundo Boehner et al., a ``medida de sucesso de tais sistemas [como o nosso] está então não no fato de que deduzem ou não a emoção `correta', mas em se provocam o reconhecimento e reflexão sobre emoções em seus usuários.'' \sidenote[][-4\baselineskip]{\begin{otherlanguage}{english}\textit{Measures of success for such systems are therefore not whether the systems themselves deduce the `right' emotion but whether the systems encourage awareness of and reflection on emotions in users.}\end{otherlanguage} \citep{boehner2005affect}}
 
 
 
