@@ -210,7 +210,7 @@ Internamente, em uma \textit{variable font} estão definidos os pontos que comp�
     
 Por exemplo, uma fonte contendo os eixos \textit{peso} e \textit{largura horizontal} poderá oferecer uma versão estreita e grossa (largura no mínimo, peso no máximo), ou outra estendida e fina (largura no máximo, peso no mínimo), além das posições intermediárias.
 
-\begin{marginfigure}
+\begin{marginfigure}[\baselineskip]
   \includegraphics{imgs/curta-grossa-longa-fina.png}
   \caption{Variação em dois eixos (\textsc{wght}, ou peso, e \textsc{wdth}, ou largura), na fonte \textit{Avenir Next VF}.}
   \label{curta_grossa_longa_fina}
@@ -218,19 +218,17 @@ Por exemplo, uma fonte contendo os eixos \textit{peso} e \textit{largura horizon
 
 \subsection{Experimento \#1: Card sorting e entrevistas com designers}\label{sec:met_exp_1}
 
+O propósito da primeira avaliação seria investigar que influências nosso modelo prosódico-tipográfico teria na interpretação de um texto. Para isolar os efeitos da forma tipográfica, buscamos frases cujo conteúdo textual fosse pouco expressivo, ou seja, onde o efeito \textit{linguístico} fosse mínimo. Inversamente, as frases deveriam ter a voz carregada de emoção, ou seja, com uma dramaticidade vocal que produzisse grandes variações visuais no desenho tipográfico. Optamos por usar bases de frases/áudio previamente criadas (os meandros da criação de uma nova fogem ao que queremos explorar).
 
+Assim, ainda que criada sob motivações estranhas às nossas, escolhemos a base criata por \citet{pdpcosta2015}. Nela, e cumprindo o primeiro requisito, havia 10 frases sem relação entre si e ``neutras, de modo que cada uma permita [pelos atores] a interpretação de diferentes emoções'' \citet[p.50]{pdpcosta2015}. Cumprindo nosso segundo requisito, as frases foram lidas por quatro atores, cada um buscando representar as 6 emoções -- tristeza, medo, surpresa, repulsa, raiva e alegria -- da tipologia ``Big Six'' \citep{ekman1970universal}.~\sidenote{Entre outras, a base inclui também leituras neutras, que usamos no segundo experimento.} Para nosso experimento, escolhemos quatro frases e, para minimizar variações entre leitores, fixamos os áudios nos de uma das atrizes.
 
-Para o primeiro experimento, aplicamos o seguinte mapeamento de parâmetros prosódicos para eixos tipográficos:
+Inspirados por \citet{wolfel2015} e \citet{bessemans2017}, aplicamos o seguinte mapeamento de parâmetros prosódicos para eixos tipográficos:
 
 \begin{itemize}
     \item Amplitude para \textit{Weight} (peso);
     \item Frequência fundamental para \textit{Slant} (inclinação);
     \item Duração para \textit{Width} (largura horizontal);
 \end{itemize}
-
-O propósito da primeira avaliação foi investigar que influências nosso modelo prosódico-tipográfico teria na interpretação de um texto. Para isolar os efeitos da forma tipográfica, buscamos usar frases cujo conteúdo textual fosse pouco expressivo, ou seja, onde o efeito \textit{linguístico} fosse mínimo. Inversamente, as frases foram lidas com a voz carregada de emoção, ou seja, com uma dramaticidade vocal que produzisse grandes variações visuais no desenho tipográfico. Optamos por trabalhar com bases de frases/áudio previamente criadas, já que explorar os meandros da confecção de uma fugiria ao cerne de questões que queremos explorar.
-
-Assim, mesmo que criada sob motivações diversas às nossas, optamos pela base descrita e criada em \citet{pdpcosta2015}. Nela, e cumprindo o primeiro requisito, foram criadas 10 frases sem relação entre si e ``neutras, de modo que cada uma permita [pelos atores] a interpretação de diferentes emoções''. Essas frases foram então, e cumprindo nosso segundo requisito, lidas por 4 atores, cada um buscando representar as 6 emoções da tipologia ``Big Six'' \citep{ekman1970universal} (tristeza, medo, surpresa, repulsa, raiva e alegria).~\sidenote{A base inclui também leituras neutras, que usamos no segundo experimento.} Escolhemos quatro frases e, para minimizar variações entre leitores, fixamos em uma única atriz.
 
 \begin{marginfigure}
   \includegraphics{imgs/exemplos-frases.png}
@@ -240,22 +238,19 @@ Assim, mesmo que criada sob motivações diversas às nossas, optamos pela base 
 
 Os seis arquivos de áudio para cada uma das quatro frases foram então processados e os textos resultantes, com a tipografia modificada pela fala da atriz, impressos em cartões de papel tamanho A5. Na Figura~\ref{exemplo_frases}, apresentamos um exemplar de cada uma das frases usadas. 
 
-Para a avaliação realizamos sessões de \textit{card sorting}. Eram individuais e divididas, cada uma, em quatro rodadas, uma para cada uma das frases escolhidas. Optamos por esse método por três principais motivos:
+Para a avaliação realizaríamos sessões de \textit{card sorting}, uma técnica de exploração e avaliação de taxonomias comum no campo da \textsc{ihc} (Interação Humano-Computador) para arquitetar sites ou softwares, mas que tem aplicabilidade em outras áreas sempre que se queira investigar como diferentes pessoas formulam modelos mentais para estruturar algum conjunto de dados \citep{about_cardsorting}.
 
-\begin{enumerate}
+Em suas duas formas mais comuns, a \textit{open} e \textit{closed card sorting}, faz-se uma atividade na qual um grupo de pessoas\sidenote{\textit{Stakeholders} que podem ou não ser especialistas -- em algumas situações, busca-se um público leigo para desvendar como ele organiza mentalmente as informações de uma área na qual seu conhecimento é superficial.}, uma a uma, organiza um conjunto de cartões de papel em diferentes envelopes. Dentro da taxonomia que se quer investigar, cada cartão representa um dado e cada envelope representa uma categoria. Estas podem ser pré-definidas (\textit{closed cart sorting}) ou criadas no ato pelos próprios participantes (\textit{open card sorting}). Nos interessava a primeira opção: um dos usos típicos da \textit{closed card sorting} é testar se uma dada taxonomia é adequada para descrever um conjunto de informações. Em nosso caso, essa taxonomia seria as seis emoções a partir das quais os atores encenaram cada gravação de áudio. No experimento, esperávamos descobrir quão bem as ``Big Six'' serviriam para descrever os textos que foram modulados visualmente de acordo com o áudio.
 
-\item como discutido em \citet{goodman2006card}, trata-se de um método relativamente rápido e barato para se investigar constructos latentes em avaliações com participantes (em nosso caso, os constructos sendo as próprias classes de emoções);
+Para analisar os resultados, decidimos pelo método de comparação de \textit{edit distances}. Esta é uma medida quantitativa na qual é obtida a soma de operações de transformação necessárias para se converter um arranjo de cartões em outro, ou seja, um índice da divergência entre os conjuntos -- útil para medirmos quão convergente cada participante foi em relação às ``Big Six.'' \citep{nawaz2012}
 
-\item sendo um teste presencial, nos permitiu observar os participantes e realizar breves entrevistas semi-estruturadas ao final de cada sessão, complementando os dados quantitativos coletados;
+Se encontrássemos nos dados algum nível razoável de convergência entre as emoções implícitas em cada cartão e a forma como os participantes as interpretaram e organizaram, teríamos bons indícios de que a modulação visual da tipografia conseguiu imprimir um sentido afetivo coerente aos textos.
 
-\item permite usar duas ferramentas de organização e interpretação de dados (\textit{matrizes de confusão} e \textit{edit-distances}) úteis porque, para além de uma mera taxa de ``acerto'' para as classificações, nos permitiriam quantificar a presença (ou não) de coerência na maneira como os participantes interpretaram cada cartão e emoção.
+Também nos interessou usar o \textit{card sorting} pois, além do bom custo-benefício (é relativamente rápido e barato \citep{goodman2006card}), sendo um teste presencial, nos permitiria observar os participantes e realizar breves entrevistas semi-estruturadas ao final de cada sessão, complementando os dados numéricos.
 
+Antes do início de cada sessão os participantes seriam informados de que haveria nos cartões uma correspondência entre a forma tipográfica e certas características da voz de uma atriz que lera previamente os textos -- não informamos maiores detalhes. Para cada emoção haveria um envelope rotulado e os participantes seriam instruídos a depositar cada cartão na ``emoção'' correspondente a seu desenho tipográfico. 
 
-\end{enumerate}
-
-Antes do início de cada sessão os participantes foram informados de que haveria nos cartões uma correspondência entre a forma tipográfica e certas características da voz de uma atriz que lera previamente os textos -- não informamos maiores detalhes. Para cada emoção havia um envelope rotulado e os participantes foram instruídos a depositar cada cartão na ``emoção'' correspondente a seu desenho tipográfico. 
-
-Ao final de cada sessão realizamos breves entrevistas semi-estruturadas, buscando levantar possíveis estratégias usadas pelos participantes na organização dos cartões, além de investiga possíveis modelos mentais formulados para explicar o funcionamento do mapeamento fala-tipografia.
+Como dito, ao final de cada sessão realizaríamos breves entrevistas semi-estruturadas, buscando levantar possíveis estratégias usadas pelos participantes na organização dos cartões, além de investiga possíveis modelos mentais formulados para explicar o funcionamento do mapeamento fala-tipografia.
 
 %Na Figura 4, uma fotografia tirada em uma das sessões.
 
@@ -323,20 +318,20 @@ Os resultados do segundo experimento, sintetizados na tabela~\ref{tab:type_perf}
         \midrule
         emoção na voz & weight & width & slant & baseline shift  \\
         \midrule
-        raivosa & \cellcolor[HTML]{dddddd}83\% & 34\% & 43\% & 39\% \\
-        feliz & 34\% & 54\% & 47\% & \cellcolor[HTML]{dddddd}64\% \\
+        raiva & \cellcolor[HTML]{dddddd}83\% & 34\% & 43\% & 39\% \\
+        alegria & 34\% & 54\% & 47\% & \cellcolor[HTML]{dddddd}64\% \\
         neutra & 47\% & 52\% & \cellcolor[HTML]{9ef7cd}76\% & 25\% \\
-        triste & 45\% & 52\% & 46\% & 58\% \\
+        tristeza & 45\% & 52\% & 46\% & 58\% \\
         surpresa & \cellcolor[HTML]{9ef7cd}72\% & 38\% & 49\% & 43\% \\
         \midrule
         \multicolumn{5}{c}{ \textbf{\textit{f0} enquanto \textit{feature} representada.} }      \\
         \midrule
         emoção na voz & weight & width & slant & baseline shift  \\
         \midrule
-        raivosa             & \cellcolor[HTML]{9ef7cd}87\% & 46\% & 45\% & 26\% \\
-        feliz & 28\% & 66\% & 40\% & \cellcolor[HTML]{9ef7cd}69\% \\
+        raiva & \cellcolor[HTML]{9ef7cd}87\% & 46\% & 45\% & 26\% \\
+        alegria & 28\% & 66\% & 40\% & \cellcolor[HTML]{9ef7cd}69\% \\
         neutra & 47\% & 55\% & \cellcolor[HTML]{dddddd}63\% & 35\% \\
-        triste & 21\% & 57\% & 39\% & \cellcolor[HTML]{9ef7cd}79\% \\
+        tristeza & 21\% & 57\% & 39\% & \cellcolor[HTML]{9ef7cd}79\% \\
         surpresa & \cellcolor[HTML]{dddddd}71\% & 43\% & 41\% & 44\% \\
         \bottomrule
     \end{tabular}}
