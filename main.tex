@@ -29,7 +29,7 @@
 
 %Portuguese-specific commands
 %--------------------------------------
-\usepackage[portuguese, english]{babel}
+\usepackage[english, portuguese]{babel}
 \selectlanguage{portuguese}
 %--------------------------------------
  
@@ -122,7 +122,7 @@
 \section{Objetivos e justificativas do projeto de pesquisa}\label{sec:objetivos}
 %\subsection{Headings}\label{sec:headings}
 
-Em um filme, as legendas traduzem em texto aquilo que falam as personagens. Sons codificados tipograficamente dão acesso ao \textit{que} é dito, mas essa representação ignora \textit{como} as palavras são ditas. Nosso trabalho parte da ideia de que, dado que os sentidos do \textit{que se diz} são modificados por \textit{como se diz}, um sistema de legendas poderia buscar representações visuais que permitissem a seus espectadores intuir qualidades expressivas na voz das personagens e, assim, ter uma experiência audiovisual mais rica.
+Em um filme, as legendas traduzem em texto aquilo que falam as personagens. Sons codificados tipograficamente dão acesso ao \textit{que} é dito, mas essa representação ignora \textit{como} as palavras são ditas. Nosso trabalho parte da ideia de que, dado que os sentidos do \textit{que se diz} são modificados pelo \textit{como se diz}, um sistema de legendas poderia buscar representações visuais que permitissem a seus espectadores intuir qualidades expressivas na voz das personagens e, assim, ter uma experiência audiovisual mais rica.
 
 Tal sistema poderia ganhar usos como um componente de aplicações de acessibilidade, em especial considerando um público com deficiências auditivas que, a princípio, é excluído de toda uma dimensão expressiva quando assiste a conteúdos audiovisuais. Além desse uso mais restrito, imaginamos que, da mesma forma que as \textit{closed captions} trazem benefícios para públicos em geral, ouvintes ou não \citep{fiske_video_2015}, uma legenda expressiva poderia ganhar usos além das tecnologias assistivas.
 
@@ -130,14 +130,14 @@ Dentro deste projeto de mestrado, o escopo do trabalho circula em torno da cria�
 
 \section{Revisão bibliográfica resumida}\label{sec:revisao_bibliografica}
 
-Nosso estudo é fundado na noção de que a prosódia da fala compreende uma dimensão emocional. Trata-se de uma constatação simples: o mesmo trato vocal que molda a fala é parte de um corpo que, sob efeito de diferentes estados emocionais, se tensiona e relaxa de diversas maneiras. A emoção não é, claro, a única dimensão que modula os parâmetros acústicos da prosódia.\sidenote[][-3\baselineskip]{Ainda que não tenhamos tratado a questão nos dois primeiros experimentos já realizados, o fato de que variações prosódicas em geral compreendem diversos aspectos além da emoção é um desafio importante em nosso trabalho.} Diferentes autores dividem as funções da prosódia de diferentes maneiras \citep{schotz2002linguistic}, mas para nossos propósitos cabe citar aqui três aspectos: o linguístico, paralinguístico e extralinguístico: 
+Nosso estudo é fundado na noção de que a prosódia da fala compreende uma dimensão emocional. Trata-se de uma constatação simples: o mesmo trato vocal que molda a fala é parte de um corpo que, sob efeito de diferentes estados emocionais, se tensiona e relaxa de diversas maneiras. A emoção não é, claro, a única dimensão que modula os parâmetros acústicos da prosódia:\sidenote[][-3\baselineskip]{Ainda que não tenhamos tratado a questão nos dois primeiros experimentos já realizados, lidar com o fato de que variações prosódicas em geral compreendem diversos aspectos além da emoção é um desafio importante em nosso trabalho.} diferentes autores enquadram sob formas diversas as funções da prosódia \citep{schotz2002linguistic}, mas para nossos propósitos cabe citar três aspectos: linguístico, paralinguístico e extralinguístico: 
 
 \begin{quotation}
     Enquanto o conteúdo verbal -- efetivamente o significado das palavras -- é considerado como informação linguística, o canal extralinguístico contém informações sobre o estado base do falante, e.g. uma pessoa grande (...) terá uma voz mais grave do que a de uma criança. Alguns parâmetros extralinguísticos são também determinados pela cultura do falante. (...) O canal paralinguístico carrega informações sobre desvios passageiros da linha de base típica (extralinguística), tais como (...) a expressão de emoções. \sidenote[][-8\baselineskip]{\begin{otherlanguage}{english}
     \textit{Whereas the verbal content, the actual meaning of the words, is thought of as linguistic information, the extralinguistic channel contains information about the speaker's basic state, e.g. a big person (...) will usually have a lower voice than a child. Some extralinguistic parameters are also determined by the culture of the speaker. (...) The paralinguistic channel carries information about momentary deviations from the usual (extralinguistic) baseline, such as (...) the expression of emotions.} \end{otherlanguage} \citep{quast2001automatic}}
 \end{quotation}
 
-A presença de aspectos emocionais na prosódia com algum grau de independência de aspectos linguísticos é explorada em \citet{SILVA2016}, onde um conjunto de áudios em português natural foi avaliado por brasileiros e suecos. Ainda que entre os brasileiros tenha havido maior grau de concordância nas respostas, os suecos, para quem o componente linguístico dos áudios era indiferente, também conseguiram decodificar emoções.
+A presença de aspectos emocionais na prosódia é explorada em \citet{SILVA2016}, onde um conjunto de áudios em português natural foi avaliado por brasileiros e suecos. Ainda que entre os brasileiros tenha havido maior grau de concordância nas respostas, os suecos, para quem o componente linguístico dos áudios era indiferente, também conseguiram decodificar emoções.
 
 Essas três dimensões prosódicas (linguística, para- e extra-) são articuladas pela produção e recepção de três parâmetros acústico-perceptuais \sidenote[][-1\baselineskip]{Como mostra \citet{livroDoPlinio}, a relação entre produção e percepção não é linear e esses parâmetros se entrelaçam: mudanças em um causam diferenças de percepção em outro.}, que modificam cada sílaba em relação às demais: intensidade (mais fraca ou forte), \textit{pitch} (mais aguda ou grave) e duração (mais lenta ou rápida).
 
@@ -149,15 +149,15 @@ Parte dessas variações é codificada na linguagem escrita, parte não. Com efe
   \label{cdx_vat}
 \end{marginfigure}
 
-Até que fossem introduzidos no século \textsc{vii}, não se usavam espaços ou outros sinais para separar as palavras, o texto um bloco fechado de letras -- a partir do que alguns historiadores avançam a teoria\sidenote[][\baselineskip]{Popular, mas bastante controversa. Ver \citet{McCutcheon2015}.} de que a literatura na antiguidade era predominantemente acústica \citep{kuster2016}: a leitura se fazia necessariamente em voz alta pois só ao converter em sons o ``bloco'' este se tornava compreensível. O texto então seria ``melhor percebido pelos ouvidos do que pelos olhos.'' \citep{nunlist1991}
+Até que fossem introduzidos no século \textsc{vii}, não se usavam espaços ou outros sinais para separar as palavras, o texto um bloco fechado de letras -- a partir do que alguns historiadores avançam a teoria\sidenote{Popular, mas bastante controversa. Ver \citet{McCutcheon2015}.} de que a literatura na antiguidade era predominantemente acústica \citep{kuster2016}: a leitura se fazia necessariamente em voz alta pois só ao converter em sons o ``bloco'' este se tornaria compreensível. O texto então seria ``melhor percebido pelos ouvidos do que pelos olhos.'' \citep{nunlist1991}
 
 Inovação medieval (ou não), a leitura silenciosa não é, como talvez se possa imaginar, desprovida de prosódia. Dentre as estruturas cerebrais envolvidas no processo de leitura, é surpreendente notar que, além das estruturas encarregadas do processamento semântico e ortográfico, a leitura demanda também aquelas tipicamente relacionadas à produção e processamento de sons \citep[cap.~7]{seidenberg2017}. Isso ocorre porque, mesmo quando lê silenciosamente, cabe ao leitor deduzir em sua voz interna uma representação sonora do texto, habilidade fundamentalmente relacionada à compreensão e interpretação do mesmo.
 
 O bom funcionamento dessa ``voz'' interna é importante. Certos tipos de dislexia, por exemplo, parecem antes causados por problemas nessas estruturas fonológicas do que deficiências nas processamento de imagens, mesmo que se manifestem sob a forma de dificuldades na  leitura \citep[cap.~8]{seidenberg2017}. Ao contrário da noção vendida por certos cursos de leitura dinâmica de que uma leitura sem subvocalização traria ganhos de velocidade sem perdas na compreensão, o leitor experiente depende dessa voz interna para reduzir ambiguidades e facilitar a compreensão \citep[cap.~4]{seidenberg2017}. Finalmente, crianças em processo de alfabetização que leem de maneira monótona tendem a desenvolver problemas de compreensão \citep{bessemans2017}.
 
-A partir da hipótese de que a falta de representação prosódica na tipografia seria um empecilho na alfabetização, a pesquisadora belga Ann Bessemans e seu grupo têm estudado um tipo de intervenção no texto que busca ajudar crianças a ler expressivamente. No estudo, a prosódia é codificada visualmente em atributos tipográficos: texto em \textit{negrito} quando lido com maior volume, \textit{espremido} quando mais rápido, \textit{esticado} quando mais lento e \textit{elevado} quando agudo. Seus resultados iniciais mostram que as crianças conseguiram entender e integrar essas dicas visuais na sua leitura, indicando o potencial da abordagem como uma representação intuitiva da expressividade da voz. \citep{bessemans2017}
+A partir da hipótese de que a falta de representação prosódica na tipografia seria um empecilho na alfabetização, a pesquisadora belga Ann Bessemans e seu grupo têm estudado um tipo de intervenção no texto que busca ajudar crianças a ler expressivamente. No estudo, codifica-se visualmente a prosódia na tipografia: texto em \textit{negrito} quando lido com maior volume, \textit{espremido} quando mais rápido, \textit{esticado} quando mais lento e \textit{elevado} quando agudo. Seus resultados iniciais mostram que as crianças conseguiram entender e integrar essas dicas visuais na sua leitura, indicando o potencial da abordagem como uma representação intuitiva da expressividade da voz. \citep{bessemans2017}
 
-\citet{wolfel2015} criaram o \textit{Design de Tipos Orientado pela Voz} (\textsc{vdtd}, sigla para \textit{Voice Driven Type Design}), uma abordagem semelhante à de Bessemans mas de base computacional. Nela, mapeiam atributos acústicos de cada fonema -- como intensidade, \textit{pitch} e velocidade -- em grafemas em uma fonte geométrica matematicamente modelada e cujos atributos podem ser manipulados. Em uma avaliação com leitores, foram encontrados indícios tanto de que as características da fala conseguiram ser impressas no texto quanto que uma abordagem nessa linha poderia ser usada para representar emoções presentes na voz. \sidenote[][-3\baselineskip]{O \textsc{vdtd} serviu como grande inspiração para nosso próprio trabalho, mas buscamos divergir no que consideramos duas falhas em sua abordagem: \num{1} o uso de uma tecnologia tipográfica própria é um grande empecilho para a eventual adoção da tecnologia nos já existentes ambientes de uso de tipografia digital; \num{2}~a avaliação foi construída principalmente com questionários onde um pequeno número de participantes fez autorrelatos de suas impressões, o que significa que os (pequenos) efeitos medidos são difíceis de generalizar.}
+\citet{wolfel2015} criaram o \textit{Design de Tipos Orientado pela Voz} (\textsc{vdtd}, sigla para \textit{Voice Driven Type Design}), uma abordagem semelhante à de Bessemans mas de base computacional. Nela, mapearam atributos acústicos de cada fonema -- como intensidade, \textit{pitch} e velocidade -- em grafemas de uma fonte geométrica matematicamente modelada e cujos atributos podem ser manipulados. Em uma avaliação com leitores, foram encontrados indícios tanto de que as características da fala conseguiram ser impressas no texto quanto que uma abordagem nessa linha poderia ser usada para representar emoções presentes na voz. \sidenote[][-3\baselineskip]{O \textsc{vdtd} serviu como grande inspiração para nosso próprio trabalho, mas buscamos divergir no que consideramos duas falhas em sua abordagem: \num{1} o uso de uma tecnologia tipográfica própria é um grande empecilho para a eventual adoção da tecnologia nos já existentes ambientes de uso de tipografia digital; \num{2}~a avaliação foi construída principalmente com questionários onde um pequeno número de participantes fez autorrelatos de suas impressões, o que significa que os (pequenos) efeitos medidos são difíceis de generalizar.}
 
 \citet{wolfel2015} discutem ainda algumas aplicações práticas de seu \textsc{vdtd}. Em volta de uma delas -- legendas moduladas pela voz, em especial quando apresentadas na mesma língua em que o vídeo é falado -- gravita nosso projeto. Esperamos aqui lançar contribuições para um cenário sobre o qual há benefícios amplamente documentos, como sintetiza \citet{fiske_video_2015}: filmes legendados produzem melhoras na compreensão, atenção e memória em diversos públicos: crianças, adultos ou idosos; leitores experientes ou em fase de aprendizado; falantes ou não da língua em questão; ouvintes ou com deficiências auditivas; etc.
 
@@ -167,18 +167,18 @@ Em especial, \citet{MurphyBerman1983} levantam um desafio relacionado às legend
 
 \subsection{Extração e representação de prosódia}\label{sec:met_extract_represent}
 
-Nossa abordagem pede que se construa um algoritmo que abstraia numericamente certos elementos acústicos que sirvam de bons representantes da expressão vocal para, então, mapeá-los visualmente enquanto tipografia. Pelo que já foi discutido, a prosódia traz um bom conjunto de parâmetros acústicos (\textit{features}), mas considerando que nossa unidade mínima de mapeamento visual será a letra (ou, mais provavelmente, a sílaba), um ponto a favor de se usar \textit{features} prosódicas é que elas podem ser tomadas em nível local (da sílaba) em oposição às de nível global (da frase), como discutem \citet{rao2010characterization}.
+Nossa abordagem pede que se construa um algoritmo que abstraia numericamente certos elementos acústicos que sirvam de bons representantes da expressão vocal para, então, mapeá-los visualmente enquanto tipografia. Pelo que já foi discutido, a prosódia traz um bom conjunto de parâmetros acústicos (\textit{features}), mas considerando que nossa unidade mínima de mapeamento visual será a letra (ou, mais provavelmente, a sílaba), um ponto adicional a favor de se usar \textit{features} prosódicas é que elas podem ser tomadas em nível local (da sílaba) em oposição às de nível global (da frase), como discutem \citet{rao2010characterization}.
 
 Na versão atual do software, usamos as seguintes \textit{features}:
 \begin{enumerate}
     \item Amplitude, calculada em decibéis como a média do \textit{Root Mean Square} (\textsc{rms}) de cada sílaba;
-    \item \textit{Pitch}, calculada em Hz a partir da frequência fundamental média (\textit{f0}), calculada usando o método \textsc{swipe}, da biblioteca \textit{pysptk}, aplicado em janelas de 512 amostras com janela de frequências entre 75 e 600 Hz.
+    \item \textit{Pitch}, calculada em Hz a partir da frequência fundamental (\textit{f0}) média, calculada usando o método \textsc{swipe} da biblioteca \textit{pysptk}, aplicado em janelas de 512 amostras com limite de frequências entre 75 e 600 Hz.
     \item Duração, em milisegundos.
 \end{enumerate}
 
 \begin{marginfigure}[-7\baselineskip]
   \includegraphics{imgs/diag-extracao.png}
-  \caption{Visualização esquemática de um arquivo de áudio com a frase ``Rúcula para pata'', ressaltando três aspectos: amplitude, frequências e duração silábica.}
+  \caption{Visualização esquemática de um arquivo de áudio com a frase ``Rúcula para pata'', ressaltando três de seus aspectos acústicos, de cima para baixo: amplitude, frequências e duração silábica.}
   \label{diag_extracao}
 \end{marginfigure}
 
@@ -187,28 +187,28 @@ Em versões posteriores do software, as seguintes melhorias devem ser considerad
 \begin{enumerate}
     \item Se atualmente as \textit{features} estão organizadas em torno da fala, futuramente faria sentido reorientá-las em direção à audição. \citet{livroDoPlinio} discute certas diferenças desses dois polos e seria importante explorar compensações que levem em conta efeitos psicoacústicos conhecidos -- e.g. a resposta de frequências do ouvido humano é não-linear, o que pode ser melhor modelado usando-se semitons ao invés de Hz; variações de \textit{f0} causam a percepção de maior duração; a sensação de \textit{pitches} agudos é amplificada por maiores volumes; etc.
     
-    \item \textsc{rms} é uma medida pouco resistente a diferenças de gravação não relacionadas à diferenças de esforço vocal. Um falante que tenha a voz em volume constante mas que se aproxime ou se distancie do microfone terá um \textsc{rms} artificialmente modificado. As medidas de intensidade \textit{relativas} -- calculadas pela diferença de intensidade em faixas de baixa e alta frequência -- são mais robustas.
+    \item \textsc{rms} é uma medida pouco resistente a diferenças de gravação não relacionadas à diferenças de esforço vocal. Um falante que tenha a voz em volume constante mas que se aproxime ou se distancie do microfone terá um \textsc{rms} artificialmente modificado. As medidas de intensidade \textit{relativas} -- calculadas pela diferença de intensidade entre faixas de baixa e alta frequência -- são mais robustas ao ambiente de gravação.
 \end{enumerate}
 
-A segunda parte do software envolve o mapeamento visual dessas \textit{features} no texto. Como \citet{wolfel2015}, consideramos que o mapeamento das variáveis contínuas do áudio nas poucas\sidenote{Há de fato algumas raras famílias tipográficas que possuem tantos pesos a ponto de se poder questionar se a diferença entre cada um é grande o suficiente para ser percebida por si só (e.g. a Lucida Sans, que em sua versão completa tem 18 pesos entre o \textit{UltraThin} e o \textit{UltraBlack}). Mesmo que fosse esse o caso, nossa abordagem ainda se justificaria por, primeiro, manter-se agnóstica em relação a esta ou aquela fonte e, segundo, porque, propondo variações em eixos que não só o \textit{peso}, acabamos indo além do que se oferece nas mais extensas famílias tipográficas disponíveis.} categorias tipicamente disponíveis em uma fonte digital comum (e.g. peso leve, normal e negrito) levaria a resultados com poucas nuances, sem ecoar visualmente as sutilezas que na fala que supomos importantes para a apreensão afetiva por parte do ouvinte.
+A segunda parte do software envolve o mapeamento visual dessas \textit{features} no texto. Como \citet{wolfel2015}, consideramos que o mapeamento das variáveis contínuas do áudio nas poucas\sidenote[][-2\baselineskip]{Há de fato algumas raras famílias tipográficas que possuem tantos pesos a ponto de se poder questionar se a diferença entre cada um é grande o suficiente para ser percebida por si só (e.g. a Lucida Sans, que em sua versão completa tem 18 pesos entre o \textit{UltraThin} e o \textit{UltraBlack}). Mesmo que fosse esse o caso, nossa abordagem ainda se justificaria por, primeiro, manter-se agnóstica em relação a esta ou aquela fonte e, segundo, porque, propondo combinações de variações em eixos que não só o \textit{peso}, acabamos indo além do que se oferece nas mais extensas famílias tipográficas disponíveis.} categorias tipicamente disponíveis em uma fonte digital comum (e.g. peso leve, normal e negrito) levaria a resultados com poucas nuances, sem ecoar visualmente as sutilezas presentes na fala e que supomos importantes para a apreensão afetiva por parte do ouvinte.
 
-Com isso, podemos considerar dois requisitos a partir dos quais deverá emergir a solução técnica para essas representações: \num{1} para as modulações tipográficas, não se deve discretizar (ao menos não perceptualmente) as \textit{features} que vierem do áudio, ou seja, a tipografia deverá conseguir ecoar mesmo mudanças sutis na fala; \num{2} deve ser possível que cada tipo de modulação funcione de maneira independente uma da outra na representação, pois também independentes entre si poderão ser as \textit{features} vindas do áudio: como é igualmente plausível que uma palavra seja dita de maneira forte e rápida \textit{ou} de maneira forte a lenta, por exemplo, a tipografia deverá conseguir ecoar as duas características de maneira independente uma da outra.
+Com isso, podemos considerar dois requisitos a partir dos quais deverá emergir a solução técnica para essas representações: \num{1} para as modulações tipográficas, não se deve discretizar (ao menos não perceptualmente) as \textit{features} que vierem do áudio, ou seja, a tipografia deverá conseguir ecoar mesmo mudanças sutis na fala; \num{2} deve ser possível que cada tipo de modulação funcione de maneira independente uma da outra na representação, pois também independentes entre si poderão ser as \textit{features} vindas do~áudio. \sidenote{É igualmente plausível que uma palavra seja dita de maneira forte e rápida \textit{ou} de maneira forte a lenta, por exemplo, e a tipografia deverá conseguir ecoar as duas características de maneira independente uma da outra.}
 
 Dada essa demarcação, excluímos, pela complexidade envolvida, o desenvolvimento de um algoritmo que reconstruísse o desenho da letra a partir de modificações em sua estrutura interna, como o fazem \citet{wolfel2015}; pelos motivos citados por \citet{haralambous1993}, trabalhar com a \textsc{metafont}, de Donald Knuth, também seria infrutífero.
 
-Optamos, então, por aplicar as modulações em \textit{variable fonts}. Há já implementações em diferentes ambientes — as definições de \textsc{css} que definem como usar \textit{variable fonts} já funcionam nos principais navegadores\sidenote[][-2\baselineskip]{~88\% dos usuários já teriam acesso à tecnologia. Ver: https://caniuse.com/\#feat=variable-fonts, acesso em 27/11/19.}, assim como  bibliotecas código livre para C e Python.
+Optamos, então, por aplicar as modulações em \textit{variable fonts}. Há já implementações em diferentes ambientes -- as definições de \textsc{css} que definem como usar \textit{variable fonts} já funcionam nos principais navegadores\sidenote[][-4\baselineskip]{~88\% dos usuários já teriam acesso à tecnologia na internet. Ver: https://caniuse.com/\#feat=variable-fonts, acesso em 27/11/19.}, assim como  bibliotecas código livre para C e Python.
 
-Publicada em setembro de 2016, a versão 1.8 da especificação OpenType define as \textit{variable fonts}. Nelas, o tipógrafo cria ``eixos'' — dimensões que guiam diferentes tipos de modulação visual que poderá sofrer cada caractere. Uma fonte pode ter uma quantidade arbitrária de eixos, que operam de maneira independente uns dos outros \citep{varfontssepcs}. 
+Publicada em setembro de 2016, a versão 1.8 da especificação OpenType define as \textit{variable fonts}. Nelas, o tipógrafo cria ``eixos'' -- dimensões que guiam diferentes tipos de modulação visual que poderá sofrer cada caractere. Uma fonte pode ter uma quantidade arbitrária de eixos, que operam de maneira independente uns dos outros \citep{varfontssepcs}. 
 
 \begin{marginfigure}
   \includegraphics{imgs/grafico-var.png}
-  \caption{Como o glifo `e' pode se modificar conforme variam os valores de seus três eixos?}
+  \caption{Como o glifo `e' se modifica conforme variam os valores de seus três eixos?}
   \label{grafico_var}
 \end{marginfigure}
     
-Internamente, em uma \textit{variable font} estão definidos os pontos que compõe o desenho de cada letra em sua posição central, \textit{neutra}, além das instruções sobre como cada um desses pontos deve se transformar quando um dado eixo tiver definido seu menor valor possível \textit{e} seu maior valor possível, com as posições intermediárias sendo interpoladas.
+Internamente, em uma \textit{variable font} estão definidos os pontos que compõe o desenho de cada letra em sua posição central, \textit{neutra}, além das instruções sobre como cada um desses pontos deve se transformar quando um dado eixo tiver definido seu menor e maior valores possíveis, com as posições intermediárias sendo interpoladas.
     
-Por exemplo, uma fonte contendo os eixos \textit{peso} e \textit{largura horizontal} poderá oferecer uma versão estreita e grossa (eixo da largura no valor mínimo e eixo do peso no valor máximo), ou outra estendida e fina (eixo da largura no valor máximo e eixo do peso no valor mínimo), além das posições intermediárias.
+Por exemplo, uma fonte contendo os eixos \textit{peso} e \textit{largura horizontal} poderá oferecer uma versão estreita e grossa (largura no mínimo, peso no máximo), ou outra estendida e fina (largura no máximo, peso no mínimo), além das posições intermediárias.
 
 \begin{marginfigure}
   \includegraphics{imgs/curta-grossa-longa-fina.png}
@@ -216,10 +216,23 @@ Por exemplo, uma fonte contendo os eixos \textit{peso} e \textit{largura horizon
   \label{curta_grossa_longa_fina}
 \end{marginfigure}
 
-% Resumindo, para um dado texto lido em voz alta, extrairemos um conjunto de \textit{features} de áudio e as mapearemos, sílaba a sílaba, nos eixos de uma \textit{variable font}.
-
 \subsection{Experimento \#1: Card sorting e entrevistas com designers}\label{sec:met_exp_1}
 
+
+
+Para o primeiro experimento, aplicamos o seguinte mapeamento de parâmetros prosódicos para eixos tipográficos:
+
+\begin{itemize}
+    \item Amplitude para \textit{Weight} (peso);
+    \item Frequência fundamental para \textit{Slant} (inclinação);
+    \item Duração para \textit{Width} (largura horizontal);
+\end{itemize}
+
+O propósito da primeira avaliação foi investigar que influências nosso modelo prosódico-tipográfico teria na interpretação de um texto. Para isolar os efeitos da forma tipográfica, buscamos usar frases cujo conteúdo textual fosse pouco expressivo, ou seja, onde o efeito \textit{linguístico} fosse mínimo. Inversamente, as frases foram lidas com a voz carregada de emoção, ou seja, com uma dramaticidade vocal que produzisse grandes variações visuais no desenho tipográfico. Optamos por trabalhar com bases de frases/áudio previamente criadas, já que explorar os meandros da confecção de uma fugiria ao cerne de questões que queremos explorar.
+
+Assim, mesmo que criada sob motivações diversas às nossas, optamos pela base descrita e criada em \citet{pdpcosta2015}. Nela, e cumprindo o primeiro requisito, foram criadas 10 frases sem relação entre si e ``neutras, de modo que cada uma permita [pelos atores] a interpretação de diferentes emoções''. Essas frases foram então, e cumprindo nosso segundo requisito, lidas por 4 atores, cada um buscando representar as 6 emoções da tipologia ``Big Six'' \citep{ekman1970universal} (tristeza, medo, surpresa, repulsa, raiva e alegria), além de uma leitura neutra. Escolhemos quatro frases e, para minimizar variações entre leitores, fixamos em uma única atriz.
+
+ 
 \subsection{Experimento \#2: Associação entre emoções, \textit{features} prosódicas e eixos tipográficos}\label{sec:met_exp_2}
 
 \subsection{Experimento \#3: }\label{sec:met_exp_3}
@@ -279,7 +292,7 @@ Os resultados do segundo experimento, sintetizados na tabela~\ref{tab:type_perf}
         \toprule
         \multicolumn{5}{c}{ \textbf{\textsc{rms} enquanto \textit{feature} representada.} }     \\
         \midrule
-        emoção na voz & peso & larg. horiz. & inclinação & desloc. vert.  \\
+        emoção na voz & weight & width & slant & base. shift  \\
         \midrule
         raivosa & \cellcolor[HTML]{dddddd}83\% & 34\% & 43\% & 39\% \\
         feliz & 34\% & 54\% & 47\% & \cellcolor[HTML]{dddddd}64\% \\
@@ -289,7 +302,7 @@ Os resultados do segundo experimento, sintetizados na tabela~\ref{tab:type_perf}
         \midrule
         \multicolumn{5}{c}{ \textbf{\textit{f0} enquanto \textit{feature} representada.} }      \\
         \midrule
-        emoção na voz & peso & larg. horiz. & inclinação & desloc. vert.  \\
+        emoção na voz & weight & width & slant & base. shift  \\
         \midrule
         raivosa             & \cellcolor[HTML]{9ef7cd}87\% & 46\% & 45\% & 26\% \\
         feliz & 28\% & 66\% & 40\% & \cellcolor[HTML]{9ef7cd}69\% \\
