@@ -14,10 +14,12 @@
 % http://en.wikibooks.org/wiki/LaTeX
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage[no-math]{fontspec}
+
 \documentclass{tufte-handout}
 
 %\geometry{showframe}% for debugging purposes -- displays the margins
-
 \usepackage{amsmath}
 
 % Set up the images/graphics package
@@ -52,17 +54,17 @@
   \renewcommand{\allcaps}[1]{\textls[15]{\MakeTextUppercase{#1}}}
   \renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{#1}}}
   \renewcommand{\textsc}[1]{\smallcapsspacing{\textsmallcaps{#1}}}
-  \usepackage{fontspec}
 \fi
 
-
-\usepackage{fontspec}
+% \usepackage{eulervm}
+\usepackage{mathspec}
 \setmainfont[
     Path=./Literata/,
     BoldFont=Literata-Bold,
     ItalicFont=Literata-Italic,
     BoldItalicFont=Literata-BoldItalic,
 ]{Literata-Regular}
+\setmathfont(Digits,Latin)[Path=./Literata/,Scale=MatchLowercase]{Literata-Italic}
 
 \title{Letras que ecoam a fala: tipografia modulada por prosódia}
 %\title{A voz na letra: tipografia modulada pela fala}
@@ -172,7 +174,7 @@ Nossa abordagem pede que se construa um algoritmo que abstraia numericamente cer
 Na versão atual do software, usamos as seguintes \textit{features}:
 \begin{enumerate}
     \item Amplitude, calculada em decibéis como a média do \textit{Root Mean Square} (\textsc{rms}) de cada sílaba;
-    \item \textit{Pitch}, calculada em Hz a partir da frequência fundamental (\textit{f0}) média, calculada usando o método \textsc{swipe} da biblioteca \textit{pysptk}, aplicado em janelas de 512 amostras com limite de frequências entre 75 e 600 Hz.
+    \item \textit{Pitch}, calculada em Hz a partir da frequência fundamental ($f_0$) média, calculada usando o método \textsc{swipe} da biblioteca \textit{pysptk}, aplicado em janelas de 512 amostras com limite de frequências entre 75 e 600 Hz.
     \item Duração, em milisegundos.
 \end{enumerate}
 
@@ -185,7 +187,7 @@ Na versão atual do software, usamos as seguintes \textit{features}:
 Em versões posteriores do software, as seguintes melhorias devem ser consideradas:
 
 \begin{enumerate}
-    \item Se atualmente as \textit{features} estão organizadas em torno da fala, futuramente faria sentido reorientá-las em direção à audição. \citet{livroDoPlinio} discute certas diferenças desses dois polos e seria importante explorar compensações que levem em conta efeitos psicoacústicos conhecidos -- e.g. a resposta de frequências do ouvido humano é não-linear, o que pode ser melhor modelado usando-se semitons ao invés de Hz; variações de \textit{f0} causam a percepção de maior duração; a sensação de \textit{pitches} agudos é amplificada por maiores volumes; etc.
+    \item Se atualmente as \textit{features} estão organizadas em torno da fala, futuramente faria sentido reorientá-las em direção à audição. \citet{livroDoPlinio} discute certas diferenças desses dois polos e seria importante explorar compensações que levem em conta efeitos psicoacústicos conhecidos -- e.g. a resposta de frequências do ouvido humano é não-linear, o que pode ser melhor modelado usando-se semitons ao invés de Hz; variações de $f_0$ causam a percepção de maior duração; a sensação de \textit{pitches} agudos é amplificada por maiores volumes; etc.
     
     \item \textsc{rms} é uma medida pouco resistente a diferenças de gravação não relacionadas à diferenças de esforço vocal. Um falante que tenha a voz em volume constante mas que se aproxime ou se distancie do microfone terá um \textsc{rms} artificialmente modificado. As medidas de intensidade \textit{relativas} -- calculadas pela diferença de intensidade entre faixas de baixa e alta frequência -- são mais robustas ao ambiente de gravação.
 \end{enumerate}
@@ -262,7 +264,7 @@ Pela quantidade de possibilidades a se testar, e considerando as dificuldades lo
 
 Nossos objetivos eram então \num{1} descobrir se os participantes interpretariam de maneira consistente as relações entre emoções no áudio e modulações tipográficas, \num{2} explorar relações entre padrões nas \textit{features} e padrões nas preferências dos participantes e \num{3} ajudar a formular hipóteses sobre o sucesso (ou eventual fracasso) da capacidade de cada eixo tipográfico representar cada \textit{feature} prosódica.
 
-Além dos três eixos tipográficos já testados no primeiro experimento, introduzimos um quarto, que chamamos de \textit{baseline shift}, ou deslocamento de linha de base. Nos inspiramos pela notação informal de melodia em canções brasileiras usada por \citet{tatit} que, supomos, seria especialmente adequada para representação de \textit{f0}. Na figura~\ref{mods-exp-2} vemos as quatro modulações tipográficas.
+Além dos três eixos tipográficos já testados no primeiro experimento, introduzimos um quarto, que chamamos de \textit{baseline shift}, ou deslocamento de linha de base. Nos inspiramos pela notação informal de melodia em canções brasileiras usada por \citet{tatit} que, supomos, seria especialmente adequada para representação de $f_0$. Na figura~\ref{mods-exp-2} vemos as quatro modulações tipográficas.
 
 \begin{marginfigure}[-6\baselineskip]
   \includegraphics{imgs/modulacoes-experimento-2.png}
@@ -283,7 +285,7 @@ A Figura~\ref{screenshot} mostra uma captura de tela do teste. Nela, dois cartõ
     ...participante [A] escolheu o eixo [B] ao invés do eixo [C], ambos representando a \textit{feature} [D] extraída da frase [E] e na qual fora atuada a emoção [F].
 \end{quote}
 
-Para reduzir a gama de possibilidades (e, assim, exigir uma quantidade menor de participantes antes de se chegar a resultados estatisticamente significantes), consideramos apenas duas \textit{features} (amplitude e \textit{f0}), quatro emoções (raiva, alegria, tristeza e surpresa, além do áudio neutro, que introduzimos) e duas frases (\textit{Filha, rúcula para pata} e \textit{Passarinho, cuidado com a asa}). Em relação às \textit{features}, vimos que nos áudios escolhidos \textit{duração} tinha uma correlação negativa forte com \textit{amplitude} e, talvez, pudesse ser excluída no teste. Com as emoções, também: \textit{nojo} e \textit{medo} nos áudios escolhidos tinham padrões prosódicos semelhantes ao de outras das emoções e, portanto, foram descartados.
+Para reduzir a gama de possibilidades (e, assim, exigir uma quantidade menor de participantes antes de se chegar a resultados estatisticamente significantes), consideramos apenas duas \textit{features} (amplitude e $f_0$), quatro emoções (raiva, alegria, tristeza e surpresa, além do áudio neutro, que introduzimos) e duas frases (\textit{Filha, rúcula para pata} e \textit{Passarinho, cuidado com a asa}). Em relação às \textit{features}, vimos que nos áudios escolhidos \textit{duração} tinha uma correlação negativa forte com \textit{amplitude} e, talvez, pudesse ser excluída no teste. Com as emoções, também: \textit{nojo} e \textit{medo} nos áudios escolhidos tinham padrões prosódicos semelhantes ao de outras das emoções e, portanto, foram descartados.
 
 No teste em si havia então 5 emoções × 4 eixos tipográficos × 2~frases, equivalendo a 40 cartões, combináveis de 60 maneiras. Em um teste piloto chegamos a 30 rodadas por participante como um bom meio termo entre querer cobrir o máximo número possível de combinações e quão cansativo podia ser o experimento. Dividimos o teste em duas rodadas, cada qual testando uma das \textit{features}. Para compensar efeitos de cansaço ou mesmo inaptitude no início, a ordem e pares eram sempre sorteados.\sidenote[][-4\baselineskip]{Durante o teste fazíamos algumas medições relacionadas ao uso da plataforma. Duas delas -- tempo gasto por rodada e quantidade de vezes que o participante ouviu o áudio antes de fazer a escolha -- tem valores consistentemente maiores que a média nas primeiras cinco rodadas, com uma queda forte e subsequente platô nas próximas 20 rodadas e uma queda suave nas últimas rodadas -- ou seja, mais para o final os participantes pareciam ir perdendo o interesse, indicando que não adiantaria estender muito o teste.}
 
@@ -330,7 +332,7 @@ Em relação aos outros dois eixos houve grande difusão de comentários. Sobre 
 
 Comentando sobre estratégias usadas para classificar cada cartão, emergiram dois principais grupos: no primeiro, mais frequente, o participante olhava para o cartão e buscava ``soá-lo'' mentalmente\sidenote{Ou, mais raramente, em voz baixa, como notamos em alguns casos.}, tentando interpretar em sons as modulações visuais nas letras. O segundo grupo ia no sentido oposto: tentava fazer soar a frase como que sob o efeito de cada uma das seis emoções para só então buscar nos cartões aquele cuja tipografia se aproximasse do som.
 
-Como muitos participantes sequer perceberam as modulações de \textit{largura} e que houve grande divergência em como foram interpretadas as modulações de \textit{inclinação}, podemos supor que ambas as estratégias relatadas sofrem de um mesmo problema: se apenas os momentos mais gritados foram bem capturados, grande parte da expressividade na voz da atriz se perdeu e, não só isso, essa perda compromete de maneira desigual cada uma das emoções.\sidenote[][-2\baselineskip]{\citet{deMoraes2016} mostram como variações nas \textit{features} de \textit{f0} e duração são sensíveis à expressão de diferentes emoções na voz.}
+Como muitos participantes sequer perceberam as modulações de \textit{largura} e que houve grande divergência em como foram interpretadas as modulações de \textit{inclinação}, podemos supor que ambas as estratégias relatadas sofrem de um mesmo problema: se apenas os momentos mais gritados foram bem capturados, grande parte da expressividade na voz da atriz se perdeu e, não só isso, essa perda compromete de maneira desigual cada uma das emoções.\sidenote[][-2\baselineskip]{\citet{deMoraes2016} mostram como variações nas \textit{features} de $f_0$ e duração são sensíveis à expressão de diferentes emoções na voz.}
 
 \subsection{O segundo experimento}
 
@@ -355,7 +357,7 @@ Os resultados do segundo experimento, sintetizados na tabela~\ref{tab:type_perf}
         tristeza & 45\% & 52\% & 46\% & 58\% \\
         surpresa & \cellcolor[HTML]{9ef7cd}72\% & 38\% & 49\% & 43\% \\
         \midrule
-        \multicolumn{5}{c}{ \textbf{\textit{f0} enquanto \textit{feature} representada.} }      \\
+        \multicolumn{5}{c}{ \textbf{\textit{f\textsubscript{0}} enquanto \textit{feature} representada.} }      \\
         \midrule
         emoção na voz & weight & width & slant & baseline shift  \\
         \midrule
@@ -381,20 +383,16 @@ Por exemplo: se, como nos mostra a tabela~\ref{tab:type_perf}, as pessoas não a
 
 Outra conclusão interessante é que tanto \textit{largura horizontal} quando \textit{inclinação}, pouco citados nas entrevistas do primeiro experimento, tem em geral uma performance mediana, com a preferência geral tendendo à inclinação apenas quando esta é associada a uma emoção que é diferente de todas as outras: a voz neutra. De fato, como pode-se notar na figura~\ref{slight_slant}, eleita a representação mais fiel da voz neutra, as modulações tipográficas aqui são praticamente imperceptíveis. Mas esse resultado não estranha: talvez estas tenham sido as escolhas dos participantes justamente porque, em vozes que buscam ser inexpressivas, as melhores representações seriam aquelas nas quais quase não haja modulação tipográfica. Se for mesmo esse o caso, pode-se supor que uma abordagem que pondere os atributos prosódicos para só então determinar quais eixos tipográficos modular deve considerar também a possibilidade de, para determinadas vozes, \textit{não modular eixo algum}.
 
-FALAR SOBRE RELAÇÃO ENTRE C-F0 E PERFORMANCE (aqueles dois gráficos)
+>>>>FALAR SOBRE RELAÇÃO ENTRE C-F0 E PERFORMANCE (aqueles dois gráficos)
+
+
+
 
 Uma última discussão se dá com os comentários deixados pelos participantes. Muitos desses textos discorrem sobre como foram interpretadas as modulações tipográficas. Notamos que cada eixo foi associado a diversas qualidades -- agressividade e firmeza para o \textit{peso}; uma voz melódica, quase cantada, ou divertida, ou ainda bêbada para o \textit{deslocamento vertical}; uma voz tímida para a~\textit{largura horizontal;} etc. 
 
 Surge que, nesse compêndio de qualidades, mesmo que as respostas tenham vindo difusas, cada uma trazendo adjetivos diferentes entre si, de um modo geral os participantes parecem não estar descrevendo os atributos \textit{acústicos} da prosódia que os eixos tipográficos representavam e tampouco as seis emoções que a atriz buscou representar. Antes, as descrições falam de vozes \textit{modificadas}, como se os participantes não tenham deduzido nem nosso modelo prosódico-tipográfico nem, como esperávamos no primeiro experimento, as emoções que a atriz buscou representar, mas sim uma interpretação própria que assimila emoção \textit{e}~acústica.
 
 Esse resultado condiz com o que discutem Boehner et al. quando apontam que ``a comunicação de afetos em um modelo interacional (...) é mais do que a mera transmissão, (...) requerindo das partes uma interpretação ativa.'' \sidenote[][-1\baselineskip]{\begin{otherlanguage}{english}\textit{[C]ommunication of affect in an interactional model (...) is more than transmission, [and] requires active interpretation.}\end{otherlanguage}  \citep{boehner2005affect}} A partir desta perspectiva, pode-se enquadrar melhor o propósito de um sistema construído a partir de nosso modelo prosódico-tipográfico: não querê-lo como uma maneira de informar ao leitor que em dada frase a voz representava esta ou aquela emoção, categórica e de contornos bem definidos, mas sim usar a tipografia como maneira de ressaltar aspectos expressivos na voz, ambíguos como a própria voz e, como ela, abertos a~múltiplas interpretações. Ainda segundo Boehner et al., a ``medida de sucesso de tais sistemas [como o nosso] está então não no fato de que deduzem ou não a emoção `correta', mas em se provocam o reconhecimento e reflexão sobre emoções em seus usuários.'' \sidenote[][-4\baselineskip]{\begin{otherlanguage}{english}\textit{Measures of success for such systems are therefore not whether the systems themselves deduce the `right' emotion but whether the systems encourage awareness of and reflection on emotions in users.}\end{otherlanguage} \citep{boehner2005affect}}
-
-
-
-
-
-
-%This interpretation is in line with Boehner et at. [2], who posit that “[C]ommunication of affect in an interactional model (...) is more than transmission,” and “requires active interpretation”. We can thus argue in favor of not directly trying to represent categorical emotions but, alternatively, of using visual cues indirectly related to affective states in a given utterance. Rather than seeing ambiguity as an issue which we should hopefully and eventually overcome, we can frame the open-endedness of these visual cues as successful precisely because they were complex and ambiguous — through them, participants could reinterpret what they were hearing in an unrestricted manner and, in so doing, these visual cues could be seen as enriching that which participants’ were already sensing from the voice and from the text itself.
 
 
 
