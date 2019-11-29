@@ -385,9 +385,21 @@ Outra conclusão interessante é que tanto \textit{largura horizontal} quando \t
 
 Se quando fizemos o primeiro e segundo experimentos ainda não conhecíamos alternativas mais robustas que o \textsc{rms} para medir intensidade, na análise dos dados do segundo experimento nos pareceu oportuno nos aproveitarmos da medida obtida pela distância entre a Frequência fundamental ($f_0$) e a Centroide espectral ($C-f_0$) -- \textit{feature} com a qual havíamos acabado de ter contato que, como \textsc{rms}, está relacionada à intensidade, mas que ao contrário desta captura o esforço vocal do falante com maior independência de particularidades do ambiente de gravação. Apesar de que a \textit{feature} não foi utilizada para modular a tipografia, os participantes tiveram acesso aos áudios originais, de onde por suposto conseguiram deduzir o esforço vocal da atriz o que, supomos, entrou em consideração em suas escolhas.
 
-Na figura~X, mostramos como a performance do eixo \textit{weight}, quando usado para representar a $f_0$, está relacionado ao valor $C-f_0$ médio de cada frase. Para a frase ``Filha'', encontramos uma equação de regressão significante\sidenote{``Filha'': (F(1,3)=39.27, p<0.05), \textsc{rse}=0.09; ``Passarinho'': (F(1,3)=24.07, p<0.05), \textsc{rse}=0.10} com um $R^2$ de 0,93 e fórmula de performance de $(C-f_0) * 10^{-3} - 1,29$. Para a frase ``Passarinho'', também encontramos uma equação de regressão significante com um $R^2$ de 0,89 e fórmula de performance de $(C-f_0) * 10^{-3} - 2,61$.
+\begin{marginfigure}[-2\baselineskip]
+  \includegraphics{imgs/weight--f0.png}
+  \caption{Relação entre performance de \textit{weight} e $C-f_0$}
+  \label{weight_as_f0}
+\end{marginfigure}
 
-Já na figura~Y, tomamos a performance do eixo \textit{baseline shift} representando $f_0$ e a relacionamos às mudanças de $C - f_0$ nas duas frases. As retas aqui se invertem, e as preferências dos participantes estão inversamente correlacionadas aos valores de $C-f_0$, ainda que neste caso as equações de regressão não tenham sido significantes\footnote{``Filha'': (F(1,3)=1.36, p=0.33), \textsc{rse}=0.23; ``Passarinho'': (F(1,3)=5.26, p=0.11), \textsc{rse}=0.16} -- são, portanto, mostradas como linhas tracejadas.
+Na figura~\ref{weight_as_f0}, mostramos como a performance do eixo \textit{weight}, quando usado para representar a $f_0$, está relacionado ao valor $C-f_0$ médio de cada frase. Para a frase ``Filha'', encontramos uma equação de regressão significante\sidenote[][2\baselineskip]{``Filha'': (F(1,3)=39.27, p<0.05), \textsc{rse}=0.09; ``Passarinho'': (F(1,3)=24.07, p<0.05), \textsc{rse}=0.10} com um $R^2$ de 0,93 e fórmula de performance de $(C-f_0) * 10^{-3} - 1,29$. Para a frase ``Passarinho'', também encontramos uma equação de regressão significante com um $R^2$ de 0,89 e fórmula de performance de $(C-f_0) * 10^{-3} - 2,61$.
+
+Já na figura~\ref{baseline_shift_as_f0}, tomamos a performance do eixo \textit{baseline shift} representando $f_0$ e a relacionamos às mudanças de $C - f_0$ nas duas frases. As retas aqui se invertem, e as preferências dos participantes estão inversamente correlacionadas aos valores de $C-f_0$, ainda que neste caso as equações de regressão não tenham sido significantes\footnote{``Filha'': (F(1,3)=1.36, p=0.33), \textsc{rse}=0.23; ``Passarinho'': (F(1,3)=5.26, p=0.11), \textsc{rse}=0.16} -- são, portanto, mostradas como linhas tracejadas.
+
+\begin{marginfigure}[2\baselineskip]
+  \includegraphics{imgs/baseline_shift--f0.png}
+  \caption{Relação entre performance de \textit{baseline shift} e $C-f_0$}
+  \label{baseline_shift_as_f0}
+\end{marginfigure}
 
 Sintetizando os dois achados, vemos que conforme aumenta o esforço vocal no áudio aumenta também a preferência pelo uso do eixo \textit{weight}. Em frases ditas com menor intensidade os participantes preferem, ainda que de maneira mais difusa, o uso do \textit{baseline shift}.
 
