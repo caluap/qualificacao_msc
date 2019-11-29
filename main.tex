@@ -17,7 +17,7 @@
 
 \RequirePackage[no-math]{fontspec}
 
-\documentclass{tufte-handout}
+\documentclass[a4paper]{tufte-handout}
 
 %\geometry{showframe}% for debugging purposes -- displays the margins
 \usepackage{amsmath}
@@ -135,7 +135,7 @@ Dentro deste projeto de mestrado, o escopo do trabalho circula em torno da cria�
 Nosso estudo é fundado na noção de que a prosódia da fala compreende uma dimensão emocional. Trata-se de uma constatação simples: o mesmo trato vocal que molda a fala é parte de um corpo que, sob efeito de diferentes estados emocionais, se tensiona e relaxa de diversas maneiras. A emoção não é, claro, a única dimensão que modula os parâmetros acústicos da prosódia:\sidenote[][-3\baselineskip]{Ainda que não tenhamos tratado a questão nos dois primeiros experimentos já realizados, lidar com o fato de que variações prosódicas em geral compreendem diversos aspectos além da emoção é um desafio importante em nosso trabalho.} diferentes autores enquadram sob formas diversas as funções da prosódia \citep{schotz2002linguistic}, mas para nossos propósitos cabe citar três aspectos: linguístico, paralinguístico e extralinguístico: 
 
 \begin{quotation}
-    Enquanto o conteúdo verbal -- efetivamente o significado das palavras -- é considerado como informação linguística, o canal extralinguístico contém informações sobre o estado base do falante, e.g. uma pessoa grande (...) terá uma voz mais grave do que a de uma criança. Alguns parâmetros extralinguísticos são também determinados pela cultura do falante. (...) O canal paralinguístico carrega informações sobre desvios passageiros da linha de base típica (extralinguística), tais como (...) a expressão de emoções. \sidenote[][-5\baselineskip]{\begin{otherlanguage}{english}
+    Enquanto o conteúdo verbal -- efetivamente o significado das palavras -- é considerado como informação linguística, o canal extralinguístico contém informações sobre o estado base do falante, e.g. uma pessoa grande (...) terá uma voz mais grave do que a de uma criança. Alguns parâmetros extralinguísticos são também determinados pela cultura do falante. (...) O canal paralinguístico carrega informações sobre desvios passageiros da linha de base típica (extralinguística), tais como (...) a expressão de emoções. \sidenote[][-4\baselineskip]{\begin{otherlanguage}{english}
     \textit{Whereas the verbal content, the actual meaning of the words, is thought of as linguistic information, the extralinguistic channel contains information about the speaker's basic state, e.g. a big person (...) will usually have a lower voice than a child. Some extralinguistic parameters are also determined by the culture of the speaker. (...) The paralinguistic channel carries information about momentary deviations from the usual (extralinguistic) baseline, such as (...) the expression of emotions.} \end{otherlanguage} \citep{quast2001automatic}}
 \end{quotation}
 
@@ -192,7 +192,7 @@ Em versões posteriores do software, as seguintes melhorias devem ser considerad
     \item \textsc{rms} é uma medida pouco resistente a diferenças de gravação não relacionadas à diferenças de esforço vocal. Um falante que tenha a voz em volume constante mas que se aproxime ou se distancie do microfone terá um \textsc{rms} artificialmente modificado. As medidas de intensidade \textit{relativas} -- calculadas pela diferença de intensidade entre faixas de baixa e alta frequência -- são mais robustas ao ambiente de gravação.
 \end{enumerate}
 
-A segunda parte do software envolve o mapeamento visual dessas \textit{features} no texto. Como \citet{wolfel2015}, consideramos que o mapeamento das variáveis contínuas do áudio nas poucas\sidenote[][-2\baselineskip]{Há de fato algumas raras famílias tipográficas que possuem tantos pesos a ponto de se poder questionar se a diferença entre cada um é grande o suficiente para ser percebida por si só (e.g. a Lucida Sans, que em sua versão completa tem 18 pesos entre o \textit{UltraThin} e o \textit{UltraBlack}). Mesmo que fosse esse o caso, nossa abordagem ainda se justificaria por, primeiro, manter-se agnóstica em relação a esta ou aquela fonte e, segundo, porque, propondo combinações de variações em eixos que não só o \textit{peso}, acabamos indo além do que se oferece nas mais extensas famílias tipográficas disponíveis.} categorias tipicamente disponíveis em uma fonte digital comum (e.g. peso leve, normal e negrito) levaria a resultados com poucas nuances, sem ecoar visualmente as sutilezas presentes na fala e que supomos importantes para a apreensão afetiva por parte do ouvinte.
+A segunda parte do software envolve o mapeamento visual dessas \textit{features} no texto. Como \citet{wolfel2015}, consideramos que o mapeamento das variáveis contínuas do áudio nas poucas\sidenote[][-8\baselineskip]{Há de fato algumas raras famílias tipográficas que possuem tantos pesos a ponto de se poder questionar se a diferença entre cada um é grande o suficiente para ser percebida por si só (e.g. a Lucida Sans, que em sua versão completa tem 18 pesos entre o \textit{UltraThin} e o \textit{UltraBlack}). Mesmo que fosse esse o caso, nossa abordagem ainda se justificaria por, primeiro, manter-se agnóstica em relação a esta ou aquela fonte e, segundo, porque, propondo combinações de variações em eixos que não só o \textit{peso}, acabamos indo além do que se oferece nas mais extensas famílias tipográficas disponíveis.} categorias tipicamente disponíveis em uma fonte digital comum (e.g. peso leve, normal e negrito) levaria a resultados com poucas nuances, sem ecoar visualmente as sutilezas presentes na fala e que supomos importantes para a apreensão afetiva por parte do ouvinte.
 
 Com isso, podemos considerar dois requisitos a partir dos quais deverá emergir a solução técnica para essas representações: \num{1} para as modulações tipográficas, não se deve discretizar (ao menos não perceptualmente) as \textit{features} que vierem do áudio, ou seja, a tipografia deverá conseguir ecoar mesmo mudanças sutis na fala; \num{2} deve ser possível que cada tipo de modulação funcione de maneira independente uma da outra na representação, pois também independentes entre si poderão ser as \textit{features} vindas do~áudio. \sidenote[][-2\baselineskip]{É igualmente plausível que uma palavra seja dita de maneira forte e rápida \textit{ou} de maneira forte a lenta, por exemplo, e a tipografia deverá conseguir ecoar as duas características de maneira independente uma da outra.}
 
@@ -297,6 +297,9 @@ Ao contrário dos outros dois, o terceiro experimento não foi realizado até o 
 
 Ainda assim, almejamos com o terceiro experimento explorar o espaço de aplicação das \textit{closed captions} usando nosso modelo prosódico-tipográfico, não porque ele já se tornou suficientemente maduro mas porque uma prova de conceito dos caminhos explorados no mestrado poderá tanto nos ajudar a definir estudos futuros mais relevantes quanto eventualmente inspirar outros pesquisadores a tentar também.
 
+>>>> CONTINUAR DAQUI
+% Nosso objetivo é, então, em parte criar uma prova de conceito do que criamos até aqui. Igualmente importante, buscaremos medir os efeitos  
+
 
 \section{Plano de trabalho e cronograma}\label{sec:plano_de_trabalho}
 
@@ -306,9 +309,9 @@ Ainda assim, almejamos com o terceiro experimento explorar o espaço de aplicaç
 
 Os resultados do primeiro experimento talvez valham mais pelo que as entrevistas revelaram do que propriamente pelas \textit{edit-distances} medidas nas organizações dos cartões. Estas deveriam medir se os participantes conseguiram intuir na tipografia aspectos do estado emocional da voz da atriz que leu  as frases impressas nos cartões, mas o efeito capturado foi muito pequeno: a \textit{edit-distance} média no experimento é, na média, apenas 2\% menor que a que se poderia esperar caso os participantes simplesmente sorteassem as posições de cada cartão (ver Figura~\ref{edit_dist_1}).
 
-\begin{marginfigure}
+\begin{marginfigure}[-9\baselineskip]
   \includegraphics{imgs/edit_distance_reais.png}
-  \caption{\textit{Edit-distances} das organizações coletadas (em azul) \textit{vs} uma organização ``aleatória'' (em amarelo).}
+  \caption{\textit{Edit-distances} das organizações coletadas dos participantes (em azul) \textit{vs} uma organização ``aleatória'' (em amarelo).}
   \label{edit_dist_1}
 \end{marginfigure}
 
@@ -390,15 +393,15 @@ Outra conclusão interessante é que tanto \textit{largura horizontal} quando \t
 
 Se quando fizemos o primeiro e segundo experimentos ainda não conhecíamos alternativas mais robustas que o \textsc{rms} para medir intensidade, na análise dos dados do segundo experimento nos pareceu oportuno nos aproveitarmos da medida obtida pela distância entre a Frequência fundamental ($f_0$) e a Centroide espectral ($C-f_0$) -- \textit{feature} com a qual havíamos acabado de ter contato que, como \textsc{rms}, está relacionada à intensidade, mas que ao contrário desta captura o esforço vocal do falante com maior independência de particularidades do ambiente de gravação. Apesar de que a \textit{feature} não foi utilizada para modular a tipografia, os participantes tiveram acesso aos áudios originais, de onde por suposto conseguiram deduzir o esforço vocal da atriz o que, supomos, entrou em consideração em suas escolhas.
 
-\begin{marginfigure}
+\begin{marginfigure}[-21\baselineskip]
   \includegraphics{imgs/weight--f0.png}
   \caption{Relação entre performance de \textit{weight} e $C-f_0$}
   \label{weight_as_f0}
 \end{marginfigure}
 
-Na figura~\ref{weight_as_f0}, mostramos como a performance do eixo \textit{weight}, quando usado para representar a $f_0$, está relacionado ao valor $C-f_0$ médio de cada frase. Para a frase ``Filha'', encontramos uma equação de regressão significante\sidenote{``Filha'': (F(1,3)=39.27, p<0.05), \textsc{rse}=0.09; ``Passarinho'': (F(1,3)=24.07, p<0.05), \textsc{rse}=0.10} com um $R^2$ de 0,93 e fórmula de performance de $(C-f_0) * 10^{-3} - 1,29$. Para a frase ``Passarinho'', também encontramos uma equação de regressão significante com um $R^2$ de 0,89 e fórmula de performance de $(C-f_0) * 10^{-3} - 2,61$.
+Na figura~\ref{weight_as_f0}, mostramos como a performance do eixo \textit{weight}, quando usado para representar a $f_0$, está relacionado ao valor $C-f_0$ médio de cada frase. Para a frase ``Filha'', encontramos uma equação de regressão significante\sidenote[][-5\baselineskip]{``Filha'': (F(1,3)=39.27, p<0.05), \textsc{rse}=0.09; ``Passarinho'': (F(1,3)=24.07, p<0.05), \textsc{rse}=0.10} com um $R^2$ de 0,93 e fórmula de performance de $(C-f_0) * 10^{-3} - 1,29$. Para a frase ``Passarinho'', também encontramos uma equação de regressão significante com um $R^2$ de 0,89 e fórmula de performance de $(C-f_0) * 10^{-3} - 2,61$.
 
-\begin{marginfigure}
+\begin{marginfigure}[-3\baselineskip]
   \includegraphics{imgs/baseline_shift--f0.png}
   \caption{Relação entre performance de \textit{baseline shift} e $C-f_0$}
   \label{baseline_shift_as_f0}
