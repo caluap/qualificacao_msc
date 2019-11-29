@@ -115,9 +115,9 @@
 
 \maketitle% this prints the handout title, author, and date
 
-\begin{abstract}
-\noindent Mollis a vitae sem vestibulum dictumst gravida a a scelerisque ad molestie primis ullamcorper a a. Mi adipiscing in eu a molestie cras blandit dui a dui natoque mollis parturient ultricies vel. Per tellus dis posuere faucibus a etiam velit ullamcorper rhoncus commodo in potenti sed in. A parturient neque neque a suscipit vestibulum facilisi lobortis dis viverra sem pretium phasellus dis parturient vestibulum dui at nibh imperdiet consectetur mauris ad magna condimentum in. Senectus at ut convallis varius enim morbi a nascetur vivamus himenaeos tristique a velit feugiat dapibus cubilia a ornare euismod eu augue id a a primis at. Sociis vestibulum erat duis quam mus vestibulum dui scelerisque tortor nulla natoque suspendisse erat adipiscing a tellus a duis erat eu pulvinar vestibulum consectetur nibh molestie curabitur congue. A ut varius egestas a proin condimentum adipiscing integer consectetur a amet consectetur ad mi sed hac nam quis adipiscing eleifend imperdiet lobortis lacinia varius penatibus a. Interdum et nam condimentum dapibus sed hac mi accumsan dolor vel sagittis convallis nisi id nostra nisl accumsan condimentum condimentum et mi adipiscing. Mauris ipsum arcu justo bibendum parturient a parturient ultricies pulvinar a suspendisse a a nisi a. Parturient volutpat duis cras netus parturient ut ad dui eros aliquet dolor ad cubilia justo a laoreet a posuere a diam lacinia porta.
-\end{abstract}
+% \begin{abstract}
+% \noindent Mollis.
+% \end{abstract}
 
 %\printclassoptions
 
@@ -135,7 +135,7 @@ Dentro deste projeto de mestrado, o escopo do trabalho circula em torno da cria�
 Nosso estudo é fundado na noção de que a prosódia da fala compreende uma dimensão emocional. Trata-se de uma constatação simples: o mesmo trato vocal que molda a fala é parte de um corpo que, sob efeito de diferentes estados emocionais, se tensiona e relaxa de diversas maneiras. A emoção não é, claro, a única dimensão que modula os parâmetros acústicos da prosódia:\sidenote[][-3\baselineskip]{Ainda que não tenhamos tratado a questão nos dois primeiros experimentos já realizados, lidar com o fato de que variações prosódicas em geral compreendem diversos aspectos além da emoção é um desafio importante em nosso trabalho.} diferentes autores enquadram sob formas diversas as funções da prosódia \citep{schotz2002linguistic}, mas para nossos propósitos cabe citar três aspectos: linguístico, paralinguístico e extralinguístico: 
 
 \begin{quotation}
-    Enquanto o conteúdo verbal -- efetivamente o significado das palavras -- é considerado como informação linguística, o canal extralinguístico contém informações sobre o estado base do falante, e.g. uma pessoa grande (...) terá uma voz mais grave do que a de uma criança. Alguns parâmetros extralinguísticos são também determinados pela cultura do falante. (...) O canal paralinguístico carrega informações sobre desvios passageiros da linha de base típica (extralinguística), tais como (...) a expressão de emoções. \sidenote[][-8\baselineskip]{\begin{otherlanguage}{english}
+    Enquanto o conteúdo verbal -- efetivamente o significado das palavras -- é considerado como informação linguística, o canal extralinguístico contém informações sobre o estado base do falante, e.g. uma pessoa grande (...) terá uma voz mais grave do que a de uma criança. Alguns parâmetros extralinguísticos são também determinados pela cultura do falante. (...) O canal paralinguístico carrega informações sobre desvios passageiros da linha de base típica (extralinguística), tais como (...) a expressão de emoções. \sidenote[][-5\baselineskip]{\begin{otherlanguage}{english}
     \textit{Whereas the verbal content, the actual meaning of the words, is thought of as linguistic information, the extralinguistic channel contains information about the speaker's basic state, e.g. a big person (...) will usually have a lower voice than a child. Some extralinguistic parameters are also determined by the culture of the speaker. (...) The paralinguistic channel carries information about momentary deviations from the usual (extralinguistic) baseline, such as (...) the expression of emotions.} \end{otherlanguage} \citep{quast2001automatic}}
 \end{quotation}
 
@@ -194,23 +194,23 @@ Em versões posteriores do software, as seguintes melhorias devem ser considerad
 
 A segunda parte do software envolve o mapeamento visual dessas \textit{features} no texto. Como \citet{wolfel2015}, consideramos que o mapeamento das variáveis contínuas do áudio nas poucas\sidenote[][-2\baselineskip]{Há de fato algumas raras famílias tipográficas que possuem tantos pesos a ponto de se poder questionar se a diferença entre cada um é grande o suficiente para ser percebida por si só (e.g. a Lucida Sans, que em sua versão completa tem 18 pesos entre o \textit{UltraThin} e o \textit{UltraBlack}). Mesmo que fosse esse o caso, nossa abordagem ainda se justificaria por, primeiro, manter-se agnóstica em relação a esta ou aquela fonte e, segundo, porque, propondo combinações de variações em eixos que não só o \textit{peso}, acabamos indo além do que se oferece nas mais extensas famílias tipográficas disponíveis.} categorias tipicamente disponíveis em uma fonte digital comum (e.g. peso leve, normal e negrito) levaria a resultados com poucas nuances, sem ecoar visualmente as sutilezas presentes na fala e que supomos importantes para a apreensão afetiva por parte do ouvinte.
 
-Com isso, podemos considerar dois requisitos a partir dos quais deverá emergir a solução técnica para essas representações: \num{1} para as modulações tipográficas, não se deve discretizar (ao menos não perceptualmente) as \textit{features} que vierem do áudio, ou seja, a tipografia deverá conseguir ecoar mesmo mudanças sutis na fala; \num{2} deve ser possível que cada tipo de modulação funcione de maneira independente uma da outra na representação, pois também independentes entre si poderão ser as \textit{features} vindas do~áudio. \sidenote{É igualmente plausível que uma palavra seja dita de maneira forte e rápida \textit{ou} de maneira forte a lenta, por exemplo, e a tipografia deverá conseguir ecoar as duas características de maneira independente uma da outra.}
+Com isso, podemos considerar dois requisitos a partir dos quais deverá emergir a solução técnica para essas representações: \num{1} para as modulações tipográficas, não se deve discretizar (ao menos não perceptualmente) as \textit{features} que vierem do áudio, ou seja, a tipografia deverá conseguir ecoar mesmo mudanças sutis na fala; \num{2} deve ser possível que cada tipo de modulação funcione de maneira independente uma da outra na representação, pois também independentes entre si poderão ser as \textit{features} vindas do~áudio. \sidenote[][-2\baselineskip]{É igualmente plausível que uma palavra seja dita de maneira forte e rápida \textit{ou} de maneira forte a lenta, por exemplo, e a tipografia deverá conseguir ecoar as duas características de maneira independente uma da outra.}
 
 Dada essa demarcação, excluímos, pela complexidade envolvida, o desenvolvimento de um algoritmo que reconstruísse o desenho da letra a partir de modificações em sua estrutura interna, como o fazem \citet{wolfel2015}; pelos motivos citados por \citet{haralambous1993}, trabalhar com a \textsc{metafont}, de Donald Knuth, também seria infrutífero.
 
-Optamos, então, por aplicar as modulações em \textit{variable fonts}. Há já implementações em diferentes ambientes -- as definições de \textsc{css} que definem como usar \textit{variable fonts} já funcionam nos principais navegadores\sidenote[][-4\baselineskip]{~88\% dos usuários já teriam acesso à tecnologia na internet. Ver: https://caniuse.com/\#feat=variable-fonts, acesso em 27/11/19.}, assim como  bibliotecas código livre para C e Python.
+Optamos, então, por aplicar as modulações em \textit{variable fonts}. Há já implementações em diferentes ambientes -- as definições de \textsc{css} que definem como usar \textit{variable fonts} já funcionam nos principais navegadores\sidenote[][-5\baselineskip]{~88\% dos usuários já teriam acesso à tecnologia na internet. Ver: https://caniuse.com/\#feat=variable-fonts, acesso em 27/11/19.}, assim como  bibliotecas código livre para C e Python.
 
 Publicada em setembro de 2016, a versão 1.8 da especificação OpenType define as \textit{variable fonts}. Nelas, o tipógrafo cria ``eixos'' -- dimensões que guiam diferentes tipos de modulação visual que poderá sofrer cada caractere. Uma fonte pode ter uma quantidade arbitrária de eixos, que operam de maneira independente uns dos outros \citep{varfontssepcs}. 
 
-\begin{marginfigure}
+\begin{marginfigure}[-4\baselineskip]
   \includegraphics{imgs/grafico-var.png}
   \caption{Como o glifo `e' se modifica conforme variam os valores de seus três eixos?}
   \label{grafico_var}
 \end{marginfigure}
     
-Internamente, em uma \textit{variable font} estão definidos os pontos que compõe o desenho de cada letra em sua posição central, \textit{neutra}, além das instruções sobre como cada um desses pontos deve se transformar quando um dado eixo tiver definido seu menor e maior valores possíveis, com as posições intermediárias sendo interpoladas.
+Internamente, em uma \textit{variable font} estão definidos os pontos que compõe o desenho de cada letra em sua posição central, \textit{neutra}, além das instruções sobre como cada um desses pontos deve se transformar quando um dado eixo tiver definido seu menor e maior valores possíveis, com as posições intermediárias sendo interpoladas. (Ver exemplo esquemático na Figura~\ref{grafico_var}.)
     
-Por exemplo, uma fonte contendo os eixos \textit{peso} e \textit{largura horizontal} poderá oferecer uma versão estreita e grossa (largura no mínimo, peso no máximo), ou outra estendida e fina (largura no máximo, peso no mínimo), além das posições intermediárias.
+Por exemplo, uma fonte contendo os eixos \textit{peso} e \textit{largura horizontal} poderá oferecer uma versão estreita e grossa (largura no mínimo, peso no máximo), ou outra estendida e fina (largura no máximo, peso no mínimo), além das posições intermediárias. (Ver exemplo na Figura~\ref{curta_grossa_longa_fina}.)
 
 \begin{marginfigure}[\baselineskip]
   \includegraphics{imgs/curta-grossa-longa-fina.png}
@@ -234,7 +234,7 @@ Aplicamos o seguinte mapeamento de parâmetros prosódicos para eixos tipográfi
     \item Frequência fundamental \enskip \textrightarrow \enskip \textit{Slant} (inclinação) -- este uso uma aposta nossa. Não encontramos exemplos de seu uso na representação de prosódia, mas quisemos evitar o uso que \citet{bessemans2017} faz do deslocamento de linha de base para representar \textit{pitch}, por questões que esse uso traria em textos mais longos (ainda que tenhamos voltado atrás no segundo experimento);
 \end{itemize}
 
-\begin{marginfigure}
+\begin{marginfigure}[0.05\baselineskip]
   \includegraphics{imgs/exemplos-frases-2.png}
   \caption{Exemplo de cada frase usada nos cartões com aplicação do modelo prosódico-tipográfico.}
   \label{exemplo_frases}
@@ -244,7 +244,7 @@ Os seis arquivos de áudio para cada uma das quatro frases foram então proces
 
 Para a avaliação realizaríamos sessões de \textit{card sorting}, uma técnica de exploração e avaliação de taxonomias comum no campo da \textsc{ihc} (Interação Humano-Computador) para arquitetar sites ou softwares, mas que tem aplicabilidade em outras áreas sempre que se queira investigar como diferentes pessoas formulam modelos mentais para estruturar algum conjunto de dados \citep{about_cardsorting}.
 
-Em suas duas formas mais comuns, a \textit{open} e \textit{closed card sorting}, faz-se uma atividade na qual um grupo de pessoas\sidenote{\textit{Stakeholders} que podem ou não ser especialistas -- em algumas situações, busca-se um público leigo para desvendar como ele organiza mentalmente as informações de uma área na qual seu conhecimento é superficial.}, uma a uma, organiza um conjunto de cartões de papel em diferentes envelopes. Dentro da taxonomia que se quer investigar, cada cartão representa um dado e cada envelope representa uma categoria. Estas podem ser pré-definidas (\textit{closed cart sorting}) ou criadas no ato pelos próprios participantes (\textit{open card sorting}). Nos interessava a primeira opção: um dos usos típicos da \textit{closed card sorting} é testar se uma dada taxonomia é adequada para descrever um conjunto de informações. Em nosso caso, essa taxonomia seria as seis emoções a partir das quais os atores encenaram cada gravação de áudio. No experimento, esperávamos descobrir quão bem as ``Big Six'' serviriam para descrever os textos que foram modulados visualmente de acordo com o áudio.
+Em suas duas formas mais comuns, a \textit{open} e \textit{closed card sorting}, faz-se uma atividade na qual um grupo de pessoas\sidenote[][-2\baselineskip]{\textit{Stakeholders} que podem ou não ser especialistas -- em algumas situações, busca-se um público leigo para desvendar como ele organiza mentalmente as informações de uma área na qual seu conhecimento é superficial.}, uma a uma, organiza um conjunto de cartões de papel em diferentes envelopes. Dentro da taxonomia que se quer investigar, cada cartão representa um dado e cada envelope representa uma categoria. Estas podem ser pré-definidas (\textit{closed cart sorting}) ou criadas no ato pelos próprios participantes (\textit{open card sorting}). Nos interessava a primeira opção: um dos usos típicos da \textit{closed card sorting} é testar se uma dada taxonomia é adequada para descrever um conjunto de informações. Em nosso caso, essa taxonomia seria as seis emoções a partir das quais os atores encenaram cada gravação de áudio. No experimento, esperávamos descobrir quão bem as ``Big Six'' serviriam para descrever os textos que foram modulados visualmente de acordo com o áudio.
 
 Para analisar os resultados, decidimos pelo método de comparação de \textit{edit distances}. Esta é uma medida quantitativa na qual obtém-se a soma de operações de troca de posição necessárias para converter um arranjo de cartões em outro, ou seja, um índice da divergência entre os conjuntos -- útil para medirmos quão convergente cada participante foi em relação às ``Big Six.'' \citep{nawaz2012}
 
@@ -264,9 +264,9 @@ Pela quantidade de possibilidades a se testar, e considerando as dificuldades lo
 
 Nossos objetivos eram então \num{1} descobrir se os participantes interpretariam de maneira consistente as relações entre emoções no áudio e modulações tipográficas, \num{2} explorar relações entre padrões nas \textit{features} e padrões nas preferências dos participantes e \num{3} ajudar a formular hipóteses sobre o sucesso (ou eventual fracasso) da capacidade de cada eixo tipográfico representar cada \textit{feature} prosódica.
 
-Além dos três eixos tipográficos já testados no primeiro experimento, introduzimos um quarto, que chamamos de \textit{baseline shift}, ou deslocamento de linha de base. Nos inspiramos pela notação informal de melodia em canções brasileiras usada por \citet{tatit} que, supomos, seria especialmente adequada para representação de $f_0$. Na figura~\ref{mods-exp-2} vemos as quatro modulações tipográficas.
+Além dos três eixos tipográficos já testados no primeiro experimento, introduzimos um quarto, que chamamos de \textit{baseline shift}, ou deslocamento de linha de base. Nos inspiramos pela notação informal de melodia em canções brasileiras usada por \citet{tatit} que, supomos, seria especialmente adequada para representação de $f_0$. Na figura~\ref{mods-exp-2}, um exemplo das quatro modulações tipográficas, geradas à partir do mesmo áudio.
 
-\begin{marginfigure}[-6\baselineskip]
+\begin{marginfigure}
   \includegraphics{imgs/modulacoes-experimento-2.png}
   \caption{As quatro modulações tipográficas testadas no segundo experimento. Respectivamente: \textit{weight}, \textit{width}, \textit{slant} e \textit{baseline shift}. NOte que elas não estão combinadas entre si, pois assim foram usadas no experimento.}
   \label{mods-exp-2}
@@ -292,6 +292,9 @@ No teste em si havia então 5 emoções × 4 eixos tipográficos × 2~frases, eq
 Ao final das 30 rodadas havia um campo de texto livre, no qual os participantes podiam nos deixar comentários quaisquer.
 
 \subsection{Experimento \#3: }\label{sec:met_exp_3}
+
+Ao contrário dos outros dois, o terceiro experimento não foi executado até o momento em que escrevemos, sendo planejado como a última etapa do projeto de mestrado. Apesar de acreditarmos que estudos futuros devam explorar inúmeras áreas que tocamos mas não aprofundamos -- entre elas, melhor modelo de extração de prosódia; novos eixos tipográficos, inclusive eventuais eixos especificamente criados tendo em vista a representação prosódica; comportamento do modelo quando usado com áudios gerados 
+
 
 \section{Plano de trabalho e cronograma}\label{sec:plano_de_trabalho}
 
