@@ -113,6 +113,16 @@
 \newcommand{\num}[1]{\textsc{(\oldstylenums{#1})}}
 % \usepackage{xcolor}
 
+% from: https://tex.stackexchange.com/questions/389608/copying-subsection-style-to-subsubsection
+\titleclass{\subsubsection}{straight}
+\titleformat{\subsubsection}%
+  [hang]% shape
+  {\normalfont\normalsize\scshape}% format applied to label+text
+  {\thesubsubsection}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
+
 
 
 \begin{document}
@@ -128,15 +138,17 @@
 \section{Objetivos e justificativas do projeto de pesquisa}\label{sec:objetivos}
 %\subsection{Headings}\label{sec:headings}
 
-De um modo geral, ao representar visualmente um texto a tipografia se ocupa principalmente do que ele diz e não do \textit{como} dizê-lo. Ainda que respeite pausas e mudanças de entoação que diferenciem asserções de interrogações, ao ler em voz alta o leitor tem grande margem para fazer soar as palavras conforme sua própria interpretação do texto, das personagens, das intenções do autor etc. Essa abertura a diferentes interpretações abre um campo riquíssimo de expressão, pois, dado que o \textit{que se diz} é modificado por \textit{como se diz}, um mesmo texto pode adquirir inúmeros diferentes sentidos a depender das escolhas dramáticas tomadas por seu leitor.
+De um modo geral, ao representar visualmente um texto a tipografia se ocupa principalmente do que ele diz e não do \textit{como} dizê-lo. Ainda que respeite pausas e mudanças de entoação que diferenciem asserções de interrogações, ao ler em voz alta o leitor tem grande margem para fazer soar as palavras conforme sua própria interpretação do texto, das personagens, das intenções do autor, etc. Essa abertura a diferentes interpretações abre um campo riquíssimo de expressão, pois, dado que o \textit{que se diz} é modificado por \textit{como se diz}, um mesmo texto pode adquirir inúmeros diferentes sentidos a depender das escolhas dramáticas tomadas por seu leitor.
 
 Há situações, no entanto, em que a tipografia não representa um texto abstrato ainda não esculpido por seu leitor mas sim uma fala específica na qual essas escolhas dramáticas \textit{já foram} tomadas. É o caso das legendas em filmes, que fixam visualmente as palavras que as personagens dizem no momento em que são ditas. Aqui há uma equivalência muito próxima entre o que é dito e o que se escreve, mas notem que as escolhas dramáticas se perderam: a tipografia cristaliza \textit{o que se diz}, mas ignora quase que por completo \textit{como foi dito}. 
 
-A depender do caso essa perda terá maior ou menor importância: uma legenda que traduza a língua das personagens para a língua dos espectadores cumpre uma função muito específica onde, talvez, a expressão vocal não seja um foco de maior importância. Mas há também as situações em que a legenda serve para dar acesso a essa expressão vocal: sistemas de \textit{closed captions} ajudam pessoas com diferentes graus de deficiências auditivas a ter acesso ao que falam as personagens em um vídeo e, aqui, o fato de que essa tradução visual ignora as escolhas dramáticas que o áudio contempla deve ser enquadrado como um problema. 
+A depender do caso, essa perda terá menor importância: uma legenda que traduza a língua das personagens para a língua dos espectadores cumpre uma função muito específica onde, talvez, a expressão vocal não seja um foco de maior importância. Mas há também as situações em que a legenda serve para dar acesso a essa expressão vocal: sistemas de \textit{closed captions} ajudam pessoas com diferentes graus de deficiências auditivas a ter acesso ao que falam as personagens em um vídeo e, aqui, o fato de que essa tradução visual ignora as escolhas dramáticas que o áudio contempla deve ser enquadrado como um problema. 
 
-Estados emocionais, ênfases, ironias, sarcasmos etc se perdem quando representados por uma tipografia que achata toda expressão vocal, igualando o que em sua origem era desigual. Partindo dessa ideia de que os sentidos de um texto se modificam pelas maneiras como ele é dito, nosso trabalho busca desenvolver uma abordagem para modelar essa expressividade vocal e, então, representá-la tipograficamente, no que estamos chamando de \textit{modelo prosódico-tipográfico}, visando especialmente sua aplicação em sistemas de legendagem.
+Estados emocionais, ênfases, ironias, sarcasmos etc se perdem quando representados por uma tipografia que uniformiza toda expressão vocal, igualando o que em sua origem era desigual. De fato, a tipografia em sua origem é exatamente isso: letras construídas a partir de moldes padronizados. Com a tipografia digital, em especial aquela parametrizável, pode-se pensar a questão de maneira distinta. 
 
-Especificamente no escopo deste projeto de mestrado, buscaremos desenvolver um mapeamento entre \textit{features} acústicas relacionadas à prosódia da voz e eixos tipográficos, que implementaremos computacionalmente e cujos resultados avaliaremos em uma série de testes com participantes que buscarão investigar:
+Partindo da ideia de que os sentidos de um texto se modificam pelas maneiras como ele é dito, nosso trabalho busca desenvolver uma abordagem para modelar a expressividade vocal contida na prosódia para, então, representá-la tipograficamente, no que estamos chamando de \textit{modelo prosódico-tipográfico}, visando sua aplicação na legendagem, para o que uma abordagem computacional e passível de automatização é fundamental.
+
+Especificamente no escopo deste projeto de mestrado, buscaremos desenvolver um mapeamento entre \textit{features} acústicas relacionadas à prosódia da voz e eixos tipográficos, que implementaremos computacionalmente e cujos resultados avaliaremos em uma série de testes com participantes que investigarão:
 \begin{enumerate}
     \item se nosso modelo produz respostas consistentes nos leitores;
     \item quais \textit{features} prosódicas melhor se relacionam a quais eixos tipográficos e em quais situações;
@@ -151,8 +163,8 @@ Especificamente no escopo deste projeto de mestrado, buscaremos desenvolver um m
 
 % Dentro deste projeto de mestrado, o escopo do trabalho circula em torno da criação de um protótipo que permita interpretar computacionalmente falas expressivas para então codificá-las, também computacionalmente, enquanto representações tipográficas. Além de desenvolvê-lo, buscaremos avaliar diferentes aspectos desse modelo prosódico-tipográfico, medindo seus efeitos e investigando seu funcionamento.
 
-% \section{Trabalhos Relacionados}\label{sec:revisao_bibliografica}
-\section{Revisão bibliográfica resumida}\label{sec:revisao_bibliografica}
+\section{Trabalhos relacionados}\label{sec:revisao_bibliografica}
+% \section{Revisão bibliográfica resumida}\label{sec:revisao_bibliografica}
 
 \subsection{Prosódia enquanto dimensão emocional}
 
@@ -491,6 +503,35 @@ Surge que, nesse compêndio de qualidades, mesmo que de maneira difusa, de um mo
 Esse resultado condiz com o que discutem Boehner et al. quando apontam que ``a comunicação de afetos em um modelo interacional (...) é mais do que a mera transmissão, (...) requerindo das partes uma interpretação ativa.'' \sidenote[][-1\baselineskip]{\begin{otherlanguage}{english}\textit{[C]ommunication of affect in an interactional model (...) is more than transmission, [and] requires active interpretation.}\end{otherlanguage}  \citep{boehner2005affect}} A partir desta perspectiva, pode-se enquadrar melhor o propósito de um sistema construído a partir de nosso modelo prosódico-tipográfico: não querê-lo como uma maneira de informar ao leitor que em dada frase a voz representava esta ou aquela emoção, categórica e de contornos bem definidos, mas sim usar a tipografia como maneira de ressaltar aspectos expressivos na voz, ambíguos como a própria voz e, como ela, abertos a~múltiplas interpretações. Ainda segundo Boehner et al., a ``medida de sucesso de tais sistemas [como o nosso] está então não no fato de que deduzem ou não a emoção `correta', mas em se provocam o reconhecimento e reflexão sobre emoções em seus usuários.'' \sidenote[][-3\baselineskip]{\begin{otherlanguage}{english}\textit{Measures of success for such systems are therefore not whether the systems themselves deduce the `right' emotion but whether the systems encourage awareness of and reflection on emotions in users.}\end{otherlanguage} \citep{boehner2005affect}}
 
 
+\subsection{Publicações e apoios}
+
+\subsubsection{resumos expandidos publicados em workshops}
+
+\hangindent=1em
+\hangafter=1
+    Pataca, C. L.; Costa, P. D. P. (\oldstylenums{2019}).  Tipografia modulada pela fala. \textit{Décimo segundo Encontro dos Alunos e Docentes do Departamento de Engenharia de Computação e Automação Industrial- \textsc{xii eadca. feec}/Unicamp.} \oldstylenums{17-18} de outubro de \oldstylenums{2019}.
+
+
+\subsubsection{trabalhos publicados em anais de congressos}
+
+\hangindent=1em
+\hangafter=1
+Pataca, C. L.; Costa, P. D. P. (\oldstylenums{2019}). Tipografia modulada pela fala: avaliação de um algoritmo de geração de prosódia visual em textos, p. \oldstylenums{1882-1890}. In \textit{Anais do 9º \textsc{cidi} | Congresso Internacional de Design da Informação, edição \oldstylenums{2019}.} São Paulo: Blucher, \oldstylenums{2019}. \textsc{doi} 10.5151/9cidi-congic-4.0314 
+
+\subsubsection{trabalhos submetidos e em processo de apreciação}
+\hangindent=1em
+\hangafter=1
+Pataca, C. L.; Costa, P. D. P. Speech Modulated Typography: Towards an Affective Representation Model. \textit{Submetido ao \textsc{acm iui} \oldstylenums{2020} / International Conference on Intelligent User Interfaces.}
+
+
+\subsubsection{apoios recebidos}
+\begin{itemize}
+    \item \textsc{sigchi} Student Travel Grant for \textsc{iui} \oldstylenums{2020} (aplicável caso o artigo submetido seja aprovado).
+    \item Apoio da Coordenação de Aperfeiçoamento de Pessoal de Nível Superio -- Brasil (\textsc{capes}) -- Código de Financiamento \oldstylenums{001}
+\end{itemize}
+
+
+
 \pagebreak
 
 \section{Cronograma}\label{sec:plano_de_trabalho}
@@ -499,8 +540,6 @@ Esse resultado condiz com o que discutem Boehner et al. quando apontam que ``a c
   \includegraphics[width=.95\linewidth]{imgs/cronograma.pdf}
   \label{fig:cronograma}
 \end{figure*}
-
-\pagebreak
 
 
 
