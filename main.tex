@@ -125,11 +125,28 @@
 \section{Objetivos e justificativas do projeto de pesquisa}\label{sec:objetivos}
 %\subsection{Headings}\label{sec:headings}
 
-Em um filme, as legendas traduzem em texto aquilo que falam as personagens. Sons, codificados pelas letras, dão acesso ao \textit{que} é dito, mas essa representação ignora \textit{como} as palavras são ditas. Nosso trabalho parte da ideia de que, dado que os sentidos do \textit{que se diz} são modificados pelo \textit{como se diz}, um sistema de legendas poderia buscar representações visuais que permitissem a seus espectadores intuir qualidades expressivas na voz das personagens e, assim, ter uma experiência audiovisual mais~rica.
+De um modo geral, ao representar visualmente um texto a tipografia se ocupa principalmente do que ele diz e não do \textit{como} dizê-lo. Ainda que respeite pausas e mudanças de entoação que diferenciem asserções de interrogações, ao ler em voz alta o leitor tem grande margem para fazer soar as palavras conforme sua própria interpretação do texto, das personagens, das intenções do autor etc. Essa abertura a diferentes interpretações abre um campo riquíssimo de expressão, pois, dado que o \textit{que se diz} é modificado por \textit{como se diz}, um mesmo texto pode adquirir inúmeros diferentes sentidos a depender das escolhas dramáticas tomadas por seu leitor.
 
-Tal sistema poderia ganhar usos como um componente de aplicações de acessibilidade, em especial considerando um público com deficiências auditivas que, a princípio, é excluído de toda uma dimensão expressiva quando assiste a conteúdos audiovisuais. Além desse uso mais restrito, imaginamos que, da mesma forma que as \textit{closed captions} trazem benefícios para públicos em geral, ouvintes ou não \citep{fiske_video_2015}, uma legenda expressiva poderia ser útil para todos os públicos.
+Há situações, no entanto, em que a tipografia não representa um texto abstrato ainda não esculpido por seu leitor mas sim uma fala específica na qual essas escolhas dramáticas \textit{já foram} tomadas. É o caso das legendas em filmes, que fixam visualmente as palavras que as personagens dizem no momento em que são ditas. Aqui há uma equivalência muito próxima entre o que é dito e o que se escreve, mas notem que as escolhas dramáticas se perderam: a tipografia cristaliza \textit{o que se diz}, mas ignora quase que por completo \textit{como foi dito}. 
 
-Dentro deste projeto de mestrado, o escopo do trabalho circula em torno da criação de um protótipo que permita interpretar computacionalmente falas expressivas para então codificá-las, também computacionalmente, enquanto representações tipográficas. Além de desenvolvê-lo, buscaremos avaliar diferentes aspectos desse modelo ``prosódico-tipográfico'', medindo seus efeitos e investigando seu funcionamento.
+A depender do caso essa perda terá maior ou menor importância: uma legenda que traduza a língua das personagens para a língua dos espectadores cumpre uma função muito específica onde, talvez, a expressão vocal não seja um foco de maior importância. Mas há também as situações em que a legenda serve para dar acesso a essa expressão vocal: sistemas de \textit{closed captions} ajudam pessoas com diferentes graus de deficiências auditivas a ter acesso ao que falam as personagens em um vídeo e, aqui, o fato de que essa tradução visual ignora as escolhas dramáticas que o áudio contempla deve ser enquadrado como um problema. 
+
+Estados emocionais, ênfases, ironias, sarcasmos etc se perdem quando representados por uma tipografia que achata toda expressão vocal, igualando o que em sua origem era desigual. Partindo dessa ideia de que os sentidos de um texto se modificam pelas maneiras como ele é dito, nosso trabalho busca desenvolver uma abordagem para modelar essa expressividade vocal e, então, representá-la tipograficamente, no que estamos chamando de \textit{modelo prosódico-tipográfico}, visando especialmente sua aplicação em sistemas de legendagem.
+
+Especificamente no escopo deste projeto de mestrado, buscaremos desenvolver um mapeamento entre \textit{features} acústicas relacionadas à prosódia da voz e eixos tipográficos, que implementaremos computacionalmente e cujos resultados avaliaremos em uma série de testes com participantes que buscarão investigar:
+\begin{enumerate}
+    \item se nosso modelo produz respostas consistentes nos leitores;
+    \item quais \textit{features} prosódicas melhor se relacionam a quais eixos tipográficos e em quais situações;
+    \item se o uso de legendas moduladas pela voz produz uma experiência audiovisual mais rica.
+\end{enumerate}
+
+% Em um filme, as legendas traduzem em texto aquilo que falam as personagens. Sons, codificados pelas letras, dão acesso ao \textit{que} é dito, mas essa representação ignora \textit{como} as palavras são ditas. Há 
+
+% Nosso trabalho parte da ideia de que, dado que os sentidos do \textit{que se diz} são modificados pelo \textit{como se diz}, um sistema de legendas poderia buscar representações visuais que permitissem a seus espectadores intuir qualidades expressivas na voz das personagens e, assim, ter uma experiência audiovisual mais~rica.
+
+% Tal sistema poderia ganhar usos como um componente de aplicações de acessibilidade, em especial considerando um público com deficiências auditivas que, a princípio, é excluído de toda uma dimensão expressiva quando assiste a conteúdos audiovisuais. Além desse uso mais restrito, imaginamos que, da mesma forma que as \textit{closed captions} trazem benefícios para públicos em geral, ouvintes ou não \citep{fiske_video_2015}, uma legenda expressiva poderia ser útil para todos os públicos.
+
+% Dentro deste projeto de mestrado, o escopo do trabalho circula em torno da criação de um protótipo que permita interpretar computacionalmente falas expressivas para então codificá-las, também computacionalmente, enquanto representações tipográficas. Além de desenvolvê-lo, buscaremos avaliar diferentes aspectos desse modelo prosódico-tipográfico, medindo seus efeitos e investigando seu funcionamento.
 
 \section{Trabalhos Relacionados}\label{sec:revisao_bibliografica}
 %\section{Revisão bibliográfica resumida}\label{sec:revisao_bibliografica}
@@ -421,19 +438,25 @@ Outra conclusão interessante é que tanto \textit{largura horizontal} quando \t
 
 Se quando fizemos o primeiro e segundo experimentos ainda não conhecíamos alternativas mais robustas que o \textsc{rms} para medir intensidade, na análise dos dados do segundo experimento nos pareceu oportuno nos aproveitarmos da medida obtida pela distância entre a Frequência fundamental ($f_0$) e a Centroide espectral ($C-f_0$), \textit{feature} com a qual havíamos acabado de ter contato e que, como \textsc{rms}, está relacionada à intensidade, mas que ao contrário desta última captura o esforço vocal do falante com maior independência de particularidades do ambiente de gravação. Apesar de que a \textit{feature} não foi utilizada para modular a tipografia, os participantes tiveram acesso aos áudios, de onde por suposto conseguiram deduzir o esforço vocal da atriz.
 
-\begin{marginfigure}[-11\baselineskip]
+% \begin{figure*}[!htb]
+%   \includegraphics[width=.95\linewidth]{imgs/cronograma.pdf}
+%   \label{fig:cronograma}
+% \end{figure*}
+
+
+\begin{figure}
   \includegraphics{imgs/weight--f0.png}
   \caption{Relação entre performance de \textit{weight} e $C-f_0$}
   \label{weight_as_f0}
-\end{marginfigure}
+\end{figure}
 
 Na figura~\ref{weight_as_f0}, mostramos como a performance do eixo \textit{weight}, quando usado para representar a $f_0$, está relacionado ao valor $C-f_0$ médio de cada frase. Para a frase ``Filha'', encontramos uma equação de regressão significante\sidenote[][-3\baselineskip]{``Filha'': (F(1,3)=39.27, p<0.05), \textsc{rse}=0.09; ``Passarinho'': (F(1,3)=24.07, p<0.05), \textsc{rse}=0.10} com um $R^2$ de 0,93 e fórmula de performance de $(C-f_0) * 10^{-3} - 1,29$. Para a frase ``Passarinho'', também encontramos uma equação de regressão significante com um $R^2$ de 0,89 e fórmula de performance de $(C-f_0) * 10^{-3} - 2,61$.
 
-\begin{marginfigure}[-1\baselineskip]
+\begin{figure}
   \includegraphics{imgs/baseline_shift--f0.png}
   \caption{Relação entre performance de \textit{baseline shift} e $C-f_0$}
   \label{baseline_shift_as_f0}
-\end{marginfigure}
+\end{figure}
 
 Já na figura~\ref{baseline_shift_as_f0}, tomamos a performance do eixo \textit{baseline shift} representando $f_0$ e a relacionamos às mudanças de $C - f_0$ nas duas frases. As retas aqui se invertem, e as preferências dos participantes estão inversamente correlacionadas aos valores de $C-f_0$, ainda que neste caso as equações de regressão não tenham sido significantes\sidenote{``Filha'': (F(1,3)=1.36, p=0.33), \textsc{rse}=0.23; ``Passarinho'': (F(1,3)=5.26, p=0.11), \textsc{rse}=0.16} -- são, portanto, mostradas como linhas tracejadas.
 
