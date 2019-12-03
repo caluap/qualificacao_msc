@@ -194,7 +194,7 @@ Em especial, \citet{MurphyBerman1983} levantam um desafio relacionado às legend
 
 \section{Metodologia utilizada}\label{sec:metodologia}
 
-Visamos criar um modelo de mapeamento prosódia---tipografia aplicável a sistemas de legendagem e que torne mais imersivo o consumo de conteúdos audiovisuais. Descreveremos a seguir nossa abordagem para criação desse modelo e, na sequência, os três experimentos (dois dos quais já realizados) que visam investigar \num{1} quão consistentemente respondem leitores a essa tipografia modulada pela fala, \num{2} quais \textit{features} prosódicas melhor se relacionam a quais eixos tipográficos e em quais situações e, finalmente, \num{3} se o uso de legendas moduladas pela voz produz uma experiência subjetiva mais rica.
+Visamos criar um modelo de mapeamento prosódico-tipográfico aplicável a sistemas de legendagem que tornem mais imersivo o consumo de conteúdos audiovisuais. Descreveremos a seguir nossa abordagem para criação desse modelo e, na sequência, os três experimentos (dois dos quais já realizados) que visam investigar \num{1} quão consistentemente respondem leitores a essa tipografia modulada pela fala, \num{2} quais \textit{features} prosódicas melhor se relacionam a quais eixos tipográficos e em quais situações e, finalmente, \num{3} se o uso de legendas moduladas pela voz produz uma experiência subjetiva mais rica.
 
 \subsection{Modelo de extração e representação de prosódia}\label{sec:met_extract_represent}
 
@@ -366,18 +366,15 @@ Alguns exemplos destas perguntas incluem: Enquanto eu assistia ao drama, me desl
 
 \subsection{O primeiro experimento}\label{result_prim_exp}
 
-Os resultados do primeiro experimento talvez valham mais pelo que as entrevistas revelaram do que propriamente pelas \textit{edit-distances} medidas nas organizações dos cartões. Estas deveriam medir se os participantes conseguiram intuir na tipografia aspectos do estado emocional da voz da atriz que leu  as frases impressas nos cartões, mas o efeito capturado foi muito pequeno: a \textit{edit-distance} no experimento é, na média, apenas 2\% menor do que a que se poderia esperar caso os participantes simplesmente sorteassem as posições de cada cartão (ver Figura~\ref{edit_dist_1}).
+Os resultados do primeiro experimento talvez valham mais pelo que as entrevistas revelaram do que propriamente pelas \textit{edit-distances} medidas nas organizações dos cartões. Estas deveriam medir se os participantes conseguiram intuir na tipografia aspectos do estado emocional da voz da atriz que leu  as frases impressas nos cartões, mas o efeito capturado foi muito pequeno: a~\textit{edit-distance} média no experimento é apenas 2\% menor do que a que se poderia esperar caso os participantes simplesmente sorteassem as posições de cada cartão (ver Figura~\ref{edit_dist_1}).
 
-\begin{marginfigure}[-9\baselineskip]
+\begin{figure}
   \includegraphics{imgs/edit_distance_reais.png}
   \caption{\textit{Edit-distances} das organizações coletadas dos participantes (em azul) \textit{vs} uma organização ``aleatória'' (em amarelo).}
   \label{edit_dist_1}
-\end{marginfigure}
+\end{figure}
 
-Aqui, não pudemos intuir se nos dados estávamos vendo que nossa tipografia modulada pela fala era ineficaz ou se estávamos sofrendo com o mau desenho do experimento. Talvez, apostamos, seja mais o segundo caso: o modo como configuramos o \textit{card sort} pode ter conduzido a altas taxas de erro. Como \textit{todos} os cartões deveriam necessariamente ser atribuídos a uma emoção, estão embaralhados em nossos resultados coletados tanto cartões em que o participante tinha algum grau de certeza sobre a emoção quanto aqueles em que houve um ``chute.''\sidenote[][-1\baselineskip]{E, para piorar, no \textit{card sort} um cartão errado implicará necessariamente em um segundo cartão também errado.} Temos motivos para crer que esses chutes foram comuns, pois, tanto nas entrevistas quanto espontaneamente durante a atividade, muitos participantes relataram que a atividade era muito difícil.
-
-A essa dificuldade da atividade em si soma-se o fato de que misturamos no experimento, e sem nenhuma forma de controle que isolassem seus efeitos, variações de três \textit{features} prosódicas com três eixos tipográficos associados a seis emoções. Dado esse cenário, não é de se espantar que com os dados coletados nos foi muito difícil responder quão bem (ou mal) nosso modelo prosódico-tipográfico representava a voz da atriz em cada uma das emoções presentes. 
-
+Aqui, não pudemos intuir se nos dados estávamos vendo que nossa tipografia modulada pela fala era ineficaz ou se estávamos sofrendo com o mau desenho do experimento. Talvez, apostamos, seja mais o segundo caso: o modo como configuramos o \textit{card sort} pode ter conduzido a altas taxas de erro. Como \textit{todos} os cartões deveriam necessariamente ser atribuídos a uma emoção, estão embaralhados em nossos resultados coletados tanto cartões em que o participante tinha algum grau de certeza sobre a emoção quanto aqueles em que houve um ``chute.'' Temos motivos para crer que esses chutes foram comuns, pois, tanto nas entrevistas quanto espontaneamente durante a atividade, muitos participantes relataram que a atividade era muito difícil.
 
 \begin{marginfigure}
   \includegraphics{imgs/confusion-emoji2.png}
@@ -385,9 +382,11 @@ A essa dificuldade da atividade em si soma-se o fato de que misturamos no experi
   \label{matriz_confusao}
 \end{marginfigure}
 
+A essa dificuldade da atividade em si soma-se o fato de que misturamos, e sem controlar seus efeitos, variações de três \textit{features} prosódicas com três eixos tipográficos associados a seis emoções. Dado esse cenário, não é de se espantar que com os dados coletados nos foi muito difícil responder quão bem (ou mal) nosso modelo prosódico-tipográfico representava a voz da atriz em cada uma das emoções presentes. 
+
 Na tentativa de encontrar explicações alternativas para o baixo ganho no \textit{edit-distance}, nos perguntamos se certos aspectos do modelo prosódico-tipográfico não estariam fazendo os participantes trocarem uma emoção por outra. Esta hipótese nos ocorreu na análise da matriz de confusão da Figura~\ref{matriz_confusao}, que parece indicar uma possível troca feita pelos participantes especificamente entre os cartões representando medo e alegria (terceira e quarta linhas e colunas). Teria o modelo invertido o sentido de alguma das features ou eixos tipográficos em relação ao que seria intuitivo? Para testar a hipótese, calculamos novamente a \textit{edit-distance}, desta vez considerando que os cartões com medo seriam de alegria e vice-versa. Como mostra a Figura~\ref{edit_dist_2}, a performance melhora (8\% de ganho em relação à distribuição aleatória). Mas o efeito continua pequeno.
 
-\begin{marginfigure}[-3\baselineskip]
+\begin{marginfigure}
   \includegraphics{imgs/edit_distance_troca.png}
   \caption{\textit{Edit-distances} das organizações coletadas, mas com troca alegria--medo (em azul) \textit{vs} uma organização ``aleatória'' (em amarelo).}
   \label{edit_dist_2}
@@ -400,6 +399,8 @@ Em relação aos outros dois eixos houve grande difusão de comentários. Sobre 
 Comentando sobre estratégias usadas para classificar cada cartão, emergiram dois principais grupos: no primeiro, mais frequente, o participante olhava para o cartão e buscava ``soá-lo'' mentalmente\sidenote{Ou, mais raramente, em voz baixa, como notamos em alguns casos.}, tentando interpretar em sons as modulações visuais nas letras. O segundo grupo ia no sentido oposto: tentava fazer soar a frase como que sob o efeito de cada uma das seis emoções para só então buscar nos cartões aquele cuja tipografia se aproximasse do som.
 
 Como muitos participantes sequer perceberam as modulações de \textit{largura} e como houve grande divergência em como foram interpretadas as modulações de \textit{inclinação}, podemos supor que ambas as estratégias relatadas sofrem de um mesmo problema: se apenas os momentos mais gritados foram bem capturados, grande parte da expressividade na voz da atriz se perdeu e, não só isso, essa perda compromete de maneira desigual cada uma das emoções.\sidenote[][-2\baselineskip]{\citet{deMoraes2016} mostram como variações nas \textit{features} de $f_0$ e duração são sensíveis à expressão de diferentes emoções na voz, ou seja, a prosódia se modifica de maneira desigual a depender da emoção em questão.}
+
+\pagebreak
 
 \subsection{O segundo experimento}
 
@@ -442,11 +443,13 @@ Essa constatação, se verdadeira, carrega uma explicação possível para pelo 
 
 Por exemplo: se, como nos mostra a tabela~\ref{tab:type_perf}, as pessoas não acham que o eixo \textit{peso} reproduz bem a \textit{feature} \textsc{rms} em uma voz feliz, o fato de que assim o usávamos também nos cartões em que a atriz simulou felicidade pode tê-los aproximado da raiva ou da surpresa, emoções onde o \textit{peso} parece mais apropriado.
 
-\begin{marginfigure}[15\baselineskip]
-  \includegraphics{imgs/slight-slant.png}
+\begin{figure}
+  \begin{center}
+  \includegraphics[width=.93\textwidth]{imgs/slight-slant.png}
   \caption{\textit{Inclinação} como representação de \textsc{rms} na versão neutra da frase.}
   \label{slight_slant}
-\end{marginfigure}
+  \end{center}
+\end{figure}
 
 Outra conclusão interessante é que tanto \textit{largura horizontal} quando \textit{inclinação}, pouco citados nas entrevistas do primeiro experimento, tem em geral uma performance mediana, com a preferência geral tendendo à inclinação apenas quando esta é associada a uma emoção que é diferente de todas as outras: a voz neutra. De fato, como pode-se notar na figura~\ref{slight_slant}, eleita a representação mais fiel da voz neutra, as modulações tipográficas aqui são praticamente imperceptíveis. Mas esse resultado não estranha: talvez estas tenham sido as escolhas dos participantes justamente porque, em vozes que buscam ser inexpressivas, as melhores representações seriam aquelas nas quais quase não haja modulação tipográfica. Se for mesmo esse o caso, pode-se supor que uma abordagem que pondere os atributos prosódicos para só então determinar quais eixos tipográficos modular deve considerar também a possibilidade de, para determinadas situações, \textit{não modular eixo algum}.
 
@@ -460,25 +463,25 @@ Se quando fizemos o primeiro e segundo experimentos ainda não conhecíamos alte
 
 \begin{figure}
   \includegraphics{imgs/weight--f0.png}
-  \caption{Relação entre performance de \textit{weight} e $C-f_0$}
+  \caption{Relação entre índice de preferência de \textit{weight} enquanto representação de $f_0$ e a média de $C-f_0$ para cada emoção.}
   \label{weight_as_f0}
 \end{figure}
 
-Na figura~\ref{weight_as_f0}, mostramos como a performance do eixo \textit{weight}, quando usado para representar a $f_0$, está relacionado ao valor $C-f_0$ médio de cada frase. Para a frase ``Filha'', encontramos uma equação de regressão significante\sidenote[][-3\baselineskip]{``Filha'': (F(1,3)=39.27, p<0.05), \textsc{rse}=0.09; ``Passarinho'': (F(1,3)=24.07, p<0.05), \textsc{rse}=0.10} com um $R^2$ de 0,93 e fórmula de performance de $(C-f_0) * 10^{-3} - 1,29$. Para a frase ``Passarinho'', também encontramos uma equação de regressão significante com um $R^2$ de 0,89 e fórmula de performance de $(C-f_0) * 10^{-3} - 2,61$.
+Na figura~\ref{weight_as_f0}, mostramos como a performance do eixo \textit{weight}, quando usado para representar a $f_0$, está relacionado ao valor $C-f_0$ médio de cada frase. Para a frase ``Filha'', encontramos uma equação de regressão significante\sidenote{``Filha'': (F(1,3)=39.27, p<0.05), \textsc{rse}=0.09; ``Passarinho'': (F(1,3)=24.07, p<0.05), \textsc{rse}=0.10} com um $R^2$ de 0,93 e fórmula de performance de $(C-f_0) * 10^{-3} - 1,29$. Para a frase ``Passarinho'', também encontramos uma equação de regressão significante com um $R^2$ de 0,89 e fórmula de performance de $(C-f_0) * 10^{-3} - 2,61$.
+
+Já na figura~\ref{baseline_shift_as_f0}, tomamos a performance do eixo \textit{baseline shift} representando $f_0$ e a relacionamos às mudanças de $C - f_0$ nas duas frases. As retas aqui se invertem, e as preferências dos participantes estão inversamente correlacionadas aos valores de $C-f_0$, ainda que neste caso as equações de regressão não tenham sido significantes\sidenote[][-1\baselineskip]{``Filha'': (F(1,3)=1.36, p=0.33), \textsc{rse}=0.23; ``Passarinho'': (F(1,3)=5.26, p=0.11), \textsc{rse}=0.16} -- são, portanto, mostradas como linhas tracejadas.
 
 \begin{figure}
   \includegraphics{imgs/baseline_shift--f0.png}
-  \caption{Relação entre performance de \textit{baseline shift} e $C-f_0$}
+  \caption{Relação entre índice de preferência de \textit{baseline shift} enquanto representação de $f_0$ e a média de $C-f_0$ para cada emoção.}
   \label{baseline_shift_as_f0}
 \end{figure}
-
-Já na figura~\ref{baseline_shift_as_f0}, tomamos a performance do eixo \textit{baseline shift} representando $f_0$ e a relacionamos às mudanças de $C - f_0$ nas duas frases. As retas aqui se invertem, e as preferências dos participantes estão inversamente correlacionadas aos valores de $C-f_0$, ainda que neste caso as equações de regressão não tenham sido significantes\sidenote{``Filha'': (F(1,3)=1.36, p=0.33), \textsc{rse}=0.23; ``Passarinho'': (F(1,3)=5.26, p=0.11), \textsc{rse}=0.16} -- são, portanto, mostradas como linhas tracejadas.
 
 Sintetizando os dois achados, vemos que conforme aumenta o esforço vocal no áudio aumenta também a preferência pelo uso do eixo \textit{weight}. Em frases ditas com menor intensidade os participantes preferem, ainda que de maneira mais difusa, o uso do \textit{baseline shift}.
 
 Uma última discussão se dá com os comentários deixados pelos participantes. Muitos desses textos discorrem sobre como foram interpretadas as modulações tipográficas. Notamos que cada eixo foi associado a diversas qualidades -- agressividade e firmeza para o \textit{peso}; uma voz melódica, quase cantada, ou divertida, ou ainda bêbada para o \textit{deslocamento vertical}; uma voz tímida para a~\textit{largura horizontal;} etc. 
 
-Surge que, nesse compêndio de qualidades, mesmo que as respostas tenham vindo difusas, cada uma trazendo adjetivos diferentes entre si, de um modo geral os participantes parecem não estar descrevendo os atributos \textit{acústicos} da prosódia que os eixos tipográficos representavam e tampouco as seis emoções que a atriz buscou representar. Antes, as descrições falam de vozes \textit{modificadas}, como se os participantes não tenham deduzido nem nosso modelo prosódico-tipográfico nem, como esperávamos no primeiro experimento, as emoções que a atriz buscou representar, mas sim uma interpretação própria que assimila emoção \textit{e}~acústica.
+Surge que, nesse compêndio de qualidades, mesmo que de maneira difusa, de um modo geral os participantes parecem não estar descrevendo os atributos \textit{acústicos} da prosódia que os eixos tipográficos representavam e tampouco as seis emoções que a atriz buscou representar. Antes, as descrições falam de vozes \textit{modificadas}, como se os participantes não tenham deduzido nem nosso modelo prosódico-tipográfico nem, como esperávamos no primeiro experimento, as emoções que a atriz buscou representar, mas sim uma interpretação própria que assimila emoção \textit{e}~acústica.
 
 Esse resultado condiz com o que discutem Boehner et al. quando apontam que ``a comunicação de afetos em um modelo interacional (...) é mais do que a mera transmissão, (...) requerindo das partes uma interpretação ativa.'' \sidenote[][-1\baselineskip]{\begin{otherlanguage}{english}\textit{[C]ommunication of affect in an interactional model (...) is more than transmission, [and] requires active interpretation.}\end{otherlanguage}  \citep{boehner2005affect}} A partir desta perspectiva, pode-se enquadrar melhor o propósito de um sistema construído a partir de nosso modelo prosódico-tipográfico: não querê-lo como uma maneira de informar ao leitor que em dada frase a voz representava esta ou aquela emoção, categórica e de contornos bem definidos, mas sim usar a tipografia como maneira de ressaltar aspectos expressivos na voz, ambíguos como a própria voz e, como ela, abertos a~múltiplas interpretações. Ainda segundo Boehner et al., a ``medida de sucesso de tais sistemas [como o nosso] está então não no fato de que deduzem ou não a emoção `correta', mas em se provocam o reconhecimento e reflexão sobre emoções em seus usuários.'' \sidenote[][-3\baselineskip]{\begin{otherlanguage}{english}\textit{Measures of success for such systems are therefore not whether the systems themselves deduce the `right' emotion but whether the systems encourage awareness of and reflection on emotions in users.}\end{otherlanguage} \citep{boehner2005affect}}
 
