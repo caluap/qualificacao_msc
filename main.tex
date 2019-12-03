@@ -153,7 +153,7 @@ Especificamente no escopo deste projeto de mestrado, buscaremos desenvolver um m
 
 \subsection{Prosódia enquanto dimensão emocional}
 
-Nosso estudo é fundado na noção de que a prosódia da fala compreende uma dimensão emocional. Trata-se de uma constatação simples: o mesmo trato vocal que molda a fala é parte de um corpo que, quando sob efeito de diferentes estados emocionais, se tensiona e relaxa de diversas maneiras. A emoção não é a única dimensão que modula os parâmetros acústicos da prosódia.\sidenote{Ainda que não tenhamos tratado a questão nos dois primeiros experimentos já realizados, lidar com o fato de que variações prosódicas em geral compreendem diversos aspectos além da emoção é um desafio importante em nosso trabalho.} Diferentes autores enquadram sob formas diversas as funções da prosódia \citep{schotz2002linguistic}, mas para nossos propósitos cabe citar os aspectos linguístico, paralinguístico e extralinguístico: 
+Nosso estudo é fundado na noção de que a prosódia da fala compreende uma dimensão emocional. Trata-se de uma constatação simples: o mesmo trato vocal que molda a fala é parte de um corpo que, quando sob efeito de diferentes estados emocionais, se tensiona e relaxa de diversas maneiras. A emoção não é a única dimensão que modula os parâmetros acústicos da prosódia.\sidenote{Ainda que não tenhamos tratado a questão nos dois primeiros experimentos já realizados, lidar com o fato de que variações prosódicas em geral compreendem diversos aspectos além da emoção é um desafio importante em nosso trabalho.} Diferentes autores enquadram sob formas diversas as funções da prosódia \citep{schotz2002linguistic}, mas para nossos propósitos são três os aspectos que nos interessam: linguístico, paralinguístico e extralinguístico: 
 
 \begin{quotation}
     Enquanto o conteúdo verbal -- efetivamente o significado das palavras -- é considerado como informação linguística, o canal extralinguístico contém informações sobre o estado base do falante, e.g. uma pessoa grande (...) terá uma voz mais grave do que a de uma criança. Alguns parâmetros extralinguísticos são também determinados pela cultura do falante. (...) O canal paralinguístico carrega informações sobre desvios passageiros da linha de base típica (extralinguística), tais como (...) a expressão de emoções. \sidenote[][-2\baselineskip]{\begin{otherlanguage}{english}
@@ -200,6 +200,12 @@ Visamos criar um modelo de mapeamento prosódia---tipografia aplicável a sistem
 
 Nossa abordagem pede que se construa um algoritmo que abstraia numericamente certos elementos acústicos que sirvam de bons representantes da expressão vocal para, então, mapeá-los visualmente enquanto tipografia. Pelo que já foi discutido, a prosódia traz um bom conjunto de parâmetros acústicos (\textit{features}), mas considerando que nossa unidade mínima de mapeamento visual será a sílaba, um ponto adicional a favor de se usar \textit{features} prosódicas é que elas podem ser tomadas em nível local (da sílaba) em oposição às de nível global (da frase), como discutem \citet{rao2010characterization}.
 
+\begin{marginfigure}
+  \includegraphics{imgs/diag-extracao.png}
+  \caption{Visualização esquemática de um arquivo de áudio com a frase ``Rúcula para pata'', ressaltando três de seus aspectos acústicos, de cima para baixo: amplitude, frequências e duração silábica.}
+  \label{diag_extracao}
+\end{marginfigure}
+
 Na versão atual do software, usamos as seguintes \textit{features}:
 \begin{enumerate}
     \item Amplitude, calculada em decibéis como a média do \textit{Root Mean Square} (\textsc{rms}) de cada sílaba;
@@ -207,31 +213,25 @@ Na versão atual do software, usamos as seguintes \textit{features}:
     \item Duração, em milisegundos.
 \end{enumerate}
 
-\begin{marginfigure}[-7\baselineskip]
-  \includegraphics{imgs/diag-extracao.png}
-  \caption{Visualização esquemática de um arquivo de áudio com a frase ``Rúcula para pata'', ressaltando três de seus aspectos acústicos, de cima para baixo: amplitude, frequências e duração silábica.}
-  \label{diag_extracao}
-\end{marginfigure}
+% Em versões posteriores do software, as seguintes melhorias devem ser consideradas:
 
-Em versões posteriores do software, as seguintes melhorias devem ser consideradas:
-
-\begin{enumerate}
-    \item Se atualmente as \textit{features} estão organizadas em torno da fala, futuramente faria sentido reorientá-las em direção à audição. \citet{livroDoPlinio} discute certas diferenças entre esses dois polos e seria importante explorar compensações que levem em conta efeitos psicoacústicos conhecidos -- e.g. a resposta de frequências do ouvido humano é não-linear, o que pode ser melhor modelado usando-se semitons ao invés de Hz; variações de $f_0$ causam a percepção de maior duração; a sensação de \textit{pitches} agudos é amplificada quando acompanhada de maiores volumes; etc.
+% \begin{enumerate}
+%     \item Se atualmente as \textit{features} estão organizadas em torno da fala, futuramente faria sentido reorientá-las em direção à audição. \citet{livroDoPlinio} discute certas diferenças entre esses dois polos e seria importante explorar compensações que levem em conta efeitos psicoacústicos conhecidos -- e.g. a resposta de frequências do ouvido humano é não-linear, o que pode ser melhor modelado usando-se semitons ao invés de Hz; variações de $f_0$ causam a percepção de maior duração; a sensação de \textit{pitches} agudos é amplificada quando acompanhada de maiores volumes; etc.
     
-    \item \textsc{rms} é uma medida pouco resistente a diferenças de gravação não relacionadas à diferenças de esforço vocal. Um falante que tenha a voz em volume constante mas que se aproxime e se distancie do microfone terá um \textsc{rms} artificialmente modificado. As medidas de intensidade \textit{relativas} -- calculadas pela diferença de intensidade entre faixas de baixa e alta frequência -- são mais resistentes a diferenças no ambiente de gravação.
-\end{enumerate}
+%     \item \textsc{rms} é uma medida pouco resistente a diferenças de gravação não relacionadas à diferenças de esforço vocal. Um falante que tenha a voz em volume constante mas que se aproxime e se distancie do microfone terá um \textsc{rms} artificialmente modificado. As medidas de intensidade \textit{relativas} -- calculadas pela diferença de intensidade entre faixas de baixa e alta frequência -- são mais resistentes a diferenças no ambiente de gravação.
+% \end{enumerate}
 
-A segunda parte do software envolve o mapeamento visual dessas \textit{features} no texto. Como \citet{wolfel2015}, consideramos que o mapeamento das variáveis contínuas do áudio nas poucas\sidenote[][-10\baselineskip]{Há de fato algumas raras famílias tipográficas que possuem tantos pesos a ponto de se poder questionar se a diferença entre cada um é grande o suficiente para ser percebida por si só (e.g. a Lucida Sans, que em sua versão completa tem 18 pesos entre o \textit{UltraThin} e o \textit{UltraBlack}). Mesmo que fosse esse o caso, nossa abordagem ainda se justificaria por, primeiro, manter-se agnóstica em relação a esta ou aquela fonte e, segundo, porque, propondo combinações de variações em eixos que não só o \textit{peso}, acabamos indo além do que se oferece nas mais extensas famílias tipográficas disponíveis.} categorias tipicamente disponíveis em uma fonte digital comum (e.g. peso leve, normal e negrito) levaria a resultados com poucas nuances, sem ecoar visualmente as sutilezas presentes na fala e que supomos importantes para a apreensão afetiva por parte do ouvinte.
+A segunda parte do software envolve o mapeamento visual dessas \textit{features} no texto. Como \citet{wolfel2015}, consideramos que o mapeamento das variáveis contínuas do áudio nas poucas\sidenote{Há de fato algumas raras famílias tipográficas que possuem tantos pesos a ponto de se poder questionar se a diferença entre cada um é grande o suficiente para ser percebida por si só (e.g. a Lucida Sans, que em sua versão completa tem 18 pesos entre o \textit{UltraThin} e o \textit{UltraBlack}). Mesmo que fosse esse o caso, nossa abordagem ainda se justificaria por, primeiro, manter-se agnóstica em relação a esta ou aquela fonte e, segundo, porque, propondo combinações de variações em eixos que não só o \textit{peso}, acabamos indo além do que se oferece nas mais extensas famílias tipográficas disponíveis.} categorias tipicamente disponíveis em uma fonte digital comum (e.g. peso leve, normal e negrito) levaria a resultados que não ecoariam visualmente as sutilezas da fala e que supomos importantes para a apreensão afetiva por parte do ouvinte.
 
-Com isso, podemos considerar dois requisitos a partir dos quais deverá emergir a solução técnica para essas representações: \num{1} para as modulações tipográficas, não se deve discretizar (ao menos não perceptualmente) as \textit{features} que vierem do áudio, ou seja, a tipografia deverá conseguir ecoar mesmo mudanças sutis na fala; \num{2} deve ser possível que cada tipo de modulação funcione de maneira independente uma da outra na representação, pois também independentes entre si poderão ser as \textit{features} vindas do~áudio.\sidenote[][-2\baselineskip]{É igualmente plausível que uma palavra seja dita de maneira forte e rápida \textit{ou} de maneira forte a lenta, por exemplo, e a tipografia deverá conseguir ecoar as duas características de maneira independente uma da outra.}
+Com isso, podemos considerar dois requisitos a partir dos quais deverá emergir a solução técnica para essas representações: \num{1} para as modulações tipográficas, não se deve discretizar (ao menos não perceptualmente) as \textit{features} que vierem do áudio, ou seja, a tipografia deverá conseguir ecoar mesmo mudanças sutis na fala; \num{2} deve ser possível que cada tipo de modulação funcione de maneira independente uma da outra na representação, pois também independentes entre si poderão ser as \textit{features} vindas do~áudio.\sidenote{É igualmente plausível que uma palavra seja dita de maneira forte e rápida \textit{ou} de maneira forte a lenta, por exemplo, e a tipografia deverá conseguir ecoar as duas características de maneira independente uma da outra.}
 
 Dada essa demarcação, excluímos, pela complexidade envolvida, o desenvolvimento de um algoritmo que reconstruísse o desenho da letra a partir de modificações em sua estrutura interna, como o fazem \citet{wolfel2015}; pelos motivos citados por \citet{haralambous1993}, trabalhar com a \textsc{metafont}, de Donald Knuth, também seria infrutífero.
 
-Optamos, então, por aplicar as modulações em \textit{variable fonts}. Há já implementações em diferentes ambientes -- as definições de \textsc{css} que definem como usar \textit{variable fonts} já funcionam nos principais navegadores\sidenote[][-5\baselineskip]{~88\% dos usuários já teriam acesso à tecnologia na internet. Ver: https://caniuse.com/\#feat=variable-fonts, acesso em 27/11/19.}, assim como  bibliotecas código livre para C e Python.
+Optamos, então, por aplicar as modulações em \textit{variable fonts}. Há já implementações em diferentes ambientes -- as definições de \textsc{css} que definem como usar \textit{variable fonts} já funcionam nos principais navegadores\sidenote[][-2\baselineskip]{~88\% dos usuários já teriam acesso à tecnologia na internet. Ver: https://caniuse.com/\#feat=variable-fonts, acesso em 27/11/19.}, assim como  bibliotecas código livre para C e Python.
 
 Publicada em setembro de 2016, a versão 1.8 da especificação OpenType define as \textit{variable fonts}. Nelas, o tipógrafo cria ``eixos'' -- dimensões que guiam diferentes tipos de modulação visual que poderá sofrer cada caractere. Uma fonte pode ter uma quantidade arbitrária de eixos, que operam de maneira independente uns dos outros \citep{varfontssepcs}. 
 
-\begin{marginfigure}[-4\baselineskip]
+\begin{marginfigure}
   \includegraphics{imgs/grafico-var.png}
   \caption{Como o glifo `e' se modifica conforme variam os valores de seus três eixos?}
   \label{grafico_var}
@@ -247,20 +247,25 @@ Por exemplo, uma fonte contendo os eixos \textit{peso} e \textit{largura horizon
   \label{curta_grossa_longa_fina}
 \end{marginfigure}
 
-\subsection{Experimento \#1: Card sorting e entrevistas com designers}\label{sec:met_exp_1}
+\subsection{Experimento \#1: Quão consistentes são as interpretações \protect\\afetivas causadas por nosso modelo?}\label{sec:met_exp_1}
 
-O propósito da primeira avaliação seria investigar que influências nosso modelo prosódico-tipográfico teria na interpretação de um texto. Para isolar os efeitos da forma tipográfica, buscamos imprimir frases cujo conteúdo textual fosse pouco expressivo, ou seja, onde o efeito \textit{linguístico} fosse mínimo. Inversamente, as frases deveriam ter sido geradas a partir de uma voz carregada de emoção, ou seja, com uma expressividade vocal que produzisse grandes variações visuais no desenho tipográfico. Optamos por usar bases de frases/áudio previamente criadas (os meandros da criação de uma nova base fugiriam ao que pretendemos explorar).
+O propósito da primeira avaliação era investigar se nosso modelo prosódico-tipográfico produziria interpretações consistentes, especificamente na sua capacidade de representar determinadas emoções. 
 
-Assim, ainda que criada sob motivações estranhas às nossas, escolhemos a base criada por \citet{pdpcosta2015}. Nela, e cumprindo o primeiro requisito, havia 10 frases sem relação entre si e ``neutras, de modo que cada uma permita a interpretação de diferentes emoções [pelos atores]'' \citet[p.50]{pdpcosta2015}. Cumprindo nosso segundo requisito, as frases foram lidas por quatro atores, cada um buscando representar as 6 emoções -- tristeza, medo, surpresa, repulsa, raiva e alegria -- da tipologia ``Big Six'' \citep{ekman1970universal}.~\sidenote{Entre outras, a base inclui também leituras neutras, que usamos no segundo experimento.} Para nosso experimento, escolhemos quatro frases e, para minimizar variações entre leitores, fixamos os áudios nos de uma das atrizes.
+% Assim, ainda que criada sob motivações estranhas às nossas, 
+
+Para isolar os efeitos da forma tipográfica, buscamos imprimir frases cujo conteúdo textual fosse inexpressivo, ou seja, de mínimo efeito linguístico. Inversamente, as frases deveriam ter sido geradas a partir de áudios com vozes carregada de emoção, ou seja, que produzissem grandes variações visuais no desenho tipográfico. Para tanto, escolhemos a base criada por \citet{pdpcosta2015}, onde frases de sentido neutro eram lidas por atores representando as 6 emoções -- tristeza, medo, surpresa, repulsa, raiva e alegria -- da tipologia ``Big Six'' \citep{ekman1970universal}. Para minimizar variações entre diferentes leitores usamos a leitura de apenas uma atriz. Para nosso experimento, escolhemos as quatro frases na figura~\ref{exemplo_frases} (já com as modulações tipográficas de acordo com a fala).
+
+% Nela, e cumprindo o primeiro requisito, havia 10 frases sem relação entre si e ``neutras, de modo que cada uma permita a interpretação de diferentes emoções [pelos atores]'' \citet[p.50]{pdpcosta2015}. Cumprindo nosso segundo requisito, as frases foram lidas por quatro atores, cada um buscando representar as 6 emoções -- tristeza, medo, surpresa, repulsa, raiva e alegria -- da tipologia ``Big Six'' \citep{ekman1970universal}.~\sidenote{Entre outras, a base inclui também leituras neutras, que usamos no segundo experimento.} Para nosso experimento, escolhemos quatro frases e, para minimizar variações entre leitores, fixamos os áudios nos de uma das atrizes.
 
 Aplicamos o seguinte mapeamento de \textit{features} prosódicas para eixos tipográficos:
 
 \begin{itemize}
     \item Amplitude \enskip \textrightarrow \enskip \textit{Weight} (peso) -- como em \citet{wolfel2015} e \citet{bessemans2017};
     
-    \item Duração \enskip \textrightarrow \enskip \textit{Width} (largura horizontal) -- que em \citet{van2006towards} é associada à ideia de velocidade;
     
-    \item Frequência fundamental \enskip \textrightarrow \enskip \textit{Slant} (inclinação) -- este uso é uma aposta nossa. Não encontramos exemplos de seu uso na representação de prosódia, mas quisemos evitar o uso que \citet{bessemans2017} faz do deslocamento de linha de base para representar \textit{pitch}, por questões que isso traria em textos mais longos (ainda que tenhamos voltado atrás no segundo experimento);
+    \item Frequência fundamental \enskip \textrightarrow \enskip \textit{Slant} (inclinação) -- Não encontramos exemplos específicos da inclinação na representação de prosódia, mas para evitar as dificuldades teríamos em textos longos caso replicássemos o deslocamento de linha de base representando \textit{pitch} como em \citep{bessemans2017}, decidimos por este mapeamento;
+    
+    \item Duração \enskip \textrightarrow \enskip \textit{Width} (largura horizontal) -- que em \citet{van2006towards} é associada à ideia de velocidade;
 \end{itemize}
 
 \begin{marginfigure}[0.05\baselineskip]
@@ -269,13 +274,15 @@ Aplicamos o seguinte mapeamento de \textit{features} prosódicas para eixos tipo
   \label{exemplo_frases}
 \end{marginfigure}
 
-Os seis arquivos de áudio para cada uma das quatro frases foram então processados e os textos resultantes, com a tipografia modificada pela fala da atriz, impressos em cartões de papel tamanho A5. Na Figura~\ref{exemplo_frases}, apresentamos um exemplar de cada uma das frases usadas. 
+Os seis arquivos de áudio para cada uma das quatro frases foram então processados e os textos resultantes, com a tipografia modificada pela fala da atriz, impressos em cartões tamanho A5.
 
 Para a avaliação realizamos sessões de \textit{card sorting}, uma técnica de exploração e avaliação de taxonomias comum no campo da \textsc{ihc} (Interação Humano-Computador) para arquitetar sites ou softwares, mas que tem aplicabilidade em outras áreas sempre que se queira investigar como diferentes pessoas formulam modelos mentais para estruturar algum conjunto de dados \citep{about_cardsorting}.
 
-Em suas duas formas mais comuns, a \textit{open} e \textit{closed card sorting}, faz-se uma atividade na qual um grupo de pessoas\sidenote[][-2\baselineskip]{\textit{Stakeholders} que podem ou não ser especialistas -- em algumas situações, busca-se um público leigo para desvendar como ele organiza mentalmente as informações de uma área na qual seu conhecimento é superficial.} organiza, uma a uma, um conjunto de cartões de papel em diferentes envelopes. Dentro da taxonomia que se quer investigar, cada cartão representa um dado e cada envelope representa uma categoria. Estas podem ser pré-definidas (\textit{closed cart sorting}) ou criadas no ato pelos próprios participantes (\textit{open card sorting}). Nos interessava a primeira opção: um dos usos típicos da \textit{closed card sorting} é testar se uma dada taxonomia é adequada para descrever um conjunto de informações. Em nosso caso, essa taxonomia seria as seis emoções a partir das quais os atores encenaram cada gravação de áudio. No experimento, esperávamos descobrir quão bem as ``Big Six'' serviriam para descrever os textos que foram modulados visualmente de acordo com o áudio.
+% \sidenote[][-2\baselineskip]{\textit{Stakeholders} que podem ou não ser especialistas -- em algumas situações, busca-se um público leigo para desvendar como ele organiza mentalmente as informações de uma área na qual seu conhecimento é superficial.}
 
-Para analisar os resultados, decidimos pelo método de comparação de \textit{edit distances}. Esta é uma medida quantitativa na qual se obtém a soma de operações de troca de posição necessárias para se converter um arranjo de cartões em outro, ou seja, é um índice da divergência entre os conjuntos -- útil para medirmos quão convergente cada participante foi em relação às ``Big Six.'' \citep{nawaz2012}
+Em suas formas mais comuns, a \textit{open} e \textit{closed card sorting}, faz-se uma atividade na qual cada participante organiza e deposita cartões dentro de diferentes envelopes. Dentro da taxonomia que se quer investigar, cada cartão representa um dado e cada envelope representa uma categoria. Estas podem ser pré-definidas (\textit{closed cart sorting}) ou criadas no ato pelos próprios participantes (\textit{open card sorting}). Nos interessava a primeira opção: um dos usos típicos da \textit{closed card sorting} é testar se uma dada taxonomia é adequada para descrever um conjunto de informações. Em nosso caso, essa taxonomia seria composta pelas seis emoções a partir das quais a atriz encenou a leitura de cada frase. No experimento, esperávamos descobrir se os participantes interpretavam de maneira coerente entre si como os cartões se organizavam nas seis categorias fornecidas.
+
+Para analisar os resultados, decidimos pelo método de comparação de \textit{edit distances} \citep{nawaz2012}. Esta é uma medida quantitativa na qual se obtém a soma de operações de troca de posição necessárias para se converter um arranjo de cartões em outro. É, assim, um indicador da divergência entre as diferentes organizações de cartão -- útil para medirmos quão convergente cada participante foi em relação às ``Big Six.''
 
 Se encontrássemos nos dados algum nível razoável de convergência entre as emoções implícitas em cada cartão e a forma como os participantes as interpretaram e organizaram, teríamos bons indícios de que a modulação visual da tipografia conseguiu imprimir um sentido afetivo coerente nos textos.
 
@@ -285,13 +292,16 @@ Antes do início de cada sessão os participantes seriam informados de que haver
 
 Como dito, ao final de cada sessão realizaríamos breves entrevistas semi-estruturadas, buscando levantar possíveis estratégias usadas pelos participantes na organização dos cartões, além de investiga possíveis modelos mentais formulados para explicar o funcionamento do mapeamento fala-tipografia.
 
-\subsection{Experimento \#2: Associação entre emoções, \textit{features} prosódicas e eixos tipográficos}\label{sec:met_exp_2}
+\subsection{Experimento \#2: Preferências nas associações entre \textit{features} \protect\\prosódicas, eixos tipográficos e emoções}\label{sec:met_exp_2}
 
-O segundo experimento foi planejado após percebermos, pela coleta e análise de dados do primeiro, que seria necessária uma investigação de foco mais estreito para entender melhor os componentes de nosso modelo prosódico-tipográfico. Como nos dados que tínhamos após o primeiro experimento não conseguimos isolar o impacto de cada eixo tipográfico como representação de cada \textit{feature} prosódica para cada emoção, no segundo experimento pretendemos isolá-los, explorando, uma a uma, como a interação desses parâmetros influenciava a percepção da tipografia. 
 
-Pela quantidade de possibilidades a se testar, e considerando as dificuldades logísticas que notamos no \textit{card sort}, migramos para um ambiente online -- especificamente, uma plataforma que criamos e que nos permitiria testar as inúmeras combinações possíveis entre emoção, prosódia e tipografia. 
+% O segundo experimento foi planejado após percebermos, pela coleta e análise de dados do primeiro, que seria necessária uma investigação de foco mais estreito para entender melhor os componentes de nosso modelo prosódico-tipográfico. Como nos dados que tínhamos após o primeiro experimento não conseguimos isolar o impacto de cada eixo tipográfico como representação de cada \textit{feature} prosódica para cada emoção, no segundo experimento pretendemos isolá-los, explorando, uma a uma, como a interação desses parâmetros influenciava a percepção da tipografia. 
 
-Nossos objetivos eram então \num{1} descobrir se os participantes interpretariam de maneira consistente as relações entre emoções no áudio e modulações tipográficas, \num{2} explorar relações entre padrões nas \textit{features} e padrões nas preferências dos participantes e \num{3} ajudar a formular hipóteses sobre o sucesso (ou eventual fracasso) da capacidade de cada eixo tipográfico representar cada \textit{feature} prosódica.
+% Pela quantidade de possibilidades a se testar, e considerando as dificuldades logísticas que notamos no \textit{card sort}, migramos para um ambiente online -- especificamente, uma plataforma que criamos e que nos permitiria testar as inúmeras combinações possíveis entre emoção, prosódia e tipografia. 
+
+O segundo experimento buscou investigar como se relacionavam as \textit{features} prosódicas quando relacionadas a cada um dos eixos tipográficos e considerando cada uma das emoções.
+
+Especificamente, buscamos \num{1} descobrir se os participantes interpretariam de maneira consistente as relações entre emoções no áudio e modulações tipográficas, \num{2} explorar relações entre padrões nas \textit{features} e padrões nas preferências dos participantes e \num{3} ajudar a formular hipóteses sobre o sucesso (ou eventual fracasso) da capacidade de cada eixo tipográfico representar cada \textit{feature} prosódica.
 
 Além dos três eixos tipográficos já testados no primeiro experimento, introduzimos um quarto, que chamamos de \textit{baseline shift}, ou deslocamento de linha de base. Nos inspiramos pela notação informal de melodia em canções brasileiras usada por \citet{tatit} que, supomos, seria especialmente adequada para representação de $f_0$. Na figura~\ref{mods-exp-2}, um exemplo das quatro modulações tipográficas, geradas à partir do mesmo áudio.
 
@@ -308,27 +318,31 @@ Além dos três eixos tipográficos já testados no primeiro experimento, introd
 \end{marginfigure}
 
 
-A figura~\ref{screenshot} mostra uma captura de tela do teste. Nela, dois cartões contendo a tipografia modulada são exibidos, ambos com a mesma frase e sobre a qual uma das quatro modulações (\textit{weight}, \textit{width}, \textit{slant} e \textit{baseline shift}) foi aplicada. Em cima das duas frases há um tocador de áudio contendo o áudio da frase a partir da qual foram extraídas as \textit{features} prosódicas. Detalhe importante: a cada rodada só se extraía \textbf{uma} \textit{feature}, aplicada em cada cartão a apenas \textbf{um} eixo tipográfico. A pergunta que se fazia era ``Qual imagem melhor corresponde ao áudio'' e, com as respostas, geraramos um conjunto de dados nos dizendo que: 
+Como são muito numerosas as combinações possíveis entre prosódia, tipografia e emoção, para o segundo experimento migramos para o ambiente online, onde seria possível testá-las sem enormes complicações logísticas. A figura~\ref{screenshot} mostra uma captura de tela desse ambiente, mostrando especificamente o teste de preferência entre dois eixos tipográficos como representação de uma \textit{feature} prosódica. 
+
+Na imagem, dois cartões contendo a tipografia modulada são exibidos, ambos com a mesma frase e sobre a qual uma das quatro modulações (\textit{weight}, \textit{width}, \textit{slant} ou \textit{baseline shift}) foi aplicada. Em cima das duas frases há um tocador de áudio contendo o áudio da frase a partir da qual foram extraídas as \textit{features} prosódicas. Detalhe importante: a cada rodada só se extraía \textbf{uma} \textit{feature}, aplicada em cada cartão a apenas \textbf{um} eixo tipográfico. A pergunta que se fazia era ``Qual imagem melhor corresponde ao áudio'' e, com as respostas, geraramos um conjunto de dados nos dizendo que: 
 
 \begin{quote}
     ...participante [A] escolheu o eixo [B] ao invés do eixo [C], ambos representando a \textit{feature} [D] extraída da frase [E] e na qual fora atuada a emoção [F].
 \end{quote}
 
-Para reduzir a gama de possibilidades (e, assim, exigir uma quantidade menor de participantes antes de se chegar a resultados estatisticamente significantes), consideramos apenas duas \textit{features} (amplitude e $f_0$), quatro emoções (raiva, alegria, tristeza e surpresa, além do áudio neutro, que introduzimos) e duas frases (\textit{Filha, rúcula para pata} e \textit{Passarinho, cuidado com a asa}). Em relação às \textit{features}, vimos que nos áudios escolhidos \textit{duração} tinha uma correlação negativa forte com \textit{amplitude} e, talvez, pudesse ser excluída no teste. Com as emoções, também: \textit{nojo} e \textit{medo} nos áudios escolhidos tinham padrões prosódicos semelhantes aos das outras emoções e, portanto, foram descartados.
+Para reduzir a gama de possibilidades (e, assim, exigir uma quantidade menor de participantes antes de se chegar a resultados estatisticamente significantes), consideramos apenas duas \textit{features} (amplitude e $f_0$), quatro emoções (raiva, alegria, tristeza e surpresa, além do áudio neutro, que introduzimos) e duas frases (\textit{Filha, rúcula para pata} e \textit{Passarinho, cuidado com a asa}). Em relação às \textit{features}, vimos que nos áudios escolhidos \textit{duração} tinha uma correlação negativa forte com \textit{amplitude} e, para maximizar a variação entre cartões ao mesmo tempo em que minimizávamos as possibilidades, a excluímos do teste. Com as emoções, também: \textit{nojo} e \textit{medo} nos áudios escolhidos tinham padrões prosódicos semelhantes aos das outras emoções e, portanto, foram descartados.
 
 No teste em si havia então 5 emoções × 4 eixos tipográficos~× 2~frases, equivalendo a 40 cartões, combináveis de 60 maneiras. Em um teste piloto chegamos a 30 rodadas por participante como um bom meio termo entre querer cobrir o máximo número possível de combinações por participante e quão cansativo podia ser o experimento. Dividimos o teste em duas rodadas, cada qual testando uma das \textit{features}. Para compensar efeitos de cansaço e inaptidão no início, além de garantir cobertura uniforme para cada par, a ordem e pares eram sempre sorteados.\sidenote[][-4\baselineskip]{Durante o teste fazíamos algumas medições relacionadas ao uso da plataforma. Duas delas -- tempo gasto por rodada e quantidade de vezes que o participante ouviu o áudio antes de fazer a escolha -- tem valores consistentemente maiores que a média nas primeiras cinco rodadas, com uma queda forte e subsequente platô nas próximas 20 rodadas e uma queda suave nas últimas rodadas -- ou seja, mais para o final os participantes pareciam ir perdendo o interesse, indicando que não adiantaria estender o teste.}
 
-Ao final das 30 rodadas havia um campo de texto livre, no qual os participantes podiam nos deixar comentários quaisquer.
+De modo a nos permitir coletar impressões subjetivas que escapassem às medidas mais objetivas de preferência na relação entre as três variáveis testadas, ao final das 30 rodadas havia um campo de texto livre no qual os participantes podiam nos deixar comentários quaisquer.
 
-\subsection{Experimento \#3: }\label{sec:met_exp_3}
+\subsection{Experimento \#3: Protótipo de legendagem e possíveis efeitos \protect\\ na imersão}\label{sec:met_exp_3}
 
-Ao contrário dos outros dois, o terceiro experimento não foi realizado até o momento em que escrevemos, sendo planejado como a última etapa do projeto de mestrado. Acreditamos que estudos futuros devam investigar áreas que tocamos mas não nos aprofundamos -- melhores modelos de extração de prosódia; comportamento do modelo prosódico-tipográfico quando usado em áudios gerados a partir de outros modelos de emoção (e.g. dimensionais ou \textit{appraisal}); etc. Devem também explorar os diversos caminhos que nem chegamos a introduzir -- como alinhar automaticamente áudio e sílabas?; como incorporar particularidades psicoacústicas na hora de representar a prosódia? como seriam novos eixos tipográficos criados especificamente almejando a representação prosódica; seria possível incorporar métricas de qualidade vocal no modelo? etc. 
+Na etapa final do projeto, pretendemos criar uma prova de conceito da tipografia modulada pela fala aplicada enquanto legendas em um ou mais vídeos para, em seguida, avaliar possíveis efeitos do modelo na fruição desse conteúdo, especificamente no que toca as dimensões de \textit{imersão}.
 
-Ainda assim, almejamos com o terceiro experimento explorar o espaço de aplicação das \textit{closed captions} usando nosso modelo prosódico-tipográfico, não porque ele já se tornou suficientemente maduro mas porque uma prova de conceito dos caminhos explorados no mestrado poderá tanto nos ajudar a definir estudos futuros, mais relevantes porque definidos a partir de um panorama mais amplo, quanto eventualmente inspirar outros pesquisadores a tentar também.
+% Ao contrário dos outros dois, o terceiro experimento não foi realizado até o momento em que escrevemos, sendo planejado como a última etapa do projeto de mestrado. Acreditamos que estudos futuros devam investigar áreas que tocamos mas não nos aprofundamos -- melhores modelos de extração de prosódia; comportamento do modelo prosódico-tipográfico quando usado em áudios gerados a partir de outros modelos de emoção (e.g. dimensionais ou \textit{appraisal}); etc. Devem também explorar os diversos caminhos que nem chegamos a introduzir -- como alinhar automaticamente áudio e sílabas?; como incorporar particularidades psicoacústicas na hora de representar a prosódia? como seriam novos eixos tipográficos criados especificamente almejando a representação prosódica; seria possível incorporar métricas de qualidade vocal no modelo? etc. 
 
-Nosso objetivo é, então, criar um protótipo de conteúdo audiovisual legendado que demonstre nosso modelo prosódico-tipográfico, em cima do que faremos uma avaliação que buscará mensurar alguns de seus efeitos em espectadores.
+% Ainda assim, almejamos com o terceiro experimento explorar o espaço de aplicação das \textit{closed captions} usando nosso modelo prosódico-tipográfico, não porque ele já se tornou suficientemente maduro mas porque uma prova de conceito dos caminhos explorados no mestrado poderá tanto nos ajudar a definir estudos futuros, mais relevantes porque definidos a partir de um panorama mais amplo, quanto eventualmente inspirar outros pesquisadores a tentar também.
 
-Pelo estágio ainda embrionário das ferramentas já desenvolvidas e pelo curto tempo restante, algumas escolhas foram tomadas para tornar administrável o escopo desta etapa:
+% Nosso objetivo é, então, criar um protótipo de conteúdo audiovisual legendado que demonstre nosso modelo prosódico-tipográfico, em cima do que faremos uma avaliação que buscará mensurar alguns de seus efeitos em espectadores.
+
+Pelo estágio atual de desenvolvimento das ferramentas já desenvolvidas e pelo tempo restante do projeto, algumas escolhas foram tomadas para tornar administrável o escopo do protótipo a se criar nesta etapa:
 
 \begin{itemize}
     \item Em sua versão atual, nosso algoritmo não lida bem com áudios produzidos em condições adversas: ruídos, vozes sobrepostas, trilha sonora simultânea etc. Assim, tomaremos cuidado de, na escolha dos trechos de filmes/séries para a avaliação, escolher aqueles nos quais sabemos que nosso software terá bom comportamento. Ademais, nossa escolha buscará encontrar cenas centradas no diálogo entre personagens, onde supomos que nosso modelo terá maior impacto.
@@ -341,20 +355,10 @@ Nossa hipótese é que, como em \citet{kruger2017original}, não deve haver entr
 
 Avaliaremos a possibilidade de exibir o(s) vídeo(s) em um auditório, com controle sobre som, iluminação e distrações. Se não for possível, podem se organizar sessões menores com televisores ou, ainda, sessões individuais na internet (onde a perda de controle do ambiente será compensada pelo maior alcance do experimento).
 
-Ao final da exibição, pediremos aos participantes que preencham um questionário de auto-avaliação. Este será composto de questões de escala Likert que, adaptadas do questionário apresentado em \citet{Kruger2016}, decomporão \textit{imersão} em alguns sub-componentes: \textit{transporte},\sidenote[][-2\baselineskip]{Qualidade de um espectador se perceber transportado para uma realidade fictícia, com consequente suspensão de seu foco na realidade externa imediata.} \textit{identificação com as personagens}\sidenote{Afinidade que o espectador cria com as personagens, equivalendo a um entendimento empático de seus sentimentos, desafios etc.} e \textit{realismo percebido}\sidenote{Senso de quão plausível se faz perceber uma obra, ou seja, se ela apresenta consistência narrativa de acordo com as expectativas que o espectador traz consigo.}.
+Ao final da exibição, pediremos aos participantes que preencham um questionário de auto-avaliação. Este será composto de questões de escala Likert que, adaptadas do questionário apresentado em \citet{Kruger2016}, decomporão \textit{imersão} em alguns sub-componentes: \textit{transporte},\sidenote{Qualidade de um espectador se perceber transportado para uma realidade fictícia, com consequente suspensão de seu foco na realidade externa imediata.} \textit{identificação com as personagens}\sidenote{Afinidade que o espectador cria com as personagens, equivalendo a um entendimento empático de seus sentimentos, desafios etc.} e \textit{realismo percebido}\sidenote{Senso de quão plausível se faz perceber uma obra, ou seja, se ela apresenta consistência narrativa de acordo com as expectativas que o espectador traz consigo.}.
 
 Alguns exemplos destas perguntas incluem: Enquanto eu assistia ao drama, me desliguei de atividades que ocorriam à minha volta \textit{(transporte)}; Eu entendi os eventos no drama do mesmo modo que \textsc{xxx} os entendeu \textit{(identificação com as personagens)}; O que aconteceu no drama é o que acontece com pessoas na vida real \textit{(realismo percebido)}.
 
-
-
-\pagebreak
-
-\section{Plano de trabalho e cronograma}\label{sec:plano_de_trabalho}
-
-\begin{figure*}[!htb]
-  \includegraphics[width=.95\linewidth]{imgs/cronograma.pdf}
-  \label{fig:cronograma}
-\end{figure*}
 
 \pagebreak 
 
@@ -478,6 +482,17 @@ Surge que, nesse compêndio de qualidades, mesmo que as respostas tenham vindo d
 
 Esse resultado condiz com o que discutem Boehner et al. quando apontam que ``a comunicação de afetos em um modelo interacional (...) é mais do que a mera transmissão, (...) requerindo das partes uma interpretação ativa.'' \sidenote[][-1\baselineskip]{\begin{otherlanguage}{english}\textit{[C]ommunication of affect in an interactional model (...) is more than transmission, [and] requires active interpretation.}\end{otherlanguage}  \citep{boehner2005affect}} A partir desta perspectiva, pode-se enquadrar melhor o propósito de um sistema construído a partir de nosso modelo prosódico-tipográfico: não querê-lo como uma maneira de informar ao leitor que em dada frase a voz representava esta ou aquela emoção, categórica e de contornos bem definidos, mas sim usar a tipografia como maneira de ressaltar aspectos expressivos na voz, ambíguos como a própria voz e, como ela, abertos a~múltiplas interpretações. Ainda segundo Boehner et al., a ``medida de sucesso de tais sistemas [como o nosso] está então não no fato de que deduzem ou não a emoção `correta', mas em se provocam o reconhecimento e reflexão sobre emoções em seus usuários.'' \sidenote[][-3\baselineskip]{\begin{otherlanguage}{english}\textit{Measures of success for such systems are therefore not whether the systems themselves deduce the `right' emotion but whether the systems encourage awareness of and reflection on emotions in users.}\end{otherlanguage} \citep{boehner2005affect}}
 
+
+\pagebreak
+
+\section{Plano de trabalho e cronograma}\label{sec:plano_de_trabalho}
+
+\begin{figure*}[!htb]
+  \includegraphics[width=.95\linewidth]{imgs/cronograma.pdf}
+  \label{fig:cronograma}
+\end{figure*}
+
+\pagebreak
 
 
 
